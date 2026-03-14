@@ -1,0 +1,178 @@
+---
+title: "Anrufbehandlung"
+description: "Steuern Sie, wie Anrufe von bestimmten Kontakten behandelt werden"
+---
+
+## Überblick
+
+Mit der Anrufbehandlung können Sie für einzelne Kontakte festlegen, wie deren Anrufe behandelt werden sollen. Diese Einstellung überschreibt die normale Anrufweiterleitung basierend auf Ihren Öffnungszeiten.
+
+<Info>
+  Die Anrufbehandlung ist nur verfügbar, wenn Sie die **Anrufer-Erkennung** (Caller ID) in Ihren Assistenten-Einstellungen aktiviert haben.
+</Info>
+
+## Verfügbare Optionen
+
+### Standard
+
+Die normale Anrufbehandlung basierend auf Ihren konfigurierten [Öffnungszeiten](/funktionen/oeffnungszeiten) und [Weiterleitungsregeln](/funktionen/weiterleitungen).
+
+**Wann nutzen:**
+- Für die meisten Kontakte
+- Wenn keine spezielle Behandlung erforderlich ist
+
+### Blockiert
+
+Anrufe von diesem Kontakt werden sofort beendet. Der Anrufer hört die Nachricht "Ihre Telefonnummer wurde blockiert" und die Verbindung wird getrennt.
+
+**Wann nutzen:**
+- Bei Spam-Anrufen
+- Unerwünschte Anrufer
+- Ehemalige Kunden, die nicht mehr kontaktiert werden möchten
+
+<Warning>
+  Blockierte Anrufer werden höflich informiert, dass ihre Nummer blockiert wurde. Verwenden Sie diese Funktion mit Bedacht.
+</Warning>
+
+### Standort
+
+Der Anruf wird direkt an Ihre hinterlegte Weiterleitungsnummer weitergeleitet, ohne dass der KI-Assistent antwortet.
+
+**Wann nutzen:**
+- VIP-Kunden, die immer direkt durchgestellt werden sollen
+- Familienmitglieder oder wichtige Geschäftspartner
+- Notfallkontakte
+
+<Tip>
+  Stellen Sie sicher, dass Sie eine [Weiterleitungsnummer](/funktionen/weiterleitungen) konfiguriert haben, damit die direkte Weiterleitung funktioniert.
+</Tip>
+
+### Assistent
+
+Der Anruf wird **immer** vom KI-Assistenten angenommen, unabhängig von Öffnungszeiten oder anderen Einstellungen.
+
+**Wann nutzen:**
+- Kontakte, die Sie gezielt vom Assistenten bedienen lassen möchten
+- Außerhalb der Öffnungszeiten für wichtige Kunden
+- Test-Telefonnummern zur Qualitätssicherung
+
+## Anrufbehandlung einrichten
+
+<Steps>
+  <Step title="Kontakt öffnen">
+    Navigieren Sie zu [Kontakte](https://app.hallofelix.de/customers) und wählen Sie den gewünschten Kontakt aus
+  </Step>
+  <Step title="Anrufbehandlung konfigurieren">
+    Scrollen Sie zum Bereich **Anrufbehandlung** und wählen Sie die gewünschte Option aus dem Dropdown-Menü
+  </Step>
+  <Step title="Automatisches Speichern">
+    Die Einstellung wird sofort gespeichert und beim nächsten Anruf angewendet
+  </Step>
+</Steps>
+
+## Häufige Anwendungsfälle
+
+### VIP-Kunden direkt durchstellen
+
+Für wichtige Kunden, die immer sofort mit Ihnen sprechen möchten:
+
+1. Öffnen Sie den Kontakt
+2. Setzen Sie die Anrufbehandlung auf **Standort**
+3. Der Kunde wird ab sofort direkt zu Ihrer Weiterleitungsnummer durchgestellt
+
+### Spam-Nummern blockieren
+
+Um unerwünschte Anrufe zu verhindern:
+
+1. Identifizieren Sie die Spam-Nummer in Ihrer [Anrufliste](https://app.hallofelix.de/calls)
+2. Öffnen Sie den entsprechenden Kontakt
+3. Setzen Sie die Anrufbehandlung auf **Blockiert**
+4. Zukünftige Anrufe von dieser Nummer werden automatisch abgelehnt
+
+### Außerhalb der Öffnungszeiten erreichbar bleiben
+
+Für wichtige Kontakte, die auch außerhalb Ihrer Bürozeiten bedient werden sollen:
+
+1. Öffnen Sie den Kontakt
+2. Setzen Sie die Anrufbehandlung auf **Assistent**
+3. Der KI-Assistent nimmt den Anruf auch außerhalb Ihrer konfigurierten Öffnungszeiten an
+
+## Technische Details
+
+<AccordionGroup>
+  <Accordion icon="shield" title="Priorisierung der Regeln">
+    Die Anrufbehandlung hat die höchste Priorität und überschreibt alle anderen Einstellungen:
+
+    1. **Anrufbehandlung** (höchste Priorität)
+    2. Öffnungszeiten
+    3. Standard-Weiterleitungsregeln
+    4. Globale Assistenten-Einstellungen
+  </Accordion>
+
+  <Accordion icon="user-check" title="Anrufer-Erkennung erforderlich">
+    Die Anrufbehandlung funktioniert nur, wenn:
+
+    - Die Anrufer-Erkennung (Caller ID) aktiviert ist
+    - Der Kontakt mit einer Telefonnummer in Ihrer Datenbank existiert
+    - Die anrufende Nummer mit einem Kontakt übereinstimmt
+
+    Unbekannte Nummern werden nach den Standard-Regeln behandelt.
+  </Accordion>
+
+  <Accordion icon="rotate" title="Sofortige Anwendung">
+    Änderungen an der Anrufbehandlung werden sofort wirksam. Es ist keine Wartezeit oder Neukonfiguration erforderlich.
+  </Accordion>
+</AccordionGroup>
+
+## Häufig gestellte Fragen
+
+<AccordionGroup>
+  <Accordion icon="question" title="Was passiert, wenn die Weiterleitungsnummer bei 'Standort' nicht erreichbar ist?">
+    Der Anruf wird wie ein normaler Anruf behandelt, der nicht entgegengenommen wird. Der Anrufer hört das Besetztzeichen oder die Mailbox Ihrer Weiterleitungsnummer.
+  </Accordion>
+
+  <Accordion icon="question" title="Können blockierte Anrufer Sie auf anderem Weg kontaktieren?">
+    Ja, die Blockierung gilt nur für Telefonanrufe. E-Mails, WhatsApp oder andere Kommunikationskanäle sind davon nicht betroffen.
+  </Accordion>
+
+  <Accordion icon="question" title="Kann ich die Anrufbehandlung für mehrere Kontakte gleichzeitig ändern?">
+    Aktuell muss die Anrufbehandlung für jeden Kontakt einzeln konfiguriert werden. Eine Bulk-Bearbeitung ist in Planung.
+  </Accordion>
+
+  <Accordion icon="question" title="Werden blockierte Anrufe in der Anrufliste angezeigt?">
+    Nein, blockierte Anrufe werden nicht in Ihrer Anrufliste gespeichert, da sie sofort beendet werden.
+  </Accordion>
+</AccordionGroup>
+
+## Weiterführende Links
+
+<CardGroup cols={2}>
+  <Card
+    title="Öffnungszeiten"
+    icon="clock"
+    href="/funktionen/oeffnungszeiten"
+  >
+    Geschäftszeiten konfigurieren
+  </Card>
+  <Card
+    title="Weiterleitungen"
+    icon="phone-arrow-up-right"
+    href="/funktionen/weiterleitungen"
+  >
+    Weiterleitungsnummern einrichten
+  </Card>
+  <Card
+    title="Kontakte verwalten"
+    icon="address-book"
+    href="https://app.hallofelix.de/customers"
+  >
+    Zur Kontaktliste
+  </Card>
+  <Card
+    title="Anrufliste"
+    icon="list"
+    href="https://app.hallofelix.de/calls"
+  >
+    Alle Anrufe einsehen
+  </Card>
+</CardGroup>
