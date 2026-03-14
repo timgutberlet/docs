@@ -1,0 +1,197 @@
+---
+title: "Rufweiterleitung mit RingCentral"
+description: "Konfigurieren Sie die Rufweiterleitung von RingCentral zu HalloFelix"
+---
+
+## Überblick
+
+RingCentral bietet flexible Rufweiterleitungsoptionen über das Admin-Portal und die RingCentral-App. Leiten Sie Anrufe automatisch an Ihren HalloFelix-Assistenten weiter.
+
+## Rufweiterleitung im Admin-Portal einrichten
+
+<Steps>
+  <Step title="RingCentral Admin-Portal öffnen">
+    Melden Sie sich bei [admin.ringcentral.com](https://admin.ringcentral.com) an
+  </Step>
+  <Step title="Benutzer auswählen">
+    Navigieren Sie zu **Users** und wählen Sie den Benutzer aus, für den Sie die Weiterleitung einrichten möchten
+  </Step>
+  <Step title="Call Handling einrichten">
+    Klicken Sie auf **Call Handling & Forwarding** im Benutzermenü
+  </Step>
+  <Step title="Forwarding-Regeln konfigurieren">
+    - Aktivieren Sie **Call Forwarding**
+    - Wählen Sie **Forward calls to:** und geben Sie die Felix-Nummer ein
+    - Optional: Konfigurieren Sie **Ring Duration** (Wartezeit vor Weiterleitung)
+  </Step>
+  <Step title="Speichern">
+    Klicken Sie auf **Save**, um die Änderungen zu übernehmen
+  </Step>
+</Steps>
+
+## Rufweiterleitung über RingCentral App
+
+Sie können Weiterleitungen auch direkt in der RingCentral Desktop- oder Mobile-App konfigurieren:
+
+1. Öffnen Sie die RingCentral App
+2. Klicken Sie auf Ihr **Profil** → **Settings**
+3. Navigieren Sie zu **Calling** → **Call Forwarding**
+4. Aktivieren Sie die Weiterleitung und geben Sie die Felix-Nummer ein
+5. Speichern Sie die Einstellungen
+
+## Zeitbasierte Weiterleitungen
+
+<AccordionGroup>
+  <Accordion icon="clock" title="Business Hours Routing">
+    Richten Sie unterschiedliche Weiterleitungen für Geschäfts- und Nicht-Geschäftszeiten ein:
+
+    1. Navigieren Sie zu **Call Handling & Forwarding**
+    2. Wählen Sie **Business Hours** und **After Hours** separat aus
+    3. Konfigurieren Sie für jede Zeitperiode:
+       - **Business Hours:** z.B. "Ring me first, then forward to Felix"
+       - **After Hours:** z.B. "Forward immediately to Felix"
+    4. Speichern Sie beide Konfigurationen
+  </Accordion>
+
+  <Accordion icon="calendar" title="Custom Schedule">
+    Für spezifische Zeitpläne:
+
+    1. Gehen Sie zu **Settings** → **Business Hours**
+    2. Definieren Sie Ihre Geschäftszeiten (Wochentage und Uhrzeiten)
+    3. Konfigurieren Sie **Custom Rules** für Feiertage oder Urlaubszeiten
+    4. Weisen Sie jeder Regel die entsprechende Weiterleitung zu
+  </Accordion>
+</AccordionGroup>
+
+## Erweiterte Weiterleitungs-Optionen
+
+### Simultaneous Ring
+
+Lassen Sie mehrere Geräte gleichzeitig klingeln:
+
+1. Navigieren Sie zu **Call Handling & Forwarding**
+2. Aktivieren Sie **Ring multiple devices**
+3. Fügen Sie die Felix-Nummer als zusätzliches Gerät hinzu
+4. Stellen Sie die Ring-Dauer ein (z.B. 15 Sekunden)
+
+### Flip to Felix
+
+Nutzen Sie die "Flip"-Funktion, um aktive Anrufe manuell zu Felix zu übertragen:
+
+1. Während eines Anrufs drücken Sie **Flip**
+2. Wählen Sie die Felix-Nummer aus der Liste
+3. Der Anruf wird übertragen
+
+## IVR-Integration
+
+<Info>
+  Wenn Sie ein Interactive Voice Response (IVR) System nutzen, können Sie Felix als eine der Auswahloptionen konfigurieren.
+</Info>
+
+1. Navigieren Sie zu **Auto-Receptionist** oder **IVR Menu**
+2. Erstellen Sie eine neue Menüoption (z.B. "Drücken Sie 1 für...")
+3. Weisen Sie diese Option der Felix-Nummer zu
+4. Speichern Sie das IVR-Menü
+
+## Queue-Integration
+
+Für Warteschlangen:
+
+1. Navigieren Sie zu **Call Queues**
+2. Fügen Sie Felix als **Queue Member** hinzu
+3. Konfigurieren Sie die Priorität und Reihenfolge
+4. Felix kann als Fallback dienen, wenn niemand in der Queue verfügbar ist
+
+## Weiterleitungsnummer in HalloFelix
+
+<Warning>
+  Wenn Felix Anrufe an Sie durchstellen soll, hinterlegen Sie in HalloFelix eine Nummer, die NICHT bereits zu RingCentral weitergeleitet ist, um Schleifen zu vermeiden.
+</Warning>
+
+[Mehr zu Weiterleitungen →](/funktionen/weiterleitungen)
+
+## Anrufaufzeichnung
+
+RingCentral zeichnet Anrufe standardmäßig auf. Um Doppelaufzeichnungen zu vermeiden:
+
+- Deaktivieren Sie die Aufzeichnung in RingCentral für zu Felix weitergeleitete Anrufe, ODER
+- Nutzen Sie nur die HalloFelix-Aufzeichnung (inklusive Transkription)
+
+Beide Aufzeichnungen werden aus Compliance-Gründen getrennt gespeichert.
+
+## Testen der Konfiguration
+
+<Steps>
+  <Step title="Testanruf durchführen">
+    Rufen Sie Ihre RingCentral-Nummer von extern an
+  </Step>
+  <Step title="Weiterleitungsverhalten prüfen">
+    Überprüfen Sie, ob Felix nach der konfigurierten Zeit antwortet
+  </Step>
+  <Step title="Dashboard kontrollieren">
+    Prüfen Sie im HalloFelix Dashboard, ob der Anruf erfasst wurde
+  </Step>
+  <Step title="E-Mail-Benachrichtigung verifizieren">
+    Stellen Sie sicher, dass Sie die [E-Mail-Zusammenfassung](/funktionen/email-benachrichtigung) erhalten
+  </Step>
+</Steps>
+
+## Häufige Probleme
+
+<AccordionGroup>
+  <Accordion icon="ban" title="Weiterleitung wird blockiert">
+    **Ursache:** RingCentral blockiert möglicherweise externe Weiterleitungen aus Sicherheitsgründen.
+
+    **Lösung:** Kontaktieren Sie den RingCentral Support und lassen Sie die Felix-Nummer als vertrauenswürdige externe Nummer freischalten.
+  </Accordion>
+
+  <Accordion icon="repeat" title="Anrufe werden nicht weitergeleitet">
+    **Mögliche Ursachen:**
+    - Business Hours nicht korrekt konfiguriert
+    - Felix-Nummer im falschen Format (nutzen Sie internationales Format: +49...)
+    - Call Forwarding nicht aktiviert
+
+    **Lösung:** Überprüfen Sie alle Einstellungen und testen Sie außerhalb der App im Admin-Portal.
+  </Accordion>
+
+  <Accordion icon="voicemail" title="Voicemail nimmt vor Felix ab">
+    **Lösung:** Verlängern Sie die Ring-Dauer vor Voicemail oder deaktivieren Sie Voicemail für die weiterleitende Nummer.
+  </Accordion>
+</AccordionGroup>
+
+## Weiterführende Links
+
+<CardGroup cols={2}>
+  <Card
+    title="Öffnungszeiten konfigurieren"
+    icon="clock"
+    href="/funktionen/oeffnungszeiten"
+  >
+    Geschäftszeiten in HalloFelix festlegen
+  </Card>
+  <Card
+    title="Weiterleitungen einrichten"
+    icon="phone-arrow-right"
+    href="/funktionen/weiterleitungen"
+  >
+    Durchstellnummern konfigurieren
+  </Card>
+  <Card
+    title="E-Mail-Benachrichtigungen"
+    icon="envelope"
+    href="/funktionen/email-benachrichtigung"
+  >
+    Anrufzusammenfassungen erhalten
+  </Card>
+  <Card
+    title="Erster Satz anpassen"
+    icon="comment"
+    href="/funktionen/erster-satz"
+  >
+    Begrüßung personalisieren
+  </Card>
+</CardGroup>
+
+<Note>
+  **RingCentral Support benötigt?** Kontaktieren Sie den RingCentral Support für spezifische Konfigurationsfragen oder den HalloFelix Support für die Integration: [support@hallofelix.de](mailto:support@hallofelix.de)
+</Note>

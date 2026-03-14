@@ -1,80 +1,113 @@
 ---
-title: "Quickstart"
-description: "Start building awesome documentation in minutes"
+title: "Schnellstart"
+description: "Erstellen Sie Ihren ersten KI-Assistenten in nur 10 Minuten"
 ---
 
-## Get started in three steps
+## In 3 Schritten zum intelligenten Telefonassistenten
 
-Get your documentation site running locally and make your first customization.
+Richten Sie HalloFelix ein und automatisieren Sie Ihre Telefonannahme in wenigen Minuten.
 
-### Step 1: Set up your local environment
+### Schritt 1: Neuen Assistenten erstellen
+
+<Steps>
+  <Step title="Anmelden und Dashboard öffnen">
+    Melden Sie sich bei [HalloFelix](https://app.hallofelix.de) an und öffnen Sie Ihr Dashboard.
+  </Step>
+  <Step title="Neuen Assistenten anlegen">
+    Klicken Sie auf **Neuer Assistent** und geben Sie einen Namen ein (z.B. "Empfang").
+  </Step>
+  <Step title="Grundeinstellungen konfigurieren">
+    - Wählen Sie eine [Stimme](/funktionen/stimmen) aus (empfohlen: Viktoria oder Klaus)
+    - Legen Sie den [ersten Satz](/funktionen/erster-satz) fest (z.B. "Guten Tag, Sie sprechen mit dem Büro von Max Mustermann. Wie kann ich Ihnen helfen?")
+    - Stellen Sie die Gesprächsgeschwindigkeit ein (Normal empfohlen)
+  </Step>
+</Steps>
+
+### Schritt 2: Rufweiterleitung einrichten
 
 <AccordionGroup>
-  <Accordion icon="copy" title="Clone your docs locally">
-    During the onboarding process, you created a GitHub repository with your docs content if you didn't already have one. You can find a link to this repository in your [dashboard](https://dashboard.mintlify.com).
-    
-    To clone the repository locally so that you can make and preview changes to your docs, follow the [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) guide in the GitHub docs.
+  <Accordion icon="mobile" title="Rufweiterleitung vom Handy">
+    Leiten Sie Anrufe von Ihrem Handy zu Felix weiter:
+
+    1. Kopieren Sie die Felix-Telefonnummer aus dem Dashboard
+    2. Öffnen Sie die Telefon-App auf Ihrem Handy
+    3. Geben Sie folgenden Code ein:
+       ```
+       **61*[Felix-Nummer]*15#
+       ```
+       (Ersetzt `[Felix-Nummer]` durch die tatsächliche Nummer)
+    4. Drücken Sie die Anruftaste
+
+    <Tip>
+      Die Rufweiterleitung wird nach 15 Sekunden aktiv. Sie können die Zeit anpassen (5, 10, 15, 20, 25 oder 30 Sekunden).
+    </Tip>
+
+    Detaillierte Anleitung: [Rufweiterleitung am Handy](/rufweiterleitung/handy)
   </Accordion>
-  <Accordion icon="rectangle-terminal" title="Start the preview server">
-    1. Install the Mintlify CLI: `npm i -g mint`
-    2. Navigate to your docs directory and run: `mint dev`
-    3. Open `http://localhost:3000` to see your docs live!
-    
-    <Tip>Your preview updates automatically as you edit files.</Tip>
+  <Accordion icon="phone-office" title="Rufweiterleitung über Telefonanlage">
+    Wenn Sie eine Telefonanlage nutzen, finden Sie hier spezifische Anleitungen:
+
+    - [Fritzbox](/rufweiterleitung/fritzbox)
+    - [RingCentral](/rufweiterleitung/ringcentral)
+    - [Aircall](/rufweiterleitung/aircall)
+    - [Sipgate](/rufweiterleitung/sipgate)
+    - [Placetel](/rufweiterleitung/placetel)
+    - [Starface](/rufweiterleitung/starface)
   </Accordion>
 </AccordionGroup>
 
-### Step 2: Deploy your changes
+### Schritt 3: Testen und optimieren
 
-<AccordionGroup>
-  <Accordion icon="github" title="Install our GitHub app">
-    Install the Mintlify GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app).
-    
-    Our GitHub app automatically deploys your changes to your docs site, so you don't need to manage deployments yourself.
-</Accordion>
-<Accordion icon="palette" title="Update your site name and colors">
-    For a first change, let's update the name and colors of your docs site.
+<Steps>
+  <Step title="Testanruf durchführen">
+    Klicken Sie im Dashboard auf **Assistent testen** und führen Sie einen Testanruf durch.
+  </Step>
+  <Step title="Öffnungszeiten konfigurieren">
+    Legen Sie Ihre [Öffnungszeiten](/funktionen/oeffnungszeiten) fest, damit Felix außerhalb der Geschäftszeiten anders reagiert.
+  </Step>
+  <Step title="E-Mail-Benachrichtigungen einrichten">
+    Konfigurieren Sie [E-Mail-Benachrichtigungen](/funktionen/email-benachrichtigung), um nach jedem Anruf eine Zusammenfassung zu erhalten.
+  </Step>
+  <Step title="Weiterleitungsnummer hinterlegen">
+    Hinterlegen Sie eine [Weiterleitungsnummer](/funktionen/weiterleitungen), an die Felix bei Bedarf durchstellen kann.
+  </Step>
+</Steps>
 
-    1. Open `docs.json` in your editor.
-    2. Change the `"name"` field to your project name.
-    3. Update the `"colors"` to match your brand.
-    4. Save and see your changes instantly at `http://localhost:3000`.
+## Erweiterte Konfiguration
 
-    <Tip>Try changing the primary color to see an immediate difference!</Tip>
-  </Accordion>
-</AccordionGroup>
-
-### Step 3: Go live
-
-<Accordion icon="rocket" title="Publish your docs">
-  1. Commit and push your changes.
-  2. Your docs will update and be live in moments!
-</Accordion>
-
-## Next steps
-
-Now that you have your docs running, explore these key features:
+Nach der Grundeinrichtung können Sie weitere Funktionen nutzen:
 
 <CardGroup cols={2}>
-
-<Card title="Write Content" icon="pen-to-square" href="/essentials/markdown">
-  Learn MDX syntax and start writing your documentation.
-</Card>
-
-<Card title="Customize style" icon="palette" href="/essentials/settings">
-  Make your docs match your brand perfectly.
-</Card>
-
-<Card title="Add code examples" icon="square-code" href="/essentials/code">
-  Include syntax-highlighted code blocks.
-</Card>
-
-<Card title="API documentation" icon="code" href="/api-reference/introduction">
-  Auto-generate API docs from OpenAPI specs.
-</Card>
-
+  <Card
+    title="Kalender verbinden"
+    icon="calendar"
+    href="/funktionen/kalender"
+  >
+    Automatische Terminbuchung ermöglichen
+  </Card>
+  <Card
+    title="Fähigkeiten hinzufügen"
+    icon="wand-magic-sparkles"
+    href="/funktionen/faehigkeiten"
+  >
+    Spezielle Aufgaben für Felix definieren
+  </Card>
+  <Card
+    title="Integrationen nutzen"
+    icon="plug"
+    href="/integrationen/uebersicht"
+  >
+    Mit Maklersoftware verbinden
+  </Card>
+  <Card
+    title="Erweiterte Einstellungen"
+    icon="sliders"
+    href="/funktionen/erweiterte-einstellungen"
+  >
+    Individuelle Anpassungen vornehmen
+  </Card>
 </CardGroup>
 
-<Note>
-  **Need help?** See our [full documentation](https://mintlify.com/docs) or join our [community](https://mintlify.com/community).
-</Note>
+<Tip>
+  Nutzen Sie die **Test-Funktion** regelmäßig, um Änderungen zu überprüfen, bevor Sie diese im Live-Betrieb einsetzen.
+</Tip>

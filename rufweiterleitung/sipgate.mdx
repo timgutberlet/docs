@@ -1,0 +1,229 @@
+---
+title: "Rufweiterleitung mit Sipgate"
+description: "Konfigurieren Sie die Rufweiterleitung von Sipgate zu HalloFelix"
+---
+
+## Überblick
+
+Mit Sipgate können Sie Rufweiterleitungen flexibel über die Weboberfläche oder die Sipgate App konfigurieren. Leiten Sie Anrufe automatisch an Ihren HalloFelix-Assistenten weiter.
+
+## Rufweiterleitung über Sipgate Web einrichten
+
+<Steps>
+  <Step title="Sipgate-Account öffnen">
+    Melden Sie sich bei [app.sipgate.com](https://app.sipgate.com) an
+  </Step>
+  <Step title="Rufumleitungen aufrufen">
+    Navigieren Sie zu **Telefonie** → **Rufumleitungen**
+  </Step>
+  <Step title="Neue Rufumleitung anlegen">
+    Klicken Sie auf **Neue Rufumleitung erstellen**
+  </Step>
+  <Step title="Umleitung konfigurieren">
+    - **Von:** Wählen Sie die Nummer/Durchwahl aus
+    - **Zu:** Geben Sie die Felix-Telefonnummer ein (internationales Format: +49...)
+    - **Bedingung:** Wählen Sie die gewünschte Bedingung (z.B. "Immer", "Bei Nichtmelden", "Bei Besetzt")
+    - **Verzögerung:** Bei "Nichtmelden" können Sie die Wartezeit einstellen (empfohlen: 15 Sekunden)
+  </Step>
+  <Step title="Speichern und aktivieren">
+    Klicken Sie auf **Speichern**, um die Rufumleitung zu aktivieren
+  </Step>
+</Steps>
+
+## Umleitungstypen
+
+<AccordionGroup>
+  <Accordion icon="forward" title="Immer weiterleiten">
+    Alle eingehenden Anrufe werden sofort an Felix weitergeleitet.
+
+    **Anwendungsfall:** Wenn Felix alle Anrufe übernehmen soll (z.B. im Urlaub oder außerhalb der Geschäftszeiten)
+  </Accordion>
+
+  <Accordion icon="clock" title="Bei Nichtmelden (Empfohlen)">
+    Anrufe werden nach einer Wartezeit weitergeleitet, wenn Sie nicht abnehmen.
+
+    **Konfiguration:**
+    - Verzögerung: 15 Sekunden (empfohlen)
+    - Sie haben 15 Sekunden Zeit, selbst abzunehmen
+    - Danach übernimmt Felix automatisch
+
+    **Anwendungsfall:** Optimale Balance - Sie können wichtige Anrufe selbst annehmen, Felix übernimmt den Rest
+  </Accordion>
+
+  <Accordion icon="phone-slash" title="Bei Besetzt">
+    Weiterleitung nur, wenn Sie bereits telefonieren.
+
+    **Anwendungsfall:** Felix als Sekretariat während Sie in Gesprächen sind
+  </Accordion>
+
+  <Accordion icon="signal-slash" title="Bei Nichterreichbarkeit">
+    Weiterleitung nur, wenn Ihr Gerät offline ist.
+
+    **Anwendungsfall:** Felix als Backup, wenn Ihre Verbindung unterbrochen ist
+  </Accordion>
+</AccordionGroup>
+
+## Zeitbasierte Weiterleitungen
+
+Richten Sie unterschiedliche Weiterleitungen für verschiedene Zeiten ein:
+
+1. Navigieren Sie zu **Rufumleitungen**
+2. Erstellen Sie mehrere Umleitungen für dieselbe Nummer
+3. Aktivieren/deaktivieren Sie diese manuell je nach Bedarf
+
+<Tip>
+  Nutzen Sie die [Öffnungszeiten-Funktion](/funktionen/oeffnungszeiten) in HalloFelix, um automatisch verschiedene Begrüßungen zu unterschiedlichen Zeiten zu verwenden.
+</Tip>
+
+## Sipgate App-Konfiguration
+
+Sie können Weiterleitungen auch über die Sipgate Mobile App verwalten:
+
+1. Öffnen Sie die Sipgate App
+2. Tippen Sie auf **Menü** (☰) → **Rufumleitungen**
+3. Erstellen oder bearbeiten Sie Umleitungen
+4. Aktivieren/deaktivieren Sie mit einem Schalter
+
+## Parallel-Anruf (Fork)
+
+Sipgate bietet die Möglichkeit, mehrere Ziele gleichzeitig anzurufen:
+
+1. Navigieren Sie zu **Telefonie** → **Rufgruppen**
+2. Erstellen Sie eine neue Rufgruppe
+3. Fügen Sie Ihre Geräte UND die Felix-Nummer hinzu
+4. Wählen Sie **Strategie: Parallel**
+
+So klingeln Ihre Geräte und Felix gleichzeitig - wer zuerst abnimmt, erhält den Anruf.
+
+## Ansagen und IVR
+
+Kombinieren Sie Felix mit Sipgate-Ansagen:
+
+1. Navigieren Sie zu **Telefonie** → **Ansagen**
+2. Laden Sie eine Begrüßungsansage hoch (z.B. "Guten Tag bei [Firma]")
+3. Konfigurieren Sie nach der Ansage die Weiterleitung zu Felix
+4. Felix übernimmt nach der Ansage nahtlos
+
+<Info>
+  Sie können auch komplett auf Sipgate-Ansagen verzichten und nur die [Begrüßung in HalloFelix](/funktionen/erster-satz) nutzen.
+</Info>
+
+## Durchwahlen und Felix
+
+Wenn Sie Sipgate Trunking mit Durchwahlen nutzen:
+
+1. Weisen Sie Felix eine eigene Durchwahl zu ODER
+2. Leiten Sie spezifische Durchwahlen zu Felix weiter
+3. Nutzen Sie verschiedene Felix-Assistenten für verschiedene Durchwahlen
+
+**Beispiel:**
+- Durchwahl -10 (Zentrale) → Felix Assistent "Empfang"
+- Durchwahl -20 (Schaden) → Felix Assistent "Schadenservice"
+- Durchwahl -30 (Vertrieb) → Ihr Team
+
+## Sipgate Virtual Fax und Felix
+
+<Note>
+  Fax-Nachrichten können nicht direkt an Felix weitergeleitet werden. Sipgate sendet Faxe als PDF per E-Mail - nutzen Sie dafür Ihre [E-Mail-Benachrichtigungen](/funktionen/email-benachrichtigung).
+</Note>
+
+## Weiterleitungsnummer in HalloFelix
+
+<Warning>
+  Hinterlegen Sie in HalloFelix eine Weiterleitungsnummer, die NICHT bereits über Sipgate zu Felix umgeleitet ist, um Endlosschleifen zu vermeiden.
+</Warning>
+
+Optionen:
+- Ihre Mobiltelefon-Nummer (ohne Sipgate-Umleitung)
+- Eine andere Sipgate-Durchwahl
+- Eine Festnetznummer
+
+[Mehr zu Weiterleitungen →](/funktionen/weiterleitungen)
+
+## Kosten und Abrechnung
+
+<Info>
+  **Wichtig:** Sipgate berechnet möglicherweise Weiterleitungsgebühren für Anrufe, die an externe Nummern (wie Felix) weitergeleitet werden. Prüfen Sie Ihren Tarif oder kontaktieren Sie Sipgate für Details.
+</Info>
+
+## Testen der Konfiguration
+
+<Steps>
+  <Step title="Testanruf durchführen">
+    Rufen Sie Ihre Sipgate-Nummer von extern an
+  </Step>
+  <Step title="Wartezeit prüfen">
+    Überprüfen Sie, ob die Weiterleitung nach der konfigurierten Zeit greift
+  </Step>
+  <Step title="Felix-Antwort verifizieren">
+    Stellen Sie sicher, dass Felix mit der richtigen [Begrüßung](/funktionen/erster-satz) antwortet
+  </Step>
+  <Step title="Sipgate-Verlauf prüfen">
+    Kontrollieren Sie in Sipgate unter **Telefonie** → **Verlauf**, ob der Anruf erfasst wurde
+  </Step>
+  <Step title="HalloFelix Dashboard prüfen">
+    Verifizieren Sie im HalloFelix Dashboard das Anrufprotokoll
+  </Step>
+</Steps>
+
+## Häufige Probleme
+
+<AccordionGroup>
+  <Accordion icon="circle-xmark" title="Weiterleitung funktioniert nicht">
+    **Mögliche Ursachen:**
+    - Felix-Nummer falsch formatiert (nutzen Sie +49... Format)
+    - Rufumleitung nicht aktiviert (Schalter in Sipgate prüfen)
+    - Verzögerungszeit zu kurz eingestellt
+
+    **Lösung:** Überprüfen Sie alle Einstellungen und testen Sie mit längerer Verzögerung.
+  </Accordion>
+
+  <Accordion icon="euro-sign" title="Hohe Weiterleitungskosten">
+    **Problem:** Weiterleitungen zu Felix verursachen unerwartet hohe Kosten.
+
+    **Lösung:**
+    - Prüfen Sie Ihren Sipgate-Tarif (manche Tarife haben kostenlose Weiterleitungen)
+    - Kontaktieren Sie HalloFelix Support für kostengünstigere Integrationsoptionen
+  </Accordion>
+
+  <Accordion icon="volume-xmark" title="Keine Benachrichtigung über verpasste Anrufe">
+    **Lösung:** Richten Sie [E-Mail-Benachrichtigungen](/funktionen/email-benachrichtigung) in HalloFelix ein.
+  </Accordion>
+</AccordionGroup>
+
+## Weiterführende Links
+
+<CardGroup cols={2}>
+  <Card
+    title="Öffnungszeiten konfigurieren"
+    icon="clock"
+    href="/funktionen/oeffnungszeiten"
+  >
+    Geschäftszeiten in HalloFelix festlegen
+  </Card>
+  <Card
+    title="Weiterleitungen einrichten"
+    icon="phone-arrow-right"
+    href="/funktionen/weiterleitungen"
+  >
+    Durchstellnummern konfigurieren
+  </Card>
+  <Card
+    title="E-Mail-Benachrichtigungen"
+    icon="envelope"
+    href="/funktionen/email-benachrichtigung"
+  >
+    Anrufzusammenfassungen erhalten
+  </Card>
+  <Card
+    title="Erster Satz anpassen"
+    icon="comment"
+    href="/funktionen/erster-satz"
+  >
+    Begrüßung personalisieren
+  </Card>
+</CardGroup>
+
+<Note>
+  **Benötigen Sie Hilfe?** Unser Support-Team hilft Ihnen gerne bei der Sipgate-Integration: [support@hallofelix.de](mailto:support@hallofelix.de)
+</Note>

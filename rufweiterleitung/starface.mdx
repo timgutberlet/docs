@@ -1,0 +1,293 @@
+---
+title: "Rufweiterleitung mit Starface"
+description: "Konfigurieren Sie die Rufweiterleitung von Starface zu HalloFelix"
+---
+
+## Überblick
+
+Starface bietet leistungsstarke Rufweiterleitungs- und Routing-Funktionen über die webbasierte Administrationsoberfläche. Leiten Sie Anrufe intelligent an Ihren HalloFelix-Assistenten weiter.
+
+## Rufweiterleitung in der Starface-Admin-Oberfläche
+
+<Steps>
+  <Step title="Starface-Admin-Portal öffnen">
+    Melden Sie sich in der Starface-Administrationsoberfläche an (typischerweise `https://[ihre-starface-ip]:8443`)
+  </Step>
+  <Step title="Benutzer-Einstellungen öffnen">
+    Navigieren Sie zu **Benutzer** und wählen Sie den entsprechenden Benutzer aus
+  </Step>
+  <Step title="Rufumleitungen konfigurieren">
+    - Wechseln Sie zum Reiter **Rufumleitungen**
+    - Wählen Sie den Umleitungstyp (z.B. "Bei Nichtmelden", "Immer", "Bei Besetzt")
+    - Geben Sie die Felix-Telefonnummer ein (internationales Format: +49...)
+    - Stellen Sie bei "Nichtmelden" die Wartezeit ein (empfohlen: 15 Sekunden)
+  </Step>
+  <Step title="Speichern und aktivieren">
+    Klicken Sie auf **Speichern** und aktivieren Sie die Umleitung über den Schalter
+  </Step>
+</Steps>
+
+## Umleitungstypen
+
+<AccordionGroup>
+  <Accordion icon="forward" title="Immer umleiten">
+    Alle Anrufe werden sofort an Felix weitergeleitet.
+
+    **Konfiguration:**
+    - Typ: **Immer**
+    - Ziel: Felix-Telefonnummer
+    - Ihr Telefon klingelt nicht
+
+    **Anwendungsfall:** Urlaub, volle Automatisierung, außerhalb der Geschäftszeiten
+  </Accordion>
+
+  <Accordion icon="clock" title="Bei Nichtmelden (Empfohlen)">
+    Anrufe werden nach einer Wartezeit weitergeleitet, wenn Sie nicht abnehmen.
+
+    **Konfiguration:**
+    - Typ: **Bei Nichtmelden**
+    - Wartezeit: 15-20 Sekunden
+    - Ziel: Felix-Telefonnummer
+
+    **Anwendungsfall:** Sie haben Zeit, wichtige Anrufe selbst anzunehmen, Felix übernimmt den Rest
+  </Accordion>
+
+  <Accordion icon="phone-slash" title="Bei Besetzt">
+    Weiterleitung nur, wenn Sie bereits telefonieren.
+
+    **Konfiguration:**
+    - Typ: **Bei Besetzt**
+    - Ziel: Felix-Telefonnummer
+
+    **Anwendungsfall:** Felix als virtueller Zweitapparat während Sie in Gesprächen sind
+  </Accordion>
+
+  <Accordion icon="signal-slash" title="Bei Nichterreichbarkeit">
+    Weiterleitung nur, wenn Ihr Endgerät offline ist.
+
+    **Konfiguration:**
+    - Typ: **Bei Nichterreichbarkeit**
+    - Ziel: Felix-Telefonnummer
+
+    **Anwendungsfall:** Felix als Backup bei Verbindungsproblemen
+  </Accordion>
+</AccordionGroup>
+
+## Gruppen-Rufnummern mit Felix
+
+Integrieren Sie Felix in Starface-Gruppen:
+
+1. Navigieren Sie zu **Gruppen** in der Admin-Oberfläche
+2. Erstellen oder bearbeiten Sie eine Gruppe
+3. Fügen Sie Felix als externes Gruppenmitglied hinzu:
+   - Klicken Sie auf **Mitglieder**
+   - **Externes Ziel hinzufügen**
+   - Geben Sie die Felix-Nummer ein
+4. Wählen Sie die Klingelstrategie:
+   - **Parallel:** Alle Mitglieder klingeln gleichzeitig
+   - **Sequenziell:** Erst interne Mitglieder, dann Felix
+   - **Längste Ruhezeit:** Felix basierend auf Aktivität
+
+**Beispiel:**
+- Gruppe: "Kundenservice"
+- Mitglieder: Mitarbeiter 1, Mitarbeiter 2, Felix (extern)
+- Strategie: Sequenziell mit 15 Sek. pro Mitglied
+
+## Zeitgesteuerte Rufbehandlung
+
+Starface ermöglicht präzise zeitbasierte Routing-Regeln:
+
+1. Navigieren Sie zu **Module** → **Schaltzeiten**
+2. Erstellen Sie Zeitprofile:
+   - **Geschäftszeiten:** Mo-Fr 9-18 Uhr
+   - **Feierabend:** Mo-Fr nach 18 Uhr
+   - **Wochenende:** Sa-So
+   - **Feiertage:** Spezifische Daten
+3. Navigieren Sie zu **Benutzer** → **Rufumleitungen**
+4. Aktivieren Sie **Zeitabhängige Rufumleitung**
+5. Weisen Sie jeder Schaltzeit unterschiedliche Ziele zu:
+   - Geschäftszeiten: Rufgruppe oder Ihr Apparat
+   - Feierabend/Wochenende: Felix
+
+<Tip>
+  Kombinieren Sie Starface-Zeitsteuerung mit [HalloFelix Öffnungszeiten](/funktionen/oeffnungszeiten) für unterschiedliche Begrüßungen.
+</Tip>
+
+## IVR-Module (Sprachmenü)
+
+Integrieren Sie Felix in Starface IVR-Module:
+
+1. Navigieren Sie zu **Module** → **IVR**
+2. Erstellen Sie ein neues IVR-Modul oder bearbeiten Sie ein bestehendes
+3. Definieren Sie Menüoptionen:
+   - **Taste 1:** Vertrieb (interne Gruppe)
+   - **Taste 2:** Schadensmeldung → Felix
+   - **Taste 3:** Allgemeine Anfragen → Felix
+   - **Timeout:** Nach 10 Sek. ohne Eingabe → Felix
+4. Weisen Sie der entsprechenden Taste die Felix-Nummer zu
+5. Laden Sie eine Ansagedatei hoch (z.B. "Drücken Sie 1 für...")
+
+**Beispiel-IVR:**
+> "Guten Tag und herzlich Willkommen bei [Firma]. Für den Vertrieb drücken Sie die 1, für Schadensmeldungen die 2, für allgemeine Anfragen die 3."
+
+## Warteschlangen-Integration
+
+Integrieren Sie Felix in Starface-Warteschlangen (Queues):
+
+1. Navigieren Sie zu **Module** → **Warteschlangen**
+2. Erstellen oder bearbeiten Sie eine Warteschlange
+3. Konfigurieren Sie:
+   - **Maximale Wartezeit:** z.B. 120 Sekunden
+   - **Timeout-Ziel:** Felix-Nummer
+   - **Overflow bei:** z.B. 5 wartende Anrufer → Felix
+4. Fügen Sie Felix optional als Queue-Agent hinzu
+
+Felix übernimmt Anrufe, die zu lange warten oder bei voller Queue.
+
+## Anrufbeantworter-Koordination
+
+Wenn Sie Starface-Anrufbeantworter nutzen:
+
+1. Navigieren Sie zu **Benutzer** → **Anrufbeantworter**
+2. Deaktivieren Sie den Anrufbeantworter für Rufnummern, die zu Felix gehen
+3. ODER stellen Sie sicher, dass die Rufumleitung VOR dem Anrufbeantworter greift
+4. Verlängern Sie die Anrufbeantworter-Verzögerung auf über 30 Sekunden
+
+<Warning>
+  Wenn der Anrufbeantworter vor Felix greift, erhalten Anrufer die Mailbox statt Felix.
+</Warning>
+
+## Präsenzstatus und Felix
+
+Nutzen Sie Starface-Präsenzstatus für intelligente Weiterleitung:
+
+1. Stellen Sie Ihren Status auf "Abwesend" oder "Nicht stören"
+2. Konfigurieren Sie statusabhängige Weiterleitungen:
+   - **Verfügbar:** Anrufe kommen zu Ihnen
+   - **Abwesend/DND:** Anrufe gehen zu Felix
+3. Ändern Sie Ihren Status über Starface Client oder App
+
+## Starface UCC Client Integration
+
+Verwalten Sie Weiterleitungen über den Starface UCC Client:
+
+1. Öffnen Sie den Starface UCC Client
+2. Klicken Sie auf Ihr **Profil** → **Rufumleitungen**
+3. Aktivieren/deaktivieren Sie Weiterleitungen schnell
+4. Perfekt für schnelle Änderungen (z.B. beim Verlassen des Büros)
+
+## Externe Leitungen und Kosten
+
+<Info>
+  Weiterleitungen zu externen Nummern wie Felix werden über Ihre Starface-Amtsleitungen geführt und verursachen Gesprächskosten entsprechend Ihres Tarifs.
+</Info>
+
+## Weiterleitungsnummer in HalloFelix
+
+<Warning>
+  Die in HalloFelix hinterlegte Weiterleitungsnummer darf NICHT dieselbe sein, die bereits zu Felix umgeleitet ist, sonst entsteht eine Endlosschleife!
+</Warning>
+
+Empfohlene Optionen:
+- Ihre Mobiltelefon-Nummer (ohne Starface-Umleitung)
+- Eine andere Starface-Nebenstelle
+- Ein Kollegen-Apparat
+- Eine Festnetznummer
+
+[Mehr zu Weiterleitungen →](/funktionen/weiterleitungen)
+
+## Anrufer-ID (CLIP)
+
+Bei Weiterleitung zu externen Nummern wird standardmäßig Ihre Starface-Hauptnummer als Absender übertragen, nicht die ursprüngliche Anrufer-ID.
+
+Für CLIP-Preservation:
+- Prüfen Sie Starface-Einstellungen unter **Amtsleitungen** → **CLIP**
+- Kontaktieren Sie Ihren Carrier für CLIP-no-screening
+
+## Testen der Konfiguration
+
+<Steps>
+  <Step title="Testanruf durchführen">
+    Rufen Sie Ihre Starface-Nummer von extern an
+  </Step>
+  <Step title="Routing-Szenarien testen">
+    Testen Sie alle konfigurierten Szenarien:
+    - Verschiedene Tageszeiten (wenn Zeitsteuerung aktiv)
+    - IVR-Optionen (falls konfiguriert)
+    - Wartezeiten und Timeouts
+  </Step>
+  <Step title="Felix-Antwort verifizieren">
+    Stellen Sie sicher, dass Felix korrekt [begrüßt](/funktionen/erster-satz)
+  </Step>
+  <Step title="Starface-Journal prüfen">
+    Kontrollieren Sie das Anrufjournal in Starface
+  </Step>
+  <Step title="HalloFelix Dashboard prüfen">
+    Verifizieren Sie Anrufprotokolle im HalloFelix Dashboard
+  </Step>
+</Steps>
+
+## Häufige Probleme
+
+<AccordionGroup>
+  <Accordion icon="ban" title="Externe Weiterleitung funktioniert nicht">
+    **Mögliche Ursachen:**
+    - Keine freie Amtsleitung verfügbar
+    - Externe Weiterleitungen gesperrt (Admin-Rechte erforderlich)
+    - Felix-Nummer im falschen Format
+
+    **Lösung:** Prüfen Sie Amtsleitungs-Verfügbarkeit und Berechtigungen. Nutzen Sie internationales Nummernformat (+49...).
+  </Accordion>
+
+  <Accordion icon="volume-xmark" title="Kein Rufton, direkt Weiterleitung">
+    **Problem:** Anrufe werden sofort weitergeleitet, ohne dass Ihr Telefon klingelt.
+
+    **Ursache:** "Immer umleiten" statt "Bei Nichtmelden" konfiguriert.
+
+    **Lösung:** Ändern Sie den Umleitungstyp auf "Bei Nichtmelden" mit Verzögerung.
+  </Accordion>
+
+  <Accordion icon="clock-rotate-left" title="Zeitsteuerung funktioniert nicht wie erwartet">
+    **Lösung:**
+    - Prüfen Sie die Schaltzeiten-Konfiguration
+    - Achten Sie auf korrekte Zeitzone
+    - Testen Sie außerhalb und innerhalb der konfigurierten Zeiten
+  </Accordion>
+</AccordionGroup>
+
+## Weiterführende Links
+
+<CardGroup cols={2}>
+  <Card
+    title="Öffnungszeiten konfigurieren"
+    icon="clock"
+    href="/funktionen/oeffnungszeiten"
+  >
+    Geschäftszeiten in HalloFelix festlegen
+  </Card>
+  <Card
+    title="Weiterleitungen einrichten"
+    icon="phone-arrow-right"
+    href="/funktionen/weiterleitungen"
+  >
+    Durchstellnummern konfigurieren
+  </Card>
+  <Card
+    title="E-Mail-Benachrichtigungen"
+    icon="envelope"
+    href="/funktionen/email-benachrichtigung"
+  >
+    Anrufzusammenfassungen erhalten
+  </Card>
+  <Card
+    title="Fähigkeiten anpassen"
+    icon="wand-magic-sparkles"
+    href="/funktionen/faehigkeiten"
+  >
+    Spezielle Aufgaben für Felix definieren
+  </Card>
+</CardGroup>
+
+<Note>
+  **Benötigen Sie Hilfe?** Unser Support-Team unterstützt Sie gerne bei der Starface-Integration: [support@hallofelix.de](mailto:support@hallofelix.de)
+</Note>

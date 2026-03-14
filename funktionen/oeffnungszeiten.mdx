@@ -1,0 +1,113 @@
+---
+title: "Öffnungszeiten"
+description: "Konfigurieren Sie Geschäftszeiten und Urlaubsperioden für zeitabhängiges Verhalten"
+---
+
+## Überblick
+
+Definieren Sie Ihre Geschäftszeiten, damit Felix unterschiedlich reagieren kann - während und außerhalb der Öffnungszeiten.
+
+## Wöchentliche Öffnungszeiten
+
+Legen Sie für jeden Wochentag Ihre Geschäftszeiten fest:
+
+<Steps>
+  <Step title="Öffnungszeiten öffnen">
+    Navigieren Sie zu **Assistent-Einstellungen** → **Öffnungszeiten** → **Wöchentlich**
+  </Step>
+  <Step title="Zeiten pro Tag festlegen">
+    Wählen Sie für jeden Tag (Montag-Sonntag):
+    - Eine Zeitspanne (z.B. 9:00 - 17:00)
+    - Zwei Zeitspannen mit Mittagspause (z.B. 9:00 - 12:00, 13:00 - 17:00)
+    - Oder "Geschlossen"
+  </Step>
+  <Step title="Speichern">
+    Klicken Sie auf **Speichern**
+  </Step>
+</Steps>
+
+**Beispiel:**
+```
+Montag:    9:00 - 17:00
+Dienstag:  9:00 - 17:00
+Mittwoch:  9:00 - 12:00, 13:00 - 17:00
+Donnerstag: 9:00 - 17:00
+Freitag:   9:00 - 15:00
+Samstag:   Geschlossen
+Sonntag:   Geschlossen
+```
+
+## Geschlossene Zeiträume
+
+Definieren Sie spezielle Zeiträume für Urlaub, Feiertage oder Betriebsferien:
+
+<Steps>
+  <Step title="Zeiträume öffnen">
+    Navigieren Sie zu **Öffnungszeiten** → **Geschlossene Zeiträume**
+  </Step>
+  <Step title="Zeitraum hinzufügen">
+    Klicken Sie auf **Zeitraum hinzufügen**
+  </Step>
+  <Step title="Daten festlegen">
+    Wählen Sie Start- und Enddatum
+  </Step>
+  <Step title="Beschreibung">
+    Geben Sie eine Beschreibung ein (z.B. "Weihnachtsurlaub", "Betriebsferien")
+  </Step>
+  <Step title="Optional: Eigene Begrüßung">
+    Sie können eine spezielle Begrüßung für diesen Zeitraum hinterlegen
+  </Step>
+  <Step title="Speichern">
+    Speichern Sie den Zeitraum
+  </Step>
+</Steps>
+
+**Beispiel:**
+```
+Zeitraum: 24.12.2026 - 02.01.2027
+Beschreibung: Weihnachtsurlaub
+Begrüßung: "Frohe Weihnachten! Wir sind vom 24. Dezember bis 2. Januar im Urlaub..."
+```
+
+## Unterschiedliches Verhalten je nach Zeit
+
+### Alternative Begrüßung außerhalb der Öffnungszeiten
+
+Konfigurieren Sie unter [Erster Satz](/funktionen/erster-satz) eine alternative Begrüßung für Zeiten außerhalb Ihrer Geschäftszeiten.
+
+### Call-Routing nach Öffnungszeiten
+
+Sie können unterschiedliche Routing-Modi festlegen:
+
+<CardGroup cols={2}>
+  <Card title="Während Öffnungszeiten" icon="sun">
+    z.B. "Anklingeln" - Sie werden zuerst benachrichtigt
+  </Card>
+  <Card title="Außerhalb Öffnungszeiten" icon="moon">
+    z.B. "Felix (Sofort)" - Felix nimmt direkt ab
+  </Card>
+</CardGroup>
+
+**Routing-Modi:**
+1. **Felix (Sofort)**: AI nimmt alle Anrufe sofort entgegen
+2. **Anklingeln**: Telefon klingelt kurz, bei keiner Antwort übernimmt Felix
+3. **Inaktiv**: Alle Anrufe gehen direkt zur Weiterleitungsnummer
+
+## Weiterführende Links
+
+<CardGroup cols={2}>
+  <Card
+    title="Erster Satz"
+    icon="comment"
+    href="/funktionen/erster-satz"
+  >
+    Zeitabhängige Begrüßungen
+  </Card>
+  <Card
+    title="Weiterleitungen"
+    icon="phone-arrow-right"
+    href="/funktionen/weiterleitungen"
+  >
+    Durchstellnummern konfigurieren
+  </Card>
+</CardGroup>

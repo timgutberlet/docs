@@ -1,0 +1,92 @@
+---
+title: "Weiterleitungen"
+description: "Konfigurieren Sie Durchstellnummern für Ihren KI-Assistenten"
+---
+
+## Überblick
+
+Felix kann Anrufe bei Bedarf an Sie oder Ihre Kollegen durchstellen. Konfigurieren Sie mehrere Weiterleitungsnummern mit spezifischen Anweisungen.
+
+<Warning>
+  **Wichtig:** Die Weiterleitungsnummer darf NICHT dieselbe Nummer sein, die zu Felix weiterleitet, sonst entsteht eine Endlosschleife!
+</Warning>
+
+## Weiterleitungsnummer hinzufügen
+
+<Steps>
+  <Step title="Einstellungen öffnen">
+    Navigieren Sie zu **Assistent-Einstellungen** → **Weiterleitungen**
+  </Step>
+  <Step title="Nummer hinzufügen">
+    Klicken Sie auf **Weiterleitungsnummer hinzufügen**
+  </Step>
+  <Step title="Nummer eingeben">
+    Geben Sie die Telefonnummer ein (z.B. Ihr Festnetz oder Kollegen-Handy)
+  </Step>
+  <Step title="Anweisungen">
+    Beschreiben Sie, wann Felix zu dieser Nummer durchstellen soll
+  </Step>
+  <Step title="Speichern">
+    Speichern Sie die Konfiguration
+  </Step>
+</Steps>
+
+## Mehrere Weiterleitungsnummern
+
+Sie können mehrere Nummern mit unterschiedlichen Anweisungen konfigurieren:
+
+### Beispiel-Konfiguration
+
+**Nummer 1:** +49 30 12345678
+```text Anweisungen
+Bei technischen Fragen oder wenn der Kunde mit einem Mitarbeiter sprechen möchte
+```
+
+**Nummer 2:** +49 171 9876543
+```text Anweisungen
+Bei dringenden Schadensfällen oder Notfällen
+```
+
+**Nummer 3:** +49 30 98765432
+```text Anweisungen
+Für Terminvereinbarungen, die nicht automatisch gebucht werden können
+```
+
+## Wie Felix durchstellt
+
+Felix entscheidet basierend auf dem Gesprächsverlauf und Ihren Anweisungen, ob und an welche Nummer durchgestellt wird.
+
+**Ablauf:**
+1. Felix erkennt, dass eine Durchstellung erforderlich ist
+2. Felix wählt die passende Nummer basierend auf Ihren Anweisungen
+3. Felix kündigt die Durchstellung an
+4. Felix stellt den Anruf durch
+
+## Wichtige Hinweise
+
+<Card title="Endlosschleifen vermeiden" icon="triangle-exclamation">
+  Die Weiterleitungsnummer darf **NICHT** dieselbe Nummer sein, von der aus Sie Anrufe zu Felix weiterleiten.
+
+  ❌ **Falsch:** Handy (+49 171 123456) → Felix → Handy (+49 171 123456)
+
+  ✅ **Richtig:** Handy (+49 171 123456) → Felix → Festnetz (+49 30 654321)
+</Card>
+
+## Weiterführende Links
+
+<CardGroup cols={2}>
+  <Card
+    title="Rufweiterleitung am Handy"
+    icon="mobile"
+    href="/rufweiterleitung/handy"
+  >
+    Anrufe zu Felix weiterleiten
+  </Card>
+  <Card
+    title="Öffnungszeiten"
+    icon="clock"
+    href="/funktionen/oeffnungszeiten"
+  >
+    Zeitabhängige Weiterleitung
+  </Card>
+</CardGroup>

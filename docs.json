@@ -1,68 +1,67 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
-  "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+  "locale": "de",
+  "topAnchor": {
+    "name": ""
   },
-  "favicon": "/favicon.svg",
+  "modeToggle": {
+    "default": "light"
+  },
+  "name": "HalloFelix - KI-Bürokraft von InsurMagic",
+  "colors": {
+    "primary": "#5F2E6A",
+    "light": "#8B5A9A",
+    "dark": "#4A2355"
+  },
+  "favicon": "/favicon.ico",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Dokumentation",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Erste Schritte",
             "pages": [
               "index",
-              "quickstart",
-              "development"
+              "quickstart"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Rufweiterleitung",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "rufweiterleitung/handy",
+              "rufweiterleitung/fritzbox",
+              "rufweiterleitung/ringcentral",
+              "rufweiterleitung/aircall",
+              "rufweiterleitung/sipgate",
+              "rufweiterleitung/placetel",
+              "rufweiterleitung/starface"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Funktionen",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "funktionen/kalender",
+              "funktionen/stimmen",
+              "funktionen/email-benachrichtigung",
+              "funktionen/erster-satz",
+              "funktionen/oeffnungszeiten",
+              "funktionen/fähigkeiten",
+              "funktionen/weiterleitungen",
+              "funktionen/erweiterte-einstellungen"
             ]
           },
           {
-            "group": "AI tools",
+            "group": "Integrationen",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
+              "integrationen/uebersicht"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Infos & Hilfe",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "infos-hilfe/rechnungen-einsehen"
             ]
           }
         ]
@@ -71,52 +70,46 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "Support",
+          "href": "mailto:support@hallofelix.de",
+          "icon": "envelope"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "WhatsApp Kanal",
+          "href": "https://web.whatsapp.com/accept?code=JCCTt93on1A3M8pAU1ytLt&utm_campaign=wa_chat_v2",
+          "icon": "whatsapp"
+        },
+        {
+          "anchor": "Zur App",
+          "href": "https://app.hallofelix.de",
+          "icon": "arrow-up-right-from-square"
         }
       ]
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/hallofelix-logo.png",
+    "dark": "/logo/hallofelix-logo.png"
   },
   "navbar": {
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@hallofelix.de"
+      },
+      {
+        "label": "WhatsApp Kanal",
+        "href": "https://web.whatsapp.com/accept?code=JCCTt93on1A3M8pAU1ytLt&utm_campaign=wa_chat_v2"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Zur App",
+      "href": "https://app.hallofelix.de"
     }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
     }
   }
 }

@@ -1,0 +1,79 @@
+---
+title: "Kalender-Integration"
+description: "Verbinden Sie Ihren Kalender mit HalloFelix für automatische Terminbuchung"
+---
+
+## Überblick
+
+Mit der Kalender-Integration kann Felix Ihre Verfügbarkeit prüfen und automatisch Termine mit Kunden vereinbaren.
+
+<Info>
+  Die Kalender-Integration erfolgt über Nylas und unterstützt Google Calendar, Outlook, iCloud und weitere Kalender-Dienste.
+</Info>
+
+## Kalender verbinden
+
+<Steps>
+  <Step title="Integration öffnen">
+    Navigieren Sie im HalloFelix Dashboard zu **Einstellungen** → **Integrationen** → **Kalender**
+  </Step>
+  <Step title="Kalender-Dienst auswählen">
+    Klicken Sie auf **Kalender verbinden** und wählen Sie Ihren Kalender-Anbieter:
+    - Google Calendar
+    - Microsoft Outlook / Office 365
+    - Apple iCloud
+    - Exchange
+  </Step>
+  <Step title="Authentifizierung">
+    Melden Sie sich bei Ihrem Kalender-Dienst an und erteilen Sie die erforderlichen Berechtigungen
+  </Step>
+  <Step title="Kalender auswählen">
+    Wählen Sie aus, welche Kalender Felix nutzen soll
+  </Step>
+</Steps>
+
+## Wie Felix Termine bucht
+
+<Steps>
+  <Step title="Terminwunsch erkennen">
+    Kunde äußert Terminwunsch: "Ich hätte gerne einen Termin nächste Woche."
+  </Step>
+  <Step title="Verfügbarkeit prüfen">
+    Felix prüft Ihren Kalender in Echtzeit
+  </Step>
+  <Step title="Vorschläge machen">
+    Felix schlägt verfügbare Zeiten vor
+  </Step>
+  <Step title="Termin erstellen">
+    Felix erstellt den Termin im Kalender mit Kundenname, Telefonnummer und Anliegen
+  </Step>
+</Steps>
+
+## Anweisungen für Kalender
+
+Für jeden verbundenen Kalender können Sie Anweisungen hinterlegen:
+
+```text Beispiel
+Termine sind in 30-Minuten-Slots verfügbar.
+Keine Termine vor 9 Uhr oder nach 17 Uhr.
+Freitags nur bis 15 Uhr.
+```
+
+## Weiterführende Links
+
+<CardGroup cols={2}>
+  <Card
+    title="Öffnungszeiten"
+    icon="clock"
+    href="/funktionen/oeffnungszeiten"
+  >
+    Geschäftszeiten festlegen
+  </Card>
+  <Card
+    title="E-Mail-Benachrichtigungen"
+    icon="envelope"
+    href="/funktionen/email-benachrichtigung"
+  >
+    Terminbestätigungen per E-Mail
+  </Card>
+</CardGroup>
