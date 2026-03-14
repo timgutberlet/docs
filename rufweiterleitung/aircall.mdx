@@ -1,0 +1,240 @@
+---
+title: "Rufweiterleitung mit Aircall"
+description: "Konfigurieren Sie die Rufweiterleitung von Aircall zu HalloFelix"
+---
+
+## Überblick
+
+Aircall ermöglicht die Konfiguration von Rufweiterleitungen direkt im Dashboard. Leiten Sie eingehende Anrufe intelligent an Ihren HalloFelix-Assistenten weiter.
+
+## Rufweiterleitung im Aircall Dashboard einrichten
+
+<Steps>
+  <Step title="Aircall Dashboard öffnen">
+    Melden Sie sich bei [dashboard.aircall.io](https://dashboard.aircall.io) an
+  </Step>
+  <Step title="Numbers & IVRs öffnen">
+    Navigieren Sie zu **Numbers** in der linken Seitenleiste
+  </Step>
+  <Step title="Nummer auswählen">
+    Wählen Sie die Nummer aus, für die Sie die Weiterleitung einrichten möchten
+  </Step>
+  <Step title="Call Flow konfigurieren">
+    - Klicken Sie auf **Edit Call Flow**
+    - Fügen Sie einen **Forward to external number** Block hinzu
+    - Geben Sie die Felix-Telefonnummer ein (internationales Format: +49...)
+  </Step>
+  <Step title="Speichern">
+    Klicken Sie auf **Save**, um die Änderungen zu aktivieren
+  </Step>
+</Steps>
+
+## Call Flow Strategien
+
+Aircall bietet verschiedene Call-Flow-Optionen:
+
+<AccordionGroup>
+  <Accordion icon="list-ol" title="Sequential Routing">
+    Anrufe werden nacheinander weitergeleitet:
+
+    1. Zuerst klingelt es bei Ihnen (z.B. 15 Sekunden)
+    2. Danach wird an Felix weitergeleitet
+    3. Optional: Weitere Fallback-Optionen
+
+    **Konfiguration:**
+    - Fügen Sie **Distribution** Block hinzu
+    - Wählen Sie **Sequential**
+    - Setzen Sie sich selbst als erste Option (15 Sek. Timeout)
+    - Felix als zweite Option
+  </Accordion>
+
+  <Accordion icon="users" title="Simultaneous Routing">
+    Alle Endpunkte klingeln gleichzeitig:
+
+    1. Ihr Telefon und Felix klingeln parallel
+    2. Wer zuerst abnimmt, erhält den Anruf
+    3. Ideal für schnelle Reaktionszeiten
+
+    **Konfiguration:**
+    - Fügen Sie **Distribution** Block hinzu
+    - Wählen Sie **Simultaneous**
+    - Fügen Sie Ihre Nummer und Felix hinzu
+  </Accordion>
+
+  <Accordion icon="clock" title="Time-based Routing">
+    Verschiedene Weiterleitungen je nach Tageszeit:
+
+    1. Während Geschäftszeiten: Zu Ihrem Team
+    2. Außerhalb: Direkt zu Felix
+    3. Feiertage: Zu Felix mit spezieller Begrüßung
+
+    **Konfiguration:**
+    - Fügen Sie **Open Hours** Block hinzu
+    - Definieren Sie Geschäftszeiten
+    - Konfigurieren Sie **Inside** Flow → Ihr Team
+    - Konfigurieren Sie **Outside** Flow → Felix
+  </Accordion>
+</AccordionGroup>
+
+## IVR-Integration
+
+Integrieren Sie Felix in Ihr Aircall IVR (Interactive Voice Response):
+
+1. Navigieren Sie zu **Numbers** → **Edit Call Flow**
+2. Fügen Sie einen **IVR** Block hinzu
+3. Erstellen Sie Menüoptionen (z.B. "Drücken Sie 1 für Schadensmeldung")
+4. Weisen Sie eine Option Felix zu (Forward to external number)
+5. Speichern Sie das IVR
+
+**Beispiel-IVR:**
+- Drücken Sie 1 → Vertrieb (Ihr Team)
+- Drücken Sie 2 → Schadensmeldung (Felix)
+- Drücken Sie 3 → Allgemeine Anfragen (Felix)
+
+## Voicemail-Konfiguration
+
+<Info>
+  Stellen Sie sicher, dass Felix VOR der Aircall-Voicemail greift, indem Sie längere Timeouts für Voicemail setzen.
+</Info>
+
+1. Öffnen Sie den Call Flow Editor
+2. Fügen Sie **Voicemail** Block am Ende hinzu
+3. Stellen Sie sicher, dass Felix davor kommt
+4. Setzen Sie ausreichend lange Timeouts (z.B. 30+ Sekunden)
+
+## Queue-Integration
+
+Fügen Sie Felix als Backup in Aircall-Warteschlangen ein:
+
+1. Navigieren Sie zu **Queues**
+2. Öffnen Sie die gewünschte Queue
+3. Fügen Sie unter **Overflow** die Felix-Nummer hinzu
+4. Felix übernimmt, wenn alle Queue-Mitglieder beschäftigt sind
+
+## Tagging und Analytics
+
+Nutzen Sie Aircall Tags, um Felix-Anrufe zu kennzeichnen:
+
+1. Erstellen Sie ein Tag "Handled by Felix"
+2. Konfigurieren Sie automatisches Tagging für zu Felix weitergeleitete Anrufe
+3. Analysieren Sie Felix-Performance in Aircall Analytics
+
+## Weiterleitungsnummer in HalloFelix
+
+<Warning>
+  Wenn Felix Anrufe an Sie durchstellen soll, nutzen Sie eine Aircall-interne Nummer oder Ihre Handy-Direktnummer (nicht die Aircall-Hauptnummer), um Schleifen zu vermeiden.
+</Warning>
+
+Optionen:
+- Ihre Aircall-User-Direktnummer
+- Ihre Mobiltelefon-Nummer
+- Eine interne Durchwahl
+
+[Mehr zu Weiterleitungen →](/funktionen/weiterleitungen)
+
+## Webhook-Integration (Erweitert)
+
+<Info>
+  Für fortgeschrittene Nutzer: Aircall kann Webhooks an HalloFelix senden, um Anrufinformationen zu synchronisieren.
+</Info>
+
+1. Navigieren Sie zu **Integrations & API** → **Webhooks**
+2. Erstellen Sie einen neuen Webhook
+3. Wählen Sie Events: `call.answered`, `call.ended`
+4. Webhook-URL vom HalloFelix Support erhalten
+5. Aktivieren Sie den Webhook
+
+Kontaktieren Sie [support@hallofelix.de](mailto:support@hallofelix.de) für Webhook-Details.
+
+## Testen der Konfiguration
+
+<Steps>
+  <Step title="Testanruf durchführen">
+    Rufen Sie Ihre Aircall-Nummer von extern an
+  </Step>
+  <Step title="Call Flow durchlaufen">
+    Testen Sie alle IVR-Optionen und Zeitszenarien
+  </Step>
+  <Step title="Felix-Antwort prüfen">
+    Stellen Sie sicher, dass Felix korrekt antwortet
+  </Step>
+  <Step title="Aircall Activity prüfen">
+    Kontrollieren Sie in Aircall unter **Activity**, ob der Anruf erfasst wurde
+  </Step>
+  <Step title="HalloFelix Dashboard prüfen">
+    Verifizieren Sie im HalloFelix Dashboard, dass der Anruf protokolliert wurde
+  </Step>
+</Steps>
+
+## Häufige Probleme
+
+<AccordionGroup>
+  <Accordion icon="ban" title="Externe Weiterleitung blockiert">
+    **Ursache:** Aircall blockiert möglicherweise Weiterleitungen zu externen Nummern.
+
+    **Lösung:**
+    1. Navigieren Sie zu **Settings** → **General**
+    2. Überprüfen Sie **External forwarding** Einstellungen
+    3. Whitelisten Sie die Felix-Nummer
+    4. Kontaktieren Sie Aircall Support bei anhaltenden Problemen
+  </Accordion>
+
+  <Accordion icon="clock-rotate-left" title="Timeout zu kurz">
+    **Problem:** Felix übernimmt nicht, weil Voicemail/Timeout zu schnell greift.
+
+    **Lösung:** Erhöhen Sie die Ring-Dauer in den Call Flow Timeouts auf mindestens 20-30 Sekunden.
+  </Accordion>
+
+  <Accordion icon="chart-line" title="Anrufe werden nicht in Analytics angezeigt">
+    **Lösung:** Externe Weiterleitungen erscheinen möglicherweise anders in Analytics. Nutzen Sie Tags, um Felix-Anrufe zu identifizieren.
+  </Accordion>
+</AccordionGroup>
+
+## Best Practices
+
+<Card title="Empfohlene Konfiguration" icon="star">
+  **Für optimale Ergebnisse:**
+
+  1. **Während Geschäftszeiten:** Sequential Routing (Sie zuerst 15 Sek., dann Felix)
+  2. **Außerhalb Geschäftszeiten:** Direct to Felix
+  3. **IVR für Schadensmeldung:** Direkt zu Felix
+  4. **Queue Overflow:** Felix als Backup
+  5. **Tagging:** Automatisches "Felix" Tag für Analyse
+</Card>
+
+## Weiterführende Links
+
+<CardGroup cols={2}>
+  <Card
+    title="Öffnungszeiten konfigurieren"
+    icon="clock"
+    href="/funktionen/oeffnungszeiten"
+  >
+    Geschäftszeiten in HalloFelix festlegen
+  </Card>
+  <Card
+    title="Weiterleitungen einrichten"
+    icon="phone-arrow-right"
+    href="/funktionen/weiterleitungen"
+  >
+    Durchstellnummern konfigurieren
+  </Card>
+  <Card
+    title="E-Mail-Benachrichtigungen"
+    icon="envelope"
+    href="/funktionen/email-benachrichtigung"
+  >
+    Anrufzusammenfassungen erhalten
+  </Card>
+  <Card
+    title="Fähigkeiten anpassen"
+    icon="wand-magic-sparkles"
+    href="/funktionen/faehigkeiten"
+  >
+    Spezielle Aufgaben für Felix definieren
+  </Card>
+</CardGroup>
+
+<Note>
+  **Benötigen Sie Hilfe?** Unser Support-Team unterstützt Sie gerne bei der Aircall-Integration: [support@hallofelix.de](mailto:support@hallofelix.de)
+</Note>

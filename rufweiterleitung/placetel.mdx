@@ -1,0 +1,259 @@
+---
+title: "Rufweiterleitung mit Placetel"
+description: "Konfigurieren Sie die Rufweiterleitung von Placetel zu HalloFelix"
+---
+
+## Überblick
+
+Placetel bietet umfangreiche Rufweiterleitungs- und Routing-Funktionen über das PROFI Center. Leiten Sie Anrufe intelligent an Ihren HalloFelix-Assistenten weiter.
+
+## Rufweiterleitung im PROFI Center einrichten
+
+<Steps>
+  <Step title="PROFI Center öffnen">
+    Melden Sie sich im [Placetel PROFI Center](https://web.placetel.de) an
+  </Step>
+  <Step title="Rufbehandlung öffnen">
+    Navigieren Sie zu **Telefonanlage** → **Rufbehandlung**
+  </Step>
+  <Step title="Durchwahl oder Rufgruppe auswählen">
+    Wählen Sie die Durchwahl oder Rufgruppe aus, die zu Felix weitergeleitet werden soll
+  </Step>
+  <Step title="Rufweiterleitung konfigurieren">
+    - Klicken Sie auf **Rufumleitung**
+    - Aktivieren Sie **Rufumleitung aktivieren**
+    - Geben Sie die Felix-Telefonnummer ein (internationales Format: +49...)
+    - Wählen Sie die Bedingung (z.B. "Immer", "Nach Zeit", "Bei Besetzt")
+  </Step>
+  <Step title="Speichern">
+    Klicken Sie auf **Speichern**, um die Änderungen zu übernehmen
+  </Step>
+</Steps>
+
+## Rufweiterleitungs-Szenarien
+
+<AccordionGroup>
+  <Accordion icon="forward" title="Sofortige Weiterleitung">
+    Alle Anrufe werden sofort an Felix weitergeleitet.
+
+    **Konfiguration:**
+    - Bedingung: **Immer**
+    - Felix übernimmt alle eingehenden Anrufe sofort
+    - Ihr Telefon klingelt nicht
+
+    **Anwendungsfall:** Urlaub, außerhalb Geschäftszeiten, vollständige Automatisierung
+  </Accordion>
+
+  <Accordion icon="clock" title="Zeitverzögerte Weiterleitung (Empfohlen)">
+    Anrufe werden nach einer Wartezeit weitergeleitet.
+
+    **Konfiguration:**
+    - Bedingung: **Nach Zeit**
+    - Verzögerung: 15-20 Sekunden (empfohlen)
+    - Sie können in dieser Zeit selbst abnehmen
+
+    **Anwendungsfall:** Optimale Balance - wichtige Anrufe selbst annehmen, Rest von Felix
+  </Accordion>
+
+  <Accordion icon="phone-slash" title="Bei Besetzt">
+    Weiterleitung nur, wenn alle Leitungen besetzt sind.
+
+    **Konfiguration:**
+    - Bedingung: **Bei Besetzt**
+    - Felix übernimmt, wenn Sie bereits telefonieren
+
+    **Anwendungsfall:** Felix als virtueller Zweitapparat
+  </Accordion>
+</AccordionGroup>
+
+## Zeitgesteuerte Rufbehandlung
+
+Placetel ermöglicht zeitbasierte Routing-Regeln:
+
+1. Navigieren Sie zu **Telefonanlage** → **Rufbehandlung** → **Zeitsteuerung**
+2. Erstellen Sie Zeitprofile (z.B. "Geschäftszeiten", "Feierabend", "Wochenende")
+3. Weisen Sie jedem Zeitprofil unterschiedliche Weiterleitungen zu:
+   - **Geschäftszeiten:** Rufgruppe mit Ihnen und Felix (parallel)
+   - **Feierabend:** Direkt zu Felix
+   - **Wochenende:** Direkt zu Felix
+
+<Tip>
+  Kombinieren Sie Placetel-Zeitsteuerung mit [HalloFelix Öffnungszeiten](/funktionen/oeffnungszeiten), um unterschiedliche Begrüßungen zu nutzen.
+</Tip>
+
+## Rufgruppen mit Felix
+
+Integrieren Sie Felix in Placetel-Rufgruppen:
+
+1. Navigieren Sie zu **Telefonanlage** → **Rufgruppen**
+2. Erstellen oder bearbeiten Sie eine Rufgruppe
+3. Fügen Sie die Felix-Nummer als externes Gruppenmitglied hinzu
+4. Wählen Sie die Klingelstrategie:
+   - **Parallel:** Alle klingeln gleichzeitig
+   - **Sequenziell:** Erst Team, dann Felix
+   - **Priorität:** Felix nur als Fallback
+
+**Beispiel-Konfiguration:**
+- Mitglieder: Mitarbeiter A, Mitarbeiter B, Felix (extern)
+- Strategie: Sequenziell
+- Klingelzeit pro Mitglied: 15 Sekunden
+- Felix übernimmt nach 30 Sekunden, wenn A und B nicht abnehmen
+
+## IVR-Integration
+
+Nutzen Sie Placetel IVR mit Felix:
+
+1. Navigieren Sie zu **Telefonanlage** → **Ansage & IVR**
+2. Erstellen Sie ein IVR-Menü
+3. Definieren Sie Optionen:
+   - **Taste 1:** Vertrieb (Ihr Team)
+   - **Taste 2:** Schadensmeldung (Felix)
+   - **Taste 3:** Allgemeine Anfragen (Felix)
+   - **Timeout/Keine Eingabe:** Felix
+4. Weisen Sie Felix-Nummer den entsprechenden Tasten zu
+
+**Beispiel-Ansage:**
+> "Herzlich Willkommen bei [Firma]. Für Vertrieb drücken Sie die 1, für Schadensmeldungen die 2, für allgemeine Anfragen die 3."
+
+## Warteschlangen-Integration
+
+Integrieren Sie Felix in Placetel-Warteschlangen:
+
+1. Navigieren Sie zu **Telefonanlage** → **Warteschlangen**
+2. Erstellen oder bearbeiten Sie eine Warteschlange
+3. Fügen Sie Felix als Warteschlangen-Mitglied oder Overflow-Ziel hinzu
+4. Konfigurieren Sie:
+   - **Max. Wartezeit:** z.B. 60 Sekunden
+   - **Overflow:** Bei Überschreitung zu Felix weiterleiten
+
+Felix übernimmt Anrufe, die zu lange in der Warteschlange sind.
+
+## Ansagen vor Felix
+
+Kombinieren Sie Placetel-Ansagen mit Felix:
+
+1. Erstellen Sie eine Begrüßungsansage (z.B. "Guten Tag bei [Firma]")
+2. Konfigurieren Sie nach der Ansage die Weiterleitung zu Felix
+3. Felix übernimmt nahtlos nach der Ansage
+
+<Info>
+  Alternativ können Sie vollständig auf Placetel-Ansagen verzichten und nur die [HalloFelix-Begrüßung](/funktionen/erster-satz) nutzen.
+</Info>
+
+## Anrufer-ID (CLI) und Felix
+
+<Warning>
+  **Wichtig:** Bei Weiterleitung an externe Nummern wird die Anrufer-ID möglicherweise durch Ihre Placetel-Nummer ersetzt.
+</Warning>
+
+Für CLI-Preservation kontaktieren Sie Placetel Support, um externe Weiterleitungen mit CLI zu ermöglichen.
+
+## Weiterleitungsnummer in HalloFelix
+
+<Warning>
+  Die in HalloFelix hinterlegte Weiterleitungsnummer darf NICHT dieselbe Nummer sein, die bereits zu Felix umgeleitet ist, sonst entsteht eine Endlosschleife!
+</Warning>
+
+Optionen:
+- Ihre Mobiltelefon-Nummer (ohne Placetel-Umleitung)
+- Eine andere Placetel-Durchwahl
+- Ein Kollegen-Apparat
+
+[Mehr zu Weiterleitungen →](/funktionen/weiterleitungen)
+
+## Placetel Mobile App
+
+Verwalten Sie Weiterleitungen auch über die Placetel Mobile App:
+
+1. Öffnen Sie die Placetel App
+2. Tippen Sie auf **Einstellungen** → **Rufumleitung**
+3. Aktivieren/deaktivieren Sie Weiterleitungen schnell
+4. Ideal für unterwegs: Felix aktivieren, wenn Sie nicht erreichbar sind
+
+## Kosten
+
+<Info>
+  Weiterleitungen zu externen Nummern können zusätzliche Kosten verursachen. Prüfen Sie Ihren Placetel-Tarif für Details.
+</Info>
+
+## Testen der Konfiguration
+
+<Steps>
+  <Step title="Testanruf durchführen">
+    Rufen Sie Ihre Placetel-Nummer von extern an
+  </Step>
+  <Step title="Routing-Verhalten prüfen">
+    Testen Sie alle konfigurierten Szenarien (Zeitsteuerung, IVR, etc.)
+  </Step>
+  <Step title="Felix-Antwort verifizieren">
+    Stellen Sie sicher, dass Felix korrekt [begrüßt](/funktionen/erster-satz)
+  </Step>
+  <Step title="Placetel-Anrufjournal prüfen">
+    Kontrollieren Sie unter **Telefonie** → **Anrufjournal**, ob Anrufe erfasst wurden
+  </Step>
+  <Step title="HalloFelix Dashboard prüfen">
+    Verifizieren Sie Anrufprotokolle im HalloFelix Dashboard
+  </Step>
+</Steps>
+
+## Häufige Probleme
+
+<AccordionGroup>
+  <Accordion icon="ban" title="Externe Weiterleitung wird blockiert">
+    **Ursache:** Placetel blockiert möglicherweise externe Weiterleitungen aus Sicherheitsgründen.
+
+    **Lösung:** Kontaktieren Sie Placetel Support und lassen Sie externe Weiterleitungen für Ihre Durchwahlen freischalten.
+  </Accordion>
+
+  <Accordion icon="phone-xmark" title="Weiterleitung greift nicht">
+    **Mögliche Ursachen:**
+    - Zeitsteuerung aktiv, aber derzeit außerhalb der konfigurierten Zeit
+    - Felix-Nummer im falschen Format (nutzen Sie +49...)
+    - Anrufbeantworter/Voicemail nimmt vorher ab
+
+    **Lösung:** Deaktivieren Sie Voicemail für die weiterleitende Nummer und überprüfen Sie Zeitprofile.
+  </Accordion>
+
+  <Accordion icon="id-card-clip" title="Anrufer-ID geht verloren">
+    **Problem:** Felix sieht Ihre Placetel-Nummer statt der Original-Anrufer-ID.
+
+    **Lösung:** Kontaktieren Sie Placetel Support für CLI-Preservation.
+  </Accordion>
+</AccordionGroup>
+
+## Weiterführende Links
+
+<CardGroup cols={2}>
+  <Card
+    title="Öffnungszeiten konfigurieren"
+    icon="clock"
+    href="/funktionen/oeffnungszeiten"
+  >
+    Geschäftszeiten in HalloFelix festlegen
+  </Card>
+  <Card
+    title="Weiterleitungen einrichten"
+    icon="phone-arrow-right"
+    href="/funktionen/weiterleitungen"
+  >
+    Durchstellnummern konfigurieren
+  </Card>
+  <Card
+    title="E-Mail-Benachrichtigungen"
+    icon="envelope"
+    href="/funktionen/email-benachrichtigung"
+  >
+    Anrufzusammenfassungen erhalten
+  </Card>
+  <Card
+    title="Fähigkeiten anpassen"
+    icon="wand-magic-sparkles"
+    href="/funktionen/faehigkeiten"
+  >
+    Spezielle Aufgaben für Felix definieren
+  </Card>
+</CardGroup>
+
+<Note>
+  **Benötigen Sie Hilfe?** Unser Support-Team unterstützt Sie gerne bei der Placetel-Integration: [support@hallofelix.de](mailto:support@hallofelix.de)
+</Note>

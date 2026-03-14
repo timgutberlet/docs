@@ -1,0 +1,121 @@
+---
+title: "Rufweiterleitung fürs Handy einrichten"
+description: "Richten Sie die Rufweiterleitung von Ihrem Mobiltelefon zu HalloFelix mit GSM-Codes ein"
+---
+
+## Überblick
+
+Mit GSM-Codes können Sie Anrufe von Ihrem Handy direkt an Ihren HalloFelix-Assistenten weiterleiten. Diese Codes funktionieren auf allen Mobiltelefonen (iOS und Android).
+
+<Info>
+  **Hinweis:** Diese Anleitung gilt nur für Mobiltelefone. Bei Telefonanlagen oder Festnetzanschlüssen müssen Sie die Weiterleitung direkt im Telefonsystem konfigurieren.
+</Info>
+
+## GSM-Codes zur Aktivierung
+
+Geben Sie einen der folgenden Codes in Ihrer Telefon-App ein und drücken Sie die Anruftaste. Ersetzen Sie dabei `[Felix-Nummer]` durch die Telefonnummer Ihres HalloFelix-Assistenten.
+
+### 1. Weiterleitung nach Wartezeit (Empfohlen)
+
+Leitet Anrufe erst nach einer bestimmten Wartezeit weiter. Sie können selbst abnehmen, bevor Felix den Anruf übernimmt.
+
+```
+**61*[Felix-Nummer]*[Wartezeit]#
+```
+
+**Wartezeit:** 5, 10 oder 15 Sekunden
+
+**Beispiel:**
+```
+**61*+4930123456789*15#
+```
+
+<Tip>
+  Diese Option ist am flexibelsten. Felix übernimmt nur, wenn Sie nicht selbst abnehmen.
+</Tip>
+
+### 2. Alle Anrufe weiterleiten
+
+Leitet alle Anrufe sofort an Felix weiter. Ihr Handy klingelt nicht.
+
+```
+**21*[Felix-Nummer]#
+```
+
+### 3. Weiterleitung bei Besetzt
+
+Leitet Anrufe nur weiter, wenn Sie bereits telefonieren.
+
+```
+**67*[Felix-Nummer]#
+```
+
+### 4. Weiterleitung bei Nichterreichbarkeit
+
+Leitet Anrufe nur weiter, wenn Ihr Handy ausgeschaltet ist oder Sie keinen Empfang haben.
+
+```
+**62*[Felix-Nummer]#
+```
+
+## Alle Weiterleitungen deaktivieren
+
+Um alle Rufweiterleitungen auf einmal zu deaktivieren:
+
+```
+##002#
+```
+
+## Mailbox deaktivieren
+
+<Warning>
+  **Wichtig:** Ihre Mailbox muss deaktiviert sein, damit die Rufweiterleitung zu Felix funktioniert. Andernfalls werden Anrufe an die Mailbox statt an Felix weitergeleitet.
+</Warning>
+
+### iOS
+
+1. Öffnen Sie **Einstellungen**
+2. Tippen Sie auf **Telefon**
+3. Deaktivieren Sie **Voicemail** / **Mailbox**
+
+### Android
+
+1. Öffnen Sie **Einstellungen**
+2. Tippen Sie auf **Apps**
+3. Wählen Sie **Telefon**
+4. Deaktivieren Sie **Voicemail** / **Mailbox**
+
+Alternativ können Sie auch den Code `##002#` verwenden, um alle Weiterleitungen (inkl. Mailbox) zu deaktivieren.
+
+## Weiterführende Links
+
+<CardGroup cols={2}>
+  <Card
+    title="Fritzbox"
+    icon="wifi"
+    href="/rufweiterleitung/fritzbox"
+  >
+    Rufweiterleitung über Fritzbox
+  </Card>
+  <Card
+    title="Sipgate"
+    icon="phone"
+    href="/rufweiterleitung/sipgate"
+  >
+    Rufweiterleitung über Sipgate
+  </Card>
+  <Card
+    title="Placetel"
+    icon="phone-office"
+    href="/rufweiterleitung/placetel"
+  >
+    Rufweiterleitung über Placetel
+  </Card>
+  <Card
+    title="Starface"
+    icon="star"
+    href="/rufweiterleitung/starface"
+  >
+    Rufweiterleitung über Starface
+  </Card>
+</CardGroup>

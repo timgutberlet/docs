@@ -1,0 +1,182 @@
+---
+title: "Rufweiterleitung mit Fritzbox"
+description: "Richten Sie die Rufweiterleitung von Ihrer Fritzbox zu HalloFelix ein"
+---
+
+## Überblick
+
+Wenn Sie eine Fritzbox als Telefonanlage verwenden, können Sie Rufweiterleitungen direkt in der Fritzbox-Oberfläche konfigurieren. So leiten Sie Anrufe automatisch an Ihren HalloFelix-Assistenten weiter.
+
+<Info>
+  Diese Anleitung gilt für Fritzbox-Modelle ab Fritz!OS 7.0
+</Info>
+
+## Rufweiterleitung einrichten
+
+<Steps>
+  <Step title="Fritzbox-Oberfläche öffnen">
+    Öffnen Sie Ihren Browser und navigieren Sie zu `http://fritz.box` oder `192.168.178.1`. Melden Sie sich mit Ihren Zugangsdaten an.
+  </Step>
+  <Step title="Telefonie-Einstellungen öffnen">
+    Navigieren Sie zu **Telefonie → Rufbehandlung → Rufumleitung**
+  </Step>
+  <Step title="Neue Rufumleitung anlegen">
+    Klicken Sie auf **Neue Rufumleitung** und wählen Sie:
+    - **Art der Rufumleitung:** z.B. "Sofort" oder "Nach Zeit" (empfohlen: nach 15 Sekunden)
+    - **Von welcher Rufnummer:** Wählen Sie die Nummer, von der weitergeleitet werden soll
+    - **Zu welcher Rufnummer:** Geben Sie die Felix-Telefonnummer ein (aus dem HalloFelix Dashboard)
+  </Step>
+  <Step title="Zeitsteuerung konfigurieren (optional)">
+    Unter **Zeitschaltung** können Sie festlegen, wann die Rufumleitung aktiv sein soll:
+    - Immer aktiv
+    - Nur zu bestimmten Zeiten (z.B. außerhalb der Geschäftszeiten)
+    - An bestimmten Wochentagen
+  </Step>
+  <Step title="Speichern und aktivieren">
+    Klicken Sie auf **OK**, um die Rufumleitung zu aktivieren.
+  </Step>
+</Steps>
+
+## Rufumleitung nach Wartezeit (Empfohlen)
+
+Für die beste Flexibilität empfehlen wir die Rufumleitung "Nach Zeit":
+
+1. Wählen Sie **Rufumleitung → Nach Zeit**
+2. Stellen Sie die Wartezeit ein: **15 Sekunden** (empfohlen)
+3. Geben Sie die Felix-Nummer als Ziel ein
+4. Speichern Sie die Einstellung
+
+So haben Sie 15 Sekunden Zeit, um selbst abzunehmen, bevor Felix den Anruf übernimmt.
+
+## Verschiedene Szenarien
+
+<AccordionGroup>
+  <Accordion icon="clock" title="Weiterleitung nur außerhalb der Geschäftszeiten">
+    1. Erstellen Sie eine neue Rufumleitung mit Zeitschaltung
+    2. Wählen Sie die Zeiten aus, zu denen Felix aktiv sein soll (z.B. Mo-Fr nach 18 Uhr, Sa-So ganztägig)
+    3. Geben Sie die Felix-Nummer als Ziel an
+
+    <Tip>
+      Sie können auch in HalloFelix selbst [Öffnungszeiten](/funktionen/oeffnungszeiten) konfigurieren, um verschiedene Begrüßungen zu nutzen.
+    </Tip>
+  </Accordion>
+
+  <Accordion icon="user-slash" title="Weiterleitung bei Besetzt">
+    1. Wählen Sie als Art der Rufumleitung: **Bei Besetzt**
+    2. Felix übernimmt nur Anrufe, wenn Sie bereits telefonieren
+  </Accordion>
+
+  <Accordion icon="users" title="Spezifische Rufnummern weiterleiten">
+    Sie können verschiedene Rufnummern unterschiedlich behandeln:
+    - Hauptnummer → Immer zu Felix
+    - Servicenummer → Nur außerhalb der Geschäftszeiten zu Felix
+    - Direktdurchwahl → Nie zu Felix
+  </Accordion>
+</AccordionGroup>
+
+## Mehrere Rufnummern verwalten
+
+Wenn Sie mehrere Rufnummern haben:
+
+1. Erstellen Sie für jede Nummer eine separate Rufumleitung
+2. Nutzen Sie unterschiedliche Felix-Assistenten für verschiedene Nummern
+3. Konfigurieren Sie jeweils passende [Begrüßungen](/funktionen/erster-satz) in HalloFelix
+
+## Rufumleitung deaktivieren
+
+So deaktivieren Sie eine Rufumleitung:
+
+1. Navigieren Sie zu **Telefonie → Rufbehandlung → Rufumleitung**
+2. Wählen Sie die entsprechende Rufumleitung aus
+3. Klicken Sie auf **Löschen** oder deaktivieren Sie das Häkchen bei **Rufumleitung aktiv**
+
+## Weiterleitungsnummer in HalloFelix
+
+<Warning>
+  **Wichtig:** Wenn Felix Anrufe an Sie durchstellen soll, hinterlegen Sie in HalloFelix eine Nummer, die NICHT zur Fritzbox gehört (z.B. Ihr Mobiltelefon), um Endlosschleifen zu vermeiden.
+</Warning>
+
+[Mehr zu Weiterleitungen →](/funktionen/weiterleitungen)
+
+## Anrufbeantworter koordinieren
+
+Wenn Sie einen Anrufbeantworter in der Fritzbox haben:
+
+1. Deaktivieren Sie den Anrufbeantworter für Nummern, die zu Felix weitergeleitet werden
+2. Oder stellen Sie sicher, dass die Rufumleitung VOR dem Anrufbeantworter greift
+3. Navigieren Sie zu **Telefonie → Anrufbeantworter** und passen Sie die Einstellungen an
+
+## Testen der Konfiguration
+
+<Steps>
+  <Step title="Testanruf durchführen">
+    Rufen Sie Ihre Fritzbox-Nummer von einem externen Telefon an
+  </Step>
+  <Step title="Wartezeit prüfen">
+    Prüfen Sie, ob die Weiterleitung nach der konfigurierten Zeit greift
+  </Step>
+  <Step title="Felix-Antwort verifizieren">
+    Stellen Sie sicher, dass Felix mit der richtigen [Begrüßung](/funktionen/erster-satz) antwortet
+  </Step>
+  <Step title="Anrufprotokoll prüfen">
+    Kontrollieren Sie im HalloFelix Dashboard, ob der Anruf korrekt erfasst wurde
+  </Step>
+</Steps>
+
+## Häufige Probleme
+
+<AccordionGroup>
+  <Accordion icon="phone-slash" title="Rufumleitung funktioniert nicht">
+    **Mögliche Ursachen:**
+    - Felix-Nummer falsch eingegeben (überprüfen Sie Format: +4930...)
+    - Zeitschaltung aktiv, aber aktuell außerhalb der konfigurierten Zeiten
+    - Anrufbeantworter nimmt vorher ab
+
+    **Lösung:** Prüfen Sie alle Einstellungen und testen Sie mit einem deaktivierten Anrufbeantworter.
+  </Accordion>
+
+  <Accordion icon="volume-xmark" title="Keine Benachrichtigung über Anrufe">
+    **Lösung:** Richten Sie [E-Mail-Benachrichtigungen](/funktionen/email-benachrichtigung) in HalloFelix ein, um über alle Anrufe informiert zu werden.
+  </Accordion>
+
+  <Accordion icon="circle-exclamation" title="Internationale Nummern werden nicht weitergeleitet">
+    **Lösung:** Prüfen Sie die Fritzbox-Einstellungen unter **Telefonie → Rufbehandlung → Rufsperre**, ob internationale Nummern blockiert sind.
+  </Accordion>
+</AccordionGroup>
+
+## Weiterführende Links
+
+<CardGroup cols={2}>
+  <Card
+    title="Öffnungszeiten konfigurieren"
+    icon="clock"
+    href="/funktionen/oeffnungszeiten"
+  >
+    Geschäftszeiten in HalloFelix festlegen
+  </Card>
+  <Card
+    title="Weiterleitungen einrichten"
+    icon="phone-arrow-right"
+    href="/funktionen/weiterleitungen"
+  >
+    Durchstellnummern konfigurieren
+  </Card>
+  <Card
+    title="E-Mail-Benachrichtigungen"
+    icon="envelope"
+    href="/funktionen/email-benachrichtigung"
+  >
+    Anrufzusammenfassungen erhalten
+  </Card>
+  <Card
+    title="Erster Satz anpassen"
+    icon="comment"
+    href="/funktionen/erster-satz"
+  >
+    Begrüßung personalisieren
+  </Card>
+</CardGroup>
+
+<Note>
+  **Benötigen Sie Hilfe?** Unser Support-Team hilft Ihnen gerne bei der Konfiguration: [support@hallofelix.de](mailto:support@hallofelix.de)
+</Note>
