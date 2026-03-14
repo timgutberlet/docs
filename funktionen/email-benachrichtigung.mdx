@@ -1,0 +1,122 @@
+---
+title: "E-Mail-Benachrichtigungen"
+description: "Erhalten Sie automatisch Zusammenfassungen und Transkripte aller Anrufe per E-Mail"
+---
+
+## Überblick
+
+Nach jedem Anruf sendet Felix automatisch eine E-Mail mit Zusammenfassung und Transkript. Sie können feste E-Mail-Adressen konfigurieren und intelligente Routing-Regeln erstellen.
+
+<Info>
+  Felix bietet zwei Arten von E-Mail-Benachrichtigungen: **Feste E-Mail-Adressen** (erhalten immer alle Anrufe) und **Bedingte E-Mail-Weiterleitung** (basierend auf Anrufinhalt).
+</Info>
+
+![E-Mail-Benachrichtigungen Übersicht](/images/email-benachrichtigungen-overview.png)
+
+## Was Sie erhalten
+
+Nach jedem Anruf bekommen Sie eine E-Mail mit:
+
+- **Anrufzusammenfassung:** Datum, Uhrzeit, Anrufer, Dauer, Anliegen
+- **Vollständiges Transkript:** Wort-für-Wort-Protokoll mit Zeitstempeln
+- **PDF-Anlage:** Professionell formatiert und archivierbar
+- **Metadaten:** Assistent-Name, Anrufstatus, Kosten
+
+## Feste E-Mail-Adressen
+
+Diese E-Mail-Adressen erhalten **IMMER** nach jedem Anruf eine Benachrichtigung.
+
+<Steps>
+  <Step title="Einstellungen öffnen">
+    Navigieren Sie zu **Assistent-Einstellungen** → **E-Mail-Benachrichtigungen**
+  </Step>
+  <Step title="Feste Empfänger hinzufügen">
+    Klicken Sie auf **Feste E-Mail-Adresse hinzufügen**
+  </Step>
+  <Step title="E-Mail-Adressen eingeben">
+    Geben Sie die E-Mail-Adressen ein, die immer benachrichtigt werden sollen
+  </Step>
+  <Step title="Speichern">
+    Klicken Sie auf **Speichern**
+  </Step>
+</Steps>
+
+![Feste E-Mail-Adressen konfigurieren](/images/email-benachrichtigungen-fixe.png)
+
+## Bedingte E-Mail-Weiterleitung
+
+Felix kann Anrufe basierend auf dem Gesprächsinhalt automatisch an verschiedene E-Mail-Adressen weiterleiten.
+
+### Routing-Regeln erstellen
+
+Definieren Sie in natürlicher Sprache, wann E-Mails an welche Adressen gehen sollen:
+
+<Steps>
+  <Step title="Routing-Bereich öffnen">
+    Scrollen Sie zu **Bedingte E-Mail-Weiterleitung**
+  </Step>
+  <Step title="Regeln definieren">
+    Schreiben Sie in natürlicher Sprache, wann welche E-Mail-Adresse benachrichtigt werden soll
+  </Step>
+  <Step title="Fallback festlegen">
+    Definieren Sie eine Standard-Adresse, falls keine Regel zutrifft
+  </Step>
+  <Step title="Speichern">
+    Speichern Sie die Konfiguration
+  </Step>
+</Steps>
+
+![Bedingte E-Mail-Weiterleitung konfigurieren](/images/email-benachrichtigungen-bedingt.png)
+
+### Beispiel-Routing-Regeln
+
+<CodeGroup>
+```text Versicherungsmakler
+Wenn der Kunde einen Schaden melden möchte, sende eine E-Mail an schaden@mustermann.de
+
+Bei Interesse an einer neuen Versicherung, sende eine E-Mail an vertrieb@mustermann.de
+
+Wenn der Kunde eine bestehende Police ändern möchte, sende eine E-Mail an service@mustermann.de
+
+Falls nichts zutrifft, sende standardmäßig eine Mail an max@mustermann.de
+```
+
+```text Nach Produkt
+Wenn es um Kfz-Versicherung geht, sende E-Mail an kfz@makler.de
+
+Bei Lebensversicherung, sende E-Mail an leben@makler.de
+
+Für Hausratversicherung, sende E-Mail an hausrat@makler.de
+
+Standard: allgemein@makler.de
+```
+</CodeGroup>
+
+### Mehrere Empfänger
+
+Sie können mehrere E-Mail-Adressen für eine Regel angeben:
+
+```text
+Wenn der Kunde einen Schaden meldet, sende E-Mails an:
+- schaden@firma.de
+- max@firma.de
+```
+
+## Weiterführende Links
+
+<CardGroup cols={2}>
+  <Card
+    title="Fähigkeiten konfigurieren"
+    icon="wand-magic-sparkles"
+    href="/funktionen/faehigkeiten"
+  >
+    Was Felix erfassen soll
+  </Card>
+  <Card
+    title="Öffnungszeiten"
+    icon="clock"
+    href="/funktionen/oeffnungszeiten"
+  >
+    Zeitbasiertes Routing
+  </Card>
+</CardGroup>
