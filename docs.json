@@ -81,6 +81,11 @@
           "icon": "whatsapp"
         },
         {
+          "anchor": "Neuigkeiten & Changelog",
+          "href": "https://hallofelix.featurebase.app/",
+          "icon": "newspaper"
+        },
+        {
           "anchor": "Zur App",
           "href": "https://app.hallofelix.de",
           "icon": "arrow-up-right-from-square"
@@ -97,6 +102,10 @@
       {
         "label": "WhatsApp Kanal",
         "href": "https://web.whatsapp.com/accept?code=JCCTt93on1A3M8pAU1ytLt&utm_campaign=wa_chat_v2"
+      },
+      {
+        "label": "Neuigkeiten & Changelog",
+        "href": "https://hallofelix.featurebase.app/"
       },
       {
         "label": "Zur App",
