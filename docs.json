@@ -54,6 +54,12 @@
             ]
           },
           {
+            "group": "Ausgehende Anrufe",
+            "pages": [
+              "funktionen/ausgehende-anrufe"
+            ]
+          },
+          {
             "group": "Integrationen",
             "pages": [
               "integrationen/uebersicht"

@@ -1,0 +1,96 @@
+---
+title: "Ausgehende Anrufe"
+description: "Automatisierte ausgehende Anrufe mit KI-gestützten Kampagnen"
+---
+
+## Überblick
+
+Mit ausgehenden Anrufen können Sie proaktiv Ihre Kunden kontaktieren. Felix ruft Ihre Kunden automatisch an und führt Gespräche basierend auf Ihren Vorgaben – für Jahresgespräche, Terminvereinbarungen oder Kundenzufriedenheitsumfragen.
+
+## Kampagne erstellen
+
+<Steps>
+  <Step title="Neue Kampagne">
+    Navigieren Sie zu **Ausgehende Anrufe** → **Ausgehenden Anruf Planen**
+  </Step>
+  <Step title="Grundeinstellungen">
+    - **Name:** Aussagekräftiger Name für Ihre Kampagne (z.B. "Q1 Jahresgespräche")
+    - **Assistent:** Wählen Sie den Assistenten, der die Anrufe durchführen soll
+    - **Erster Satz:** Definieren Sie, wie Felix das Gespräch beginnt
+    - **Gesprächsziel:** Beschreiben Sie detailliert, was im Gespräch erreicht werden soll
+  </Step>
+  <Step title="Kunden hinzufügen">
+    Fügen Sie Kontakte hinzu über:
+    - **Manuell:** Einzelne Kontakte mit Vorname, Nachname und Telefonnummer
+    - **CSV-Import:** Laden Sie eine Liste aus Ihrer Verwaltungssoftware
+    - **Aus Kontakten:** Wählen Sie aus Ihren bestehenden Kundenkontakten
+  </Step>
+  <Step title="Zeitplanung">
+    - **Sofort:** Kampagne startet unmittelbar nach Erstellung
+    - **Für später:** Planen Sie Datum und Uhrzeit für den Start
+  </Step>
+  <Step title="Kampagne starten">
+    Nach dem Erstellen ruft Felix automatisch alle hinzugefügten Kontakte an. Die Anrufe werden nacheinander abgearbeitet. Sie können den Fortschritt jederzeit in der Kampagnenübersicht verfolgen.
+  </Step>
+</Steps>
+
+## Variablen im ersten Satz
+
+Personalisieren Sie die Begrüßung mit Variablen:
+
+- `{vorname}` – Wird durch den Vornamen des Kunden ersetzt
+- `{nachname}` – Wird durch den Nachnamen des Kunden ersetzt
+
+**Beispiel:**
+```text
+Guten Tag {vorname}, hier ist Sophie von Mustermann Versicherungen.
+Haben Sie kurz 2-3 Minuten Zeit für unser Jahresgespräch?
+```
+
+Wird zu: *"Guten Tag Max, hier ist Sophie von Mustermann Versicherungen..."*
+
+## Kampagnen verwalten
+
+Nach dem Start können Sie Kampagnen steuern:
+
+- **Pausieren:** Halten Sie die Kampagne vorübergehend an
+- **Fortsetzen:** Setzen Sie eine pausierte Kampagne fort
+- **Abbrechen:** Stoppen Sie die Kampagne dauerhaft
+- **Kopieren:** Erstellen Sie eine neue Kampagne basierend auf einer bestehenden
+- **Anrufe ansehen:** Klicken Sie auf das Telefon-Symbol, um alle durchgeführten Anrufe der Kampagne einzusehen, Gesprächsaufzeichnungen anzuhören und Details zu prüfen
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Klares Gesprächsziel definieren">
+    Je präziser Sie das Ziel beschreiben, desto besser kann Felix das Gespräch führen. Strukturieren Sie die Anweisungen in nummerierte Schritte.
+  </Accordion>
+  <Accordion title="Realistische Zeitangaben">
+    Teilen Sie dem Kunden mit, wie lange das Gespräch dauert. "2-3 Minuten" erhöht die Bereitschaft zur Teilnahme.
+  </Accordion>
+  <Accordion title="Testanruf durchführen">
+    Erstellen Sie zunächst eine Kampagne mit Ihrer eigenen Nummer, um den Ablauf zu testen.
+  </Accordion>
+  <Accordion title="Zeitplanung beachten">
+    Planen Sie Anrufe innerhalb Ihrer Geschäftszeiten. Vermeiden Sie frühe Morgen- oder späte Abendstunden.
+  </Accordion>
+</AccordionGroup>
+
+## Weiterführende Links
+
+<CardGroup cols={2}>
+  <Card
+    title="Kalender-Integration"
+    icon="calendar"
+    href="/funktionen/kalender"
+  >
+    Terminbuchung bei Anrufen
+  </Card>
+  <Card
+    title="Fähigkeiten"
+    icon="list-check"
+    href="/funktionen/fähigkeiten"
+  >
+    Aufgaben für Assistenten
+  </Card>
+</CardGroup>
