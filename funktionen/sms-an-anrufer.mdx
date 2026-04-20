@@ -1,0 +1,86 @@
+---
+title: "SMS an Anrufer"
+description: "Senden Sie während des Anrufs automatisch eine SMS an den Anrufer"
+---
+
+## Überblick
+
+Felix kann während des Gesprächs automatisch eine SMS an den Anrufer senden – zum Beispiel mit einem Link zur Schadensmeldung, zur Datenänderung oder zu einem Kfz-Service-Formular.
+
+<Info>
+  Felix wählt die passende Vorlage anhand der definierten **Bedingung** aus und holt vor dem Versand die Zustimmung des Anrufers ein. Die Funktion gilt für eingehende und ausgehende Anrufe.
+</Info>
+
+## SMS aktivieren
+
+<Steps>
+  <Step title="Einstellungen öffnen">
+    Navigieren Sie zu **Assistent-Einstellungen** → **SMS / E-Mail** → **SMS an Anrufer**
+  </Step>
+  <Step title="SMS während des Anrufs aktivieren">
+    Schalten Sie **SMS während des Anrufs** ein
+  </Step>
+  <Step title="Absendername festlegen">
+    Tragen Sie einen **SMS-Absendername** ein. Dieser wird dem Empfänger als Absender angezeigt.
+
+    - Maximal 11 Zeichen
+    - Nur Buchstaben, Ziffern und Leerzeichen
+  </Step>
+  <Step title="Vorlagen konfigurieren">
+    Fügen Sie Vorlagen hinzu und passen Sie diese an
+  </Step>
+  <Step title="Speichern">
+    Klicken Sie auf **Speichern**
+  </Step>
+</Steps>
+
+## Vorlagen
+
+Jede Vorlage besteht aus drei Feldern:
+
+- **Name:** Interner Name der Vorlage, z.B. "Schadenmeldung". Muss eindeutig sein.
+- **Bedingung:** Beschreibt in natürlicher Sprache, wann diese SMS gesendet werden soll. Felix interpretiert die Bedingung im Gespräch semantisch.
+- **Nachricht:** Der SMS-Text, der an den Anrufer gesendet wird. Maximal 480 Zeichen.
+
+<Tip>
+  Beispiel einer Bedingung: *"Wenn der Anrufer eine Schadensmeldung machen möchte."* Felix wählt diese Vorlage, sobald das Anliegen erkannt wird.
+</Tip>
+
+### Vordefinierte Vorlagen
+
+Über **Vorlage hinzufügen** stehen vorbereitete Vorlagen für den Versicherungsalltag zur Auswahl. Sie können diese direkt übernehmen oder als Grundlage anpassen.
+
+### Benutzerdefinierte Vorlagen
+
+Wählen Sie **Benutzerdefinierte Vorlage**, um eine eigene Vorlage mit individuellem Namen, Bedingung und Nachrichtentext anzulegen. Die Anzahl der Vorlagen ist nicht begrenzt.
+
+## Ablauf während des Anrufs
+
+1. Der Anrufer schildert sein Anliegen (oder Felix erreicht ihn im Rahmen einer ausgehenden Kampagne)
+2. Felix erkennt, dass eine Vorlage zur **Bedingung** passt
+3. Felix fasst das Anliegen zusammen und fragt den Anrufer um Zustimmung zum SMS-Versand
+4. Erst nach ausdrücklicher Zustimmung wird die SMS gesendet
+5. Die SMS erscheint beim Empfänger mit dem konfigurierten Absendernamen
+
+<Warning>
+  Ohne ausdrückliche Zustimmung des Anrufers wird keine SMS versendet.
+</Warning>
+
+## Weiterführende Links
+
+<CardGroup cols={2}>
+  <Card
+    title="E-Mail-Benachrichtigungen"
+    icon="envelope"
+    href="/funktionen/email-benachrichtigung"
+  >
+    Interne Benachrichtigungen per E-Mail
+  </Card>
+  <Card
+    title="Ausgehende Anrufe"
+    icon="phone-arrow-up-right"
+    href="/funktionen/ausgehende-anrufe"
+  >
+    Kampagnen für ausgehende Anrufe
+  </Card>
+</CardGroup>
