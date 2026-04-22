@@ -1,0 +1,93 @@
+---
+title: "E-Mail an Anrufer"
+description: "Senden Sie während des Anrufs automatisch eine E-Mail an den Anrufer"
+---
+
+## Überblick
+
+Felix kann während des Gesprächs automatisch eine E-Mail an den Anrufer senden – zum Beispiel mit nächsten Schritten zu einer Schadensmeldung, einem Formular zur Datenänderung oder weiterführenden Informationen.
+
+<Info>
+  Felix wählt die passende Vorlage anhand der definierten **Bedingung** aus und holt vor dem Versand die Zustimmung des Anrufers ein. Die Funktion gilt für eingehende und ausgehende Anrufe.
+</Info>
+
+<Note>
+  Die E-Mail wird nur gesendet, wenn für den Anrufer bereits eine E-Mail-Adresse hinterlegt ist.
+</Note>
+
+![E-Mail an Anrufer Übersicht](/images/email-an-anrufer/overview.png)
+
+## E-Mail aktivieren
+
+<Steps>
+  <Step title="Einstellungen öffnen">
+    Navigieren Sie zu **Assistent-Einstellungen** → **SMS / E-Mail** → **E-Mail an Anrufer**
+  </Step>
+  <Step title="E-Mail während des Anrufs aktivieren">
+    Schalten Sie **E-Mail während des Anrufs** ein
+  </Step>
+  <Step title="Vorlagen konfigurieren">
+    Fügen Sie Vorlagen hinzu und passen Sie diese an
+  </Step>
+  <Step title="Speichern">
+    Klicken Sie auf **Speichern**
+  </Step>
+</Steps>
+
+![E-Mail während des Anrufs aktivieren](/images/email-an-anrufer/aktivieren.png)
+
+## Vorlagen
+
+Jede Vorlage besteht aus vier Feldern:
+
+- **Name:** Interner Name der Vorlage, z.B. "Schadenmeldung". Muss eindeutig sein.
+- **Bedingung:** Beschreibt in natürlicher Sprache, wann diese E-Mail gesendet werden soll. Felix interpretiert die Bedingung im Gespräch semantisch.
+- **Betreff:** Die Betreffzeile der E-Mail. Maximal 200 Zeichen.
+- **Text:** Der Inhalt der E-Mail. Maximal 10.000 Zeichen. Unterstützt einfache HTML-Formatierung: `<b>`, `<i>`, `<a>`, `<p>`, `<h1>`–`<h3>`, `<ul>`, `<ol>`, `<li>`.
+
+<Tip>
+  Beispiel einer Bedingung: *"Wenn der Anrufer einen Schaden meldet."* Felix wählt diese Vorlage, sobald das Anliegen erkannt wird.
+</Tip>
+
+![Vorlage mit Name, Bedingung, Betreff und Text](/images/email-an-anrufer/vorlage.png)
+
+### Vordefinierte Vorlagen
+
+Über **Vorlage hinzufügen** stehen vorbereitete Vorlagen für den Versicherungsalltag zur Auswahl. Sie können diese direkt übernehmen oder als Grundlage anpassen.
+
+![Vorlage hinzufügen Auswahl](/images/email-an-anrufer/vorlage-hinzufuegen.png)
+
+### Benutzerdefinierte Vorlagen
+
+Wählen Sie **Benutzerdefinierte Vorlage**, um eine eigene Vorlage mit individuellem Namen, Bedingung, Betreff und Text anzulegen. Die Anzahl der Vorlagen ist nicht begrenzt.
+
+## Ablauf während des Anrufs
+
+1. Der Anrufer schildert sein Anliegen (oder Felix erreicht ihn im Rahmen einer ausgehenden Kampagne)
+2. Felix erkennt, dass eine Vorlage zur **Bedingung** passt
+3. Felix fasst das Anliegen zusammen und fragt den Anrufer um Zustimmung zum E-Mail-Versand
+4. Erst nach ausdrücklicher Zustimmung wird die E-Mail gesendet
+5. Die E-Mail wird an die hinterlegte E-Mail-Adresse des Anrufers zugestellt
+
+<Warning>
+  Ohne ausdrückliche Zustimmung des Anrufers wird keine E-Mail versendet.
+</Warning>
+
+## Weiterführende Links
+
+<CardGroup cols={2}>
+  <Card
+    title="SMS an Anrufer"
+    icon="message"
+    href="/funktionen/sms-an-anrufer"
+  >
+    SMS-Nachrichten während des Anrufs
+  </Card>
+  <Card
+    title="Ausgehende Anrufe"
+    icon="phone-arrow-up-right"
+    href="/funktionen/ausgehende-anrufe"
+  >
+    Kampagnen für ausgehende Anrufe
+  </Card>
+</CardGroup>

@@ -51,6 +51,7 @@
               "funktionen/weiterleitungen",
               "funktionen/anrufbehandlung",
               "funktionen/sms-an-anrufer",
+              "funktionen/email-an-anrufer",
               "funktionen/erweiterte-einstellungen"
             ]
           },
