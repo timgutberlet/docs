@@ -32,6 +32,7 @@
             "pages": [
               "rufweiterleitung/handy",
               "rufweiterleitung/fritzbox",
+              "rufweiterleitung/telekom-cloud-pbx",
               "rufweiterleitung/ringcentral",
               "rufweiterleitung/aircall",
               "rufweiterleitung/sipgate",

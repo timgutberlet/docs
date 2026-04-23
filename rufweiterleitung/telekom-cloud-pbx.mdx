@@ -1,0 +1,212 @@
+---
+title: "Telekom Cloud PBX: Rufweiterleitung einrichten"
+description: "Konfigurieren Sie die Rufweiterleitung von Telekom Cloud PBX 2.0 zu HalloFelix"
+---
+
+## Überblick
+
+Die Telekom Cloud PBX 2.0 bietet flexible Rufweiterleitungsoptionen über das Online-Portal. Mit Zeitplänen können Sie automatisch zwischen verschiedenen Weiterleitungsszenarien wechseln.
+
+<Info>
+  **Wichtig:** Die Einrichtung muss über einen Administrator-Account erfolgen, der unternehmensweite Einstellungen vornehmen kann.
+</Info>
+
+## Voraussetzungen
+
+Bevor Sie beginnen, stellen Sie sicher, dass:
+
+- Sie Administrator-Zugriff auf das Telekom Cloud PBX Portal haben
+- Sie die HalloFelix-Telefonnummer kennen
+- Sie die gewünschten Geschäftszeiten definiert haben
+
+## Schritt-für-Schritt Anleitung
+
+<Steps>
+  <Step title="Online-Portal öffnen">
+    Melden Sie sich mit Ihrem Administrator-Account im Telekom Cloud PBX Portal an.
+  </Step>
+
+  <Step title="Experten-Einstellungen aktivieren">
+    Klicken Sie oben rechts auf **Experten Einstellungen**, um auf erweiterte Konfigurationsoptionen zuzugreifen.
+  </Step>
+
+  <Step title="Zeitpläne verwalten">
+    Navigieren Sie zu **Zeitpläne verwalten** und erstellen Sie folgende drei Zeitpläne:
+
+    **1. Wochenende:**
+    - Wiederholen: Wöchentlich
+    - Tage: Samstag & Sonntag
+    - Zeit: Ganztägig
+
+    **2. Nachmittag/Abend:**
+    - Wiederholen: Wöchentlich
+    - Tage: Montag - Freitag
+    - Zeit: 17:00 - 23:59 Uhr
+
+    **3. Morgens/Vormittag:**
+    - Wiederholen: Wöchentlich
+    - Tage: Montag - Freitag
+    - Zeit: 00:00 - 09:00 Uhr
+
+    <Tip>
+      Passen Sie die Uhrzeiten an Ihre individuellen Geschäftszeiten an. Die Zeitpläne decken alle Zeiten außerhalb der regulären Arbeitszeit ab.
+    </Tip>
+  </Step>
+
+  <Step title="Selektive Weiterleitung einrichten">
+    Navigieren Sie zu **Telefon** → **Selektive Weiterleitung**
+
+    Für jeden der drei erstellten Zeitpläne:
+    1. Wählen Sie den Zeitplan aus
+    2. Geben Sie die HalloFelix-Telefonnummer als Weiterleitungsziel ein
+    3. Aktivieren Sie die Weiterleitung
+
+    <Info>
+      Die selektive Weiterleitung wird nur während der definierten Zeitpläne aktiv und leitet Anrufe außerhalb Ihrer Geschäftszeiten direkt an HalloFelix weiter.
+    </Info>
+  </Step>
+
+  <Step title="Allgemeine Weiterleitung konfigurieren (Optional)">
+    Navigieren Sie zu **Telefon** → **Allgemeine Weiterleitung**
+
+    Konfigurieren Sie eine **verzögerte Weiterleitung**:
+    - Aktivieren Sie "Weiterleitung nach X Klingeltönen"
+    - Empfehlung: 3-5 Klingeltöne (ca. 15-20 Sekunden)
+    - Ziel: HalloFelix-Telefonnummer
+
+    <Warning>
+      Diese Einstellung gilt für Zeiten **innerhalb** Ihrer Geschäftszeiten, wenn die Zeitplan-basierten Weiterleitungen nicht aktiv sind. Sie ermöglicht es Ihnen, wichtige Anrufe selbst anzunehmen, während verpasste Anrufe nach kurzer Wartezeit an HalloFelix weitergeleitet werden.
+    </Warning>
+  </Step>
+
+  <Step title="Einstellungen speichern">
+    Speichern Sie alle vorgenommenen Änderungen. Die Weiterleitungen sind nun aktiv und werden automatisch entsprechend der konfigurierten Zeitpläne geschaltet.
+  </Step>
+</Steps>
+
+## Weiterleitungs-Szenarien
+
+<AccordionGroup>
+  <Accordion icon="sun" title="Während der Geschäftszeiten (09:00-17:00)">
+    **Verhalten:**
+    - Ihr Telefon klingelt zuerst
+    - Nach 3-5 Klingeltönen wird zu HalloFelix weitergeleitet
+    - Die selektiven Weiterleitungen sind inaktiv
+
+    **Anwendungsfall:** Sie können wichtige Anrufe selbst annehmen, verpasste Anrufe übernimmt HalloFelix.
+  </Accordion>
+
+  <Accordion icon="moon" title="Außerhalb der Geschäftszeiten">
+    **Verhalten:**
+    - Anrufe werden sofort an HalloFelix weitergeleitet
+    - Ihr Telefon klingelt nicht
+    - Zeitplan-basierte Weiterleitung ist aktiv
+
+    **Zeiträume:**
+    - Mo-Fr: 00:00-09:00 und 17:00-23:59
+    - Sa-So: Ganztägig
+
+    **Anwendungsfall:** HalloFelix übernimmt alle Anrufe komplett automatisch.
+  </Accordion>
+</AccordionGroup>
+
+## Aktivierungs-Codes
+
+Die Telekom Cloud PBX unterstützt auch Telefoncodes für die manuelle Steuerung:
+
+- **Selektive Weiterleitung aktivieren:** `#76 78876`
+- **Selektive Weiterleitung deaktivieren:** `#77 78877`
+
+<Tip>
+  Nutzen Sie diese Codes, um die Weiterleitung bei Bedarf schnell manuell zu aktivieren oder zu deaktivieren, z.B. bei unerwarteten Abwesenheiten.
+</Tip>
+
+## Testen der Konfiguration
+
+<Steps>
+  <Step title="Testanruf während Geschäftszeiten">
+    Rufen Sie Ihre Cloud PBX-Nummer an und prüfen Sie:
+    - Klingelt Ihr Telefon zuerst?
+    - Wird nach der konfigurierten Zeit zu HalloFelix weitergeleitet?
+  </Step>
+
+  <Step title="Testanruf außerhalb Geschäftszeiten">
+    Simulieren Sie einen Anruf außerhalb der Geschäftszeiten:
+    - Wird sofort zu HalloFelix weitergeleitet?
+    - Klingelt Ihr Telefon nicht?
+  </Step>
+
+  <Step title="HalloFelix Dashboard prüfen">
+    Verifizieren Sie im HalloFelix Dashboard, dass:
+    - Anrufe korrekt protokolliert werden
+    - Die Anrufer-Rufnummer übertragen wird
+  </Step>
+</Steps>
+
+## Häufige Probleme
+
+<AccordionGroup>
+  <Accordion icon="user-lock" title="Fehlende Administrator-Rechte">
+    **Problem:** Sie können die Einstellungen nicht ändern.
+
+    **Lösung:** Kontaktieren Sie Ihren Telekom Cloud PBX Administrator oder wenden Sie sich an die IT-Abteilung. Nur Accounts mit Administrator-Rechten können unternehmensweite Weiterleitungen konfigurieren.
+  </Accordion>
+
+  <Accordion icon="clock" title="Zeitplan greift nicht">
+    **Mögliche Ursachen:**
+    - Zeitplan nicht korrekt konfiguriert
+    - Zeitzone nicht berücksichtigt
+    - Überschneidende Zeitpläne
+
+    **Lösung:** Überprüfen Sie alle Zeitpläne auf Vollständigkeit und stellen Sie sicher, dass keine Lücken oder Überschneidungen existieren.
+  </Accordion>
+
+  <Accordion icon="phone-xmark" title="Weiterleitung funktioniert nicht">
+    **Mögliche Ursachen:**
+    - HalloFelix-Nummer im falschen Format
+    - Externe Weiterleitungen nicht freigeschaltet
+    - Anrufbeantworter nimmt vorher ab
+
+    **Lösung:**
+    - Verwenden Sie das internationale Format (+49...)
+    - Deaktivieren Sie die Cloud PBX Sprachbox
+    - Kontaktieren Sie den Telekom Support bei anhaltenden Problemen
+  </Accordion>
+</AccordionGroup>
+
+## Weiterführende Links
+
+<CardGroup cols={2}>
+  <Card
+    title="Öffnungszeiten konfigurieren"
+    icon="clock"
+    href="/funktionen/oeffnungszeiten"
+  >
+    Geschäftszeiten in HalloFelix festlegen
+  </Card>
+  <Card
+    title="Weiterleitungen einrichten"
+    icon="phone-arrow-right"
+    href="/funktionen/weiterleitungen"
+  >
+    Durchstellnummern konfigurieren
+  </Card>
+  <Card
+    title="E-Mail-Benachrichtigungen"
+    icon="envelope"
+    href="/funktionen/email-benachrichtigung"
+  >
+    Anrufzusammenfassungen erhalten
+  </Card>
+  <Card
+    title="Fähigkeiten anpassen"
+    icon="wand-magic-sparkles"
+    href="/funktionen/faehigkeiten"
+  >
+    Spezielle Aufgaben für Felix definieren
+  </Card>
+</CardGroup>
+
+<Note>
+  **Benötigen Sie Hilfe?** Unser Support-Team unterstützt Sie gerne bei der Telekom Cloud PBX-Konfiguration: [support@hallofelix.de](mailto:support@hallofelix.de)
+</Note>
