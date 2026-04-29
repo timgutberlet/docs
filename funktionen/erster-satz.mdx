@@ -11,14 +11,29 @@ Der erste Satz ist das Erste, was Ihre Anrufer hören. Eine professionelle, freu
   Sie können verschiedene Begrüßungen für unterschiedliche Zeiten konfigurieren: Während der Geschäftszeiten, außerhalb der Öffnungszeiten und für Urlaubszeiten.
 </Info>
 
-## Standard-Begrüßung
+## Text- oder Persönliche Begrüßung
+
+Für den ersten Satz stehen zwei Modi zur Auswahl. Sie können den Modus sowohl für die Standard-Begrüßung als auch für die Begrüßung außerhalb der Öffnungszeiten unabhängig festlegen.
+
+<CardGroup cols={2}>
+  <Card title="Text-Begrüßung" icon="keyboard">
+    Der Assistent spricht Ihren eingegebenen Text per KI-Stimme vor. Schnell anpassbar und ideal, wenn Sie Begrüßungen häufig ändern.
+  </Card>
+  <Card title="Persönliche Begrüßung" icon="microphone">
+    Eine eigene Audioaufnahme wird zu Beginn des Anrufs abgespielt. Persönlicher Klang in Ihrer eigenen Stimme – die KI übernimmt nahtlos das weitere Gespräch.
+  </Card>
+</CardGroup>
+
+![Umschalter zwischen Text- und Persönlicher Begrüßung](/images/erster-satz/mode-toggle.png)
+
+## Standard-Begrüßung (Text)
 
 <Steps>
-  <Step title="Assistent-Einstellungen öffnen">
-    Navigieren Sie zu **Dashboard** → **Ihr Assistent** → **Einstellungen**
+  <Step title="Einstellungen öffnen">
+    Navigieren Sie zu **Assistenten** → Tab **Assistent** → **Begrüßung**
   </Step>
-  <Step title="Erster Satz bearbeiten">
-    Scrollen Sie zum Tab **Erster Satz**
+  <Step title="Modus wählen">
+    Wählen Sie **Text-Begrüßung**
   </Step>
   <Step title="Begrüßungstext eingeben">
     Geben Sie Ihre gewünschte Begrüßung ein
@@ -28,49 +43,46 @@ Der erste Satz ist das Erste, was Ihre Anrufer hören. Eine professionelle, freu
   </Step>
 </Steps>
 
-## Beispiel-Begrüßungen
+![Text-Begrüßung mit Vorlagen-Auswahl und Textfeld](/images/erster-satz/text-begruessung.png)
 
-<CodeGroup>
-```text Standard
-Hallo, hier ist Viktoria der Digitale Assistent
-von Mustermann Versicherungen.
+## Persönliche Begrüßung (Audio)
 
-Wie kann ich ihnen helfen?
-```
+Nehmen Sie Ihre Begrüßung direkt im Browser auf oder laden Sie eine vorhandene Audiodatei hoch.
 
-```text Weiterleitung
-Hallo, hier ist Viktoria der Digitale Assistent
-von Mustermann Versicherungen.
+<Steps>
+  <Step title="Modus wählen">
+    Wählen Sie unter **Assistenten** → Tab **Assistent** → **Begrüßung** den Modus **Persönliche Begrüßung**
+  </Step>
+  <Step title="Aufnehmen oder Hochladen">
+    Klicken Sie auf **Aufnehmen** und erlauben Sie den Mikrofon-Zugriff – oder verwenden Sie **Datei hochladen**, um eine bestehende Aufnahme zu nutzen.
+  </Step>
+  <Step title="Anhören und prüfen">
+    Hören Sie die Aufnahme über den Player ab. Mit **Verwerfen** oder **Neu aufnehmen** können Sie die Aufnahme wiederholen.
+  </Step>
+  <Step title="Speichern">
+    Klicken Sie auf **Speichern**, um die Aufnahme zu übernehmen.
+  </Step>
+</Steps>
 
-Momentan sind alle Mitarbeiter im Gespräch.
-Ich kann ihr Anliegen direkt aufnehmen und weiterleiten.
+![Persönliche Begrüßung aufnehmen oder hochladen](/images/erster-satz/persoenliche-begruessung.png)
 
-Wie kann ich Ihnen helfen?
-```
+<Info>
+  **Unterstützte Formate:** MP3, WAV oder WebM · max. 2 MB
+</Info>
 
-```text Aktiv helfen
-Hallo, hier ist Viktoria der Digitale Assistent
-von Mustermann Versicherungen.
+<Tip>
+  **Tipp für eine gute Aufnahme:** Sprechen Sie Ihren Firmennamen, erwähnen Sie die KI-Assistentin und beenden Sie mit einer Frage. So übernimmt die KI nahtlos das Gespräch.
 
-Aktuell sind alle Mitarbeiter im Gespräch aber ich kann
-Ihnen auch weiterhelfen.
+  *Beispiel:* „Kanzlei Mustermann, guten Tag. Sie sprechen gleich mit unserer KI-Assistentin. Worum geht es?"
+</Tip>
 
-Ich würde mich freuen wenn Sie es einmal probieren.
-```
-
-```text Anrufbeantworter
-Hallo, hier ist Viktoria, der digitale Assistent
-von Mustermann Versicherungen.
-
-Aktuell sind alle Mitarbeiter im Gespräch.
-Keine Angst, sie können einfach mit mir sprechen,
-ich funktioniere wie ein smarter Anrufbeantworter.
-```
-</CodeGroup>
+<Note>
+  Eine vorhandene Aufnahme können Sie jederzeit über **Löschen** entfernen oder durch eine neue Aufnahme ersetzen.
+</Note>
 
 ## Begrüßung außerhalb der Öffnungszeiten
 
-Konfigurieren Sie eine spezielle Begrüßung für Anrufe außerhalb Ihrer Geschäftszeiten:
+Konfigurieren Sie eine spezielle Begrüßung für Anrufe außerhalb Ihrer Geschäftszeiten. Auch hier können Sie zwischen **Text-Begrüßung** und **Persönlicher Begrüßung** wählen.
 
 <Steps>
   <Step title="Öffnungszeiten konfigurieren">
@@ -79,10 +91,15 @@ Konfigurieren Sie eine spezielle Begrüßung für Anrufe außerhalb Ihrer Gesch�
   <Step title="Alternative Begrüßung aktivieren">
     Aktivieren Sie **Anderen Satz außerhalb der Öffnungszeiten nutzen**
   </Step>
-  <Step title="Begrüßungstext eingeben">
-    Geben Sie eine Begrüßung ein, die erklärt, dass gerade geschlossen ist
+  <Step title="Modus wählen">
+    Wählen Sie **Text-Begrüßung** oder **Persönliche Begrüßung**
+  </Step>
+  <Step title="Begrüßung hinterlegen">
+    Geben Sie einen Text ein bzw. nehmen Sie eine eigene Aufnahme auf, die erklärt, dass gerade geschlossen ist
   </Step>
 </Steps>
+
+![Begrüßung außerhalb der Öffnungszeiten aktivieren](/images/erster-satz/ausserhalb-oeffnungszeiten.png)
 
 **Beispiel:**
 ```text
@@ -93,45 +110,7 @@ Gerne können Sie mir Ihr Anliegen schildern, und wir melden uns schnellstmögli
 
 ## Urlaubs-/Abwesenheitsbegrüßung
 
-Für Urlaub oder Feiertage können Sie geschlossene Zeiträume mit eigener Begrüßung erstellen:
-
-<Steps>
-  <Step title="Geschlossene Zeiträume öffnen">
-    Navigieren Sie zu [Öffnungszeiten](/funktionen/oeffnungszeiten) → **Geschlossene Zeiträume**
-  </Step>
-  <Step title="Zeitraum hinzufügen">
-    Erstellen Sie einen neuen geschlossenen Zeitraum
-  </Step>
-  <Step title="Spezielle Begrüßung">
-    Geben Sie optional eine eigene Begrüßung für diesen Zeitraum ein
-  </Step>
-</Steps>
-
-**Beispiel:**
-```text
-Schöne Feiertage! Sie haben Mustermann Versicherungen erreicht.
-Über die Weihnachtstage sind wir nicht im Büro.
-Ab dem 7. Januar sind wir wieder wie gewohnt für Sie da.
-Beschreiben Sie mir gerne Ihr Anliegen und ich leite es weiter.
-```
-
-## Best Practices
-
-<Card title="Empfohlene Elemente" icon="circle-check">
-  ✅ **Firmenname** - Klarheit, wer abnimmt
-
-  ✅ **Freundliche Ansprache** - "Guten Tag", "Herzlich willkommen"
-
-  ✅ **Hilfsangebot** - "Wie kann ich helfen?"
-
-  ✅ **Bei Abwesenheit: Verfügbarkeit** - Wann Sie wieder erreichbar sind
-</Card>
-
-<Warning>
-  **Zu vermeiden:**
-  - Zu lange Begrüßungen (max. 15-20 Sekunden)
-  - Komplexe Menüs im ersten Satz
-</Warning>
+Für Urlaub und Feiertage können Sie pro [geschlossenem Zeitraum](/funktionen/oeffnungszeiten) eine eigene Begrüßung hinterlegen.
 
 ## Weiterführende Links
 
