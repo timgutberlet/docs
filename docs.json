@@ -24,7 +24,8 @@
             "group": "Erste Schritte",
             "pages": [
               "index",
-              "quickstart"
+              "quickstart",
+              "schnellstart-einfuehrung"
             ]
           },
           {
@@ -71,7 +72,8 @@
           {
             "group": "Infos & Hilfe",
             "pages": [
-              "infos-hilfe/rechnungen-einsehen"
+              "infos-hilfe/rechnungen-einsehen",
+              "infos-hilfe/dsgvo-konform-nutzen"
             ]
           }
         ]
