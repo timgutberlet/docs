@@ -64,6 +64,15 @@
             ]
           },
           {
+            "group": "WhatsApp",
+            "pages": [
+              "whatsapp/einrichtung",
+              "whatsapp/assistent",
+              "whatsapp/vorlagen",
+              "whatsapp/posteingang"
+            ]
+          },
+          {
             "group": "Integrationen",
             "pages": [
               "integrationen/uebersicht"

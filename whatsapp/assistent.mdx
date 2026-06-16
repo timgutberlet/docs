@@ -1,0 +1,105 @@
+---
+title: "KI-Assistent"
+description: "Automatische WhatsApp-Antworten mit einem KI-Chatbot"
+---
+
+## Was macht der WhatsApp-Assistent?
+
+Der KI-Assistent antwortet automatisch auf eingehende WhatsApp-Nachrichten, wenn kein Mitarbeiter zugewiesen ist. Er kann Kundenfragen beantworten, Termine buchen und bei Bedarf an einen Mitarbeiter übergeben.
+
+---
+
+## Assistent erstellen
+
+<Steps>
+  <Step title="Zu Assistenten navigieren">
+    Öffnen Sie [app.hallofelix.de/assistants](https://app.hallofelix.de/assistants) und wählen Sie **Neuer WhatsApp-Assistent**.
+  </Step>
+  <Step title="Grundkonfiguration">
+    Vergeben Sie einen Namen, wählen Sie die Sprache(n) und den Umgangston (Sie/Du).
+  </Step>
+  <Step title="Anweisungen eingeben">
+    Beschreiben Sie in der **Allgemeinen Anweisung**, wer der Assistent ist und was er tun soll (max. 12.000 Zeichen).
+  </Step>
+  <Step title="Stil festlegen">
+    Unter **Stil** definieren Sie den Kommunikationsstil, z.B. kurze Antworten, kein Emoji, sachlicher Ton.
+  </Step>
+  <Step title="Speichern und mit Konto verknüpfen">
+    Speichern Sie den Assistenten und navigieren Sie zu **WhatsApp → Einstellungen**, um ihn dem gewünschten Konto zuzuweisen.
+  </Step>
+</Steps>
+
+---
+
+## Konfiguration im Detail
+
+### Stil-Schnellvorlagen
+
+Im Tab **Stil** stehen vorgefertigte Bausteine bereit, z.B.:
+- Kurz halten (max. 2–3 Sätze)
+- Locker & freundlich
+- Nur eine Frage stellen
+- Wenig/keine Emojis
+- Sachlich & direkt
+
+### Übergabe an Mitarbeiter (Handoff)
+
+Unter **Übergabe** legen Sie fest:
+- **Standard-Mitarbeiter**: An wen übergeben wird, wenn keine Regel greift
+- **Übergabe-Regeln**: Bedingungen, bei denen der Assistent die Konversation an einen Menschen weiterleitet (z.B. "Wenn Kunde verärgert ist")
+
+<Info>
+  Nach der Übergabe pausiert der KI-Assistent automatisch. Der Mitarbeiter kann die KI jederzeit wieder aktivieren.
+</Info>
+
+### Terminbuchung
+
+Im Tab **Kalender** wählen Sie einen von drei Modi:
+
+| Modus | Beschreibung |
+|-------|-------------|
+| Keine Buchung | Assistent bucht keine Termine |
+| Eigene Kalender | Eigene Kalender und Öffnungszeiten konfigurieren |
+| Vom Telefon-Assistenten übernehmen | Kalendereinstellungen des Anruf-Assistenten wiederverwenden |
+
+---
+
+## KI-Antworten aktivieren
+
+Nachdem der Assistent mit einem WhatsApp-Konto verknüpft ist, aktivieren Sie **KI-Auto-Antwort** in den Kontoeinstellungen unter **WhatsApp → Einstellungen**.
+
+**Die KI antwortet nicht, wenn:**
+- Die Konversation einem Mitarbeiter manuell zugewiesen wurde
+- Die KI für die Konversation pausiert wurde
+- Der Kunde explizit von der KI ausgeschlossen wurde
+- Kein Assistent mit dem Konto verknüpft ist
+
+---
+
+## Assistent testen
+
+Im Assistenten-Editor befindet sich rechts ein **Test-Panel**. Geben Sie eine Nachricht ein, um zu sehen, wie der Assistent antwortet.
+
+<Warning>
+  Speichern Sie alle Änderungen vor dem Test — das Test-Panel nutzt die gespeicherte Konfiguration, nicht ungespeicherte Änderungen.
+</Warning>
+
+---
+
+## Automatische Nachrichten (ohne KI)
+
+Unabhängig vom KI-Assistenten können Sie für jedes Konto einfache Text-Antworten einrichten:
+
+- **Begrüßungsnachricht**: Wird beim ersten Kontakt gesendet
+- **Abwesenheitsnachricht**: Wird außerhalb der Öffnungszeiten gesendet (max. 480 Zeichen je Nachricht)
+
+Diese Nachrichten werden **vor** der KI-Antwort gesendet. Wenn eine automatische Nachricht greift, antwortet die KI in diesem Fall nicht zusätzlich.
+
+<CardGroup cols={2}>
+  <Card title="Vorlagen & 24h-Fenster" icon="clock" href="/whatsapp/vorlagen">
+    Wann Vorlagen benötigt werden
+  </Card>
+  <Card title="Posteingang" icon="inbox" href="/whatsapp/posteingang">
+    Konversationen verwalten
+  </Card>
+</CardGroup>

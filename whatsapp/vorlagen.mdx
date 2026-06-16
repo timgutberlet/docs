@@ -1,0 +1,103 @@
+---
+title: "Nachrichten-Vorlagen"
+description: "Meta-Vorlagen verwalten und das 24-Stunden-Fenster verstehen"
+---
+
+## Das 24-Stunden-Fenster
+
+<Warning>
+  **Wichtigstes Konzept:** WhatsApp erlaubt freie Textnachrichten nur innerhalb von **24 Stunden** nach der letzten Nachricht des Kunden. Danach können Sie ausschließlich **Meta-genehmigte Vorlagen** senden.
+</Warning>
+
+| Situation | Was ist möglich? |
+|-----------|-----------------|
+| Kunde hat in den letzten 24h geschrieben | Freier Text, Medien, Vorlagen |
+| Letzte Nachricht liegt länger als 24h zurück | **Nur Vorlagen** |
+| Sie schreiben dem Kunden zuerst | **Nur Vorlagen** |
+
+Das 24-Stunden-Fenster öffnet sich neu, sobald der Kunde antwortet.
+
+---
+
+## Vorlagen erstellen und genehmigen lassen
+
+Vorlagen werden nicht in HalloFelix erstellt, sondern direkt im **Meta Business Manager**.
+
+<Steps>
+  <Step title="Meta Template Manager öffnen">
+    Gehen Sie zu **WhatsApp → Einstellungen → Vorlagen-Ordner** und klicken Sie auf **Vorlagen im Meta Manager verwalten**.
+  </Step>
+  <Step title="Vorlage erstellen">
+    Erstellen Sie Ihre Vorlage mit Text, optionalem Header (Bild, Video, Dokument) und Variablen (`{{1}}`, `{{2}}`, …).
+  </Step>
+  <Step title="Auf Genehmigung warten">
+    Meta prüft neue Vorlagen — dies dauert in der Regel **wenige Stunden bis 2 Werktage**.
+  </Step>
+</Steps>
+
+<Info>
+  Vorlagen können von Meta **abgelehnt** werden, wenn sie Werbecharakter haben, irreführend sind oder gegen die WhatsApp-Nutzungsbedingungen verstoßen. Planen Sie Vorlaufzeit ein.
+</Info>
+
+**Mögliche Vorlage-Status:**
+
+| Status | Bedeutung |
+|--------|-----------|
+| Ausstehend | Wird von Meta geprüft |
+| Genehmigt | Einsatzbereit |
+| Abgelehnt | Nicht genehmigt — Vorlage überarbeiten |
+| Gelöscht | Nicht mehr verfügbar |
+
+---
+
+## Vorlagen in HalloFelix nutzen
+
+### Vorlage senden
+
+Im Posteingang — wenn das 24h-Fenster abgelaufen ist oder Sie eine neue Konversation starten möchten:
+
+1. Klicken Sie auf das **Vorlagen-Symbol** im Texteingabefeld
+2. Wählen Sie die gewünschte Vorlage
+3. Füllen Sie die Variablen (`{{1}}`, `{{2}}`, …) aus
+4. Senden
+
+### Vorlage planen
+
+Sie können Template-Nachrichten auch **für einen späteren Zeitpunkt** einplanen — z.B. für Nachfass-Aktionen oder Erinnerungen. Die Nachricht wird automatisch zum gewählten Zeitpunkt gesendet.
+
+---
+
+## Vorlagen-Ordner
+
+Genehmigte Vorlagen können in **Ordnern** organisiert werden, um die Übersicht bei vielen Vorlagen zu behalten.
+
+<Steps>
+  <Step title="Ordner verwalten">
+    Navigieren Sie zu **WhatsApp → Einstellungen → Vorlagen-Ordner**.
+  </Step>
+  <Step title="Ordner erstellen">
+    Klicken Sie auf **Neuer Ordner** und vergeben Sie einen Namen.
+  </Step>
+  <Step title="Vorlagen zuweisen">
+    Weisen Sie vorhandene Meta-Vorlagen den Ordnern zu. Eine Vorlage kann in mehreren Ordnern erscheinen.
+  </Step>
+</Steps>
+
+<Info>
+  Der **Standard-Ordner** kann nicht gelöscht werden. Alle Vorlagen ohne Ordnerzuweisung erscheinen dort.
+</Info>
+
+---
+
+## Header-Assets verwalten
+
+Vorlagen mit **Medien-Header** (Bild, Video) benötigen eine Standard-Mediendatei. Diese können Sie unter **Vorlagen-Ordner → Standard-Assets** hochladen und verwalten. Bei Verwendung der Vorlage können Sie das Asset bei Bedarf ersetzen.
+
+<CardGroup cols={2}>
+  <Card title="Posteingang" icon="inbox" href="/whatsapp/posteingang">
+    Konversationen verwalten und Vorlagen verwenden
+  </Card>
+  <Card title="KI-Assistent" icon="robot" href="/whatsapp/assistent">
+    Automatische Antworten einrichten
+  </Card>
+</CardGroup>

@@ -1,0 +1,69 @@
+---
+title: "WhatsApp einrichten"
+description: "WhatsApp Business-Konto mit HalloFelix verbinden"
+---
+
+## Voraussetzungen
+
+- Ein **Meta Business Manager**-Konto
+- Eine **WhatsApp Business**-Telefonnummer (die noch nicht mit einer anderen App verbunden ist, oder via Koexistenz-Modus migriert wird)
+- Zugang zu [app.hallofelix.de/whatsapp/settings](https://app.hallofelix.de/whatsapp/settings)
+
+---
+
+## Konto verbinden
+
+Navigieren Sie zu **WhatsApp → Einstellungen** und klicken Sie auf **Konto verbinden**. Es stehen zwei Methoden zur Verfügung:
+
+### Methode 1: Automatisch via Meta (empfohlen)
+
+<Steps>
+  <Step title="Embedded Signup starten">
+    Klicken Sie auf **Mit Meta verbinden**. Ein Meta-Popup öffnet sich.
+  </Step>
+  <Step title="Facebook-Login">
+    Melden Sie sich mit dem Facebook-Account an, der Zugang zu Ihrem Meta Business Manager hat.
+  </Step>
+  <Step title="Unternehmen & Nummer auswählen">
+    Wählen Sie Ihr Business-Konto und die gewünschte WhatsApp-Telefonnummer.
+  </Step>
+  <Step title="Bestätigen">
+    HalloFelix erhält automatisch die nötigen Zugangsdaten.
+  </Step>
+</Steps>
+
+---
+
+## Koexistenz-Modus (Migration)
+
+Wenn die Nummer bereits mit der **WhatsApp Business App** verwendet wird, kann ein Koexistenz-Modus aktiviert werden. Dabei werden bis zu **6 Monate Chat-Verlauf** synchronisiert.
+
+**Einschränkungen im Koexistenz-Modus:**
+
+<Warning>
+  Der Koexistenz-Modus hat folgende Einschränkungen — prüfen Sie, ob diese für Ihr Unternehmen akzeptabel sind:
+
+  - Keine GruppenChats
+  - Broadcast-Listen nur lesbar (kein Versand)
+  - Keine Verschwinde-Nachrichten
+  - Keine Live-Standort-Freigabe
+  - Anrufe, Katalog und Business-Tools nicht verfügbar
+  - Begrüßungs-/Abwesenheitsnachrichten der Business App werden nicht synchronisiert
+  - Verknüpfte Geräte werden getrennt
+  - Maximale Senderate: 20 Nachrichten/Sekunde über die API
+</Warning>
+
+---
+
+## Mehrere Konten
+
+Sie können mehrere WhatsApp-Nummern mit HalloFelix verbinden — zum Beispiel für verschiedene Standorte. Jedes Konto wird separat konfiguriert und hat eigene Assistenten, Vorlagen und Automatisierungen.
+
+<CardGroup cols={2}>
+  <Card title="KI-Assistent einrichten" icon="robot" href="/whatsapp/assistent">
+    Chatbot konfigurieren und mit dem Konto verknüpfen
+  </Card>
+  <Card title="Vorlagen verwalten" icon="file-lines" href="/whatsapp/vorlagen">
+    Meta-Vorlagen organisieren und nutzen
+  </Card>
+</CardGroup>
