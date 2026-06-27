@@ -66,11 +66,11 @@
           {
             "group": "WhatsApp",
             "pages": [
-              "whatsapp/umstellung",
               "whatsapp/einrichtung",
               "whatsapp/assistent",
               "whatsapp/vorlagen",
-              "whatsapp/posteingang"
+              "whatsapp/posteingang",
+              "whatsapp/umstellung"
             ]
           },
           {
