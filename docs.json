@@ -66,6 +66,7 @@
           {
             "group": "WhatsApp",
             "pages": [
+              "whatsapp/umstellung",
               "whatsapp/einrichtung",
               "whatsapp/assistent",
               "whatsapp/vorlagen",
