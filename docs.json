@@ -66,6 +66,7 @@
           {
             "group": "WhatsApp",
             "pages": [
+              "whatsapp/app-oder-api",
               "whatsapp/einrichtung",
               "whatsapp/assistent",
               "whatsapp/vorlagen",

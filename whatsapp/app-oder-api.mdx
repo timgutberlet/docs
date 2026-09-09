@@ -1,0 +1,141 @@
+---
+title: "App oder API?"
+description: "WhatsApp Business App und WhatsApp Business Plattform im Vergleich"
+---
+
+WhatsApp kennt für Unternehmen zwei getrennte Zugänge: die gewohnte **WhatsApp Business App** auf dem Smartphone samt WhatsApp Web im Browser — und die **WhatsApp Business Plattform**, die sogenannte **Cloud API**. Auf Kundenseite sieht beides identisch aus. Für Sie als Maklerin oder Makler unterscheiden sich die beiden Wege grundlegend: darin, wann Sie schreiben dürfen, was eine Nachricht kostet und was sich automatisieren lässt.
+
+**HalloFelix**, die KI-Bürokraft von InsurMagic, arbeitet über die offizielle WhatsApp Business Plattform. Die Anbindung läuft über **Meta Embedded Signup** — in der App unter **WhatsApp → Einstellungen** über die Schaltfläche **Mit Meta verbinden**. Dieser Artikel ordnet beide Wege ein und zeigt, wie sie sich auf einer Rufnummer verbinden lassen.
+
+---
+
+## Die zwei Wege im Überblick
+
+| Aspekt | Business App / WhatsApp Web | Business Plattform (Cloud API) |
+|---|---|---|
+| Aktiv schreiben | jederzeit frei, kein Zeitfenster | nur im 24-Stunden-Fenster, sonst nur Vorlagen |
+| Vorlagen | nicht nötig | außerhalb des Fensters Pflicht, Freigabe durch Meta |
+| Automatisierung | keine, jede Nachricht manuell | KI-Assistent beantwortet eingehende Nachrichten |
+| Kosten | keine Zusatzkosten | Vorlagen- und API-Nachrichten sind kostenpflichtig |
+| Limits | — | Qualitätsbewertung grün/gelb/rot, Start bei 250 aktiven Empfängern pro Tag bei nicht verifizierter Nummer |
+| Team | ein Gerät, ein Postfach | gemeinsamer Posteingang mit Zuweisung |
+| Dokumentation | wird ins System gespiegelt | vollständig im System |
+
+---
+
+## Was die WhatsApp Business App kann
+
+Die Business App ist der einfachste Weg: Sie schreiben jederzeit frei, es gibt kein Zeitfenster, keine Vorlagenfreigabe und keine Kosten je Nachricht. Genau darin liegt aber auch ihre Grenze. Es gibt keine serverseitige Automatisierung, keinen KI-Assistenten, keinen gemeinsamen Posteingang für Ihr Team und keine Dokumentation im System. Für die persönliche Beratung im Einzelchat ist sie ideal, für Erreichbarkeit rund um die Uhr nicht.
+
+---
+
+## Was HalloFelix über die API kann
+
+Über die Cloud API wird WhatsApp zum zweiten, schriftlichen Kanal desselben Assistenten-Gedankens, den Sie vom Telefon-Assistenten Felix kennen.
+
+**KI-Assistent.** Der [KI-Assistent](/whatsapp/assistent) beantwortet eingehende WhatsApp-Nachrichten automatisch. Sie können ihn auf Ihre Öffnungszeiten begrenzen, Übergaberegeln an einzelne Kolleginnen und Kollegen hinterlegen und Termine buchen lassen, sobald ein Kalender konfiguriert ist. Übernimmt ein Mensch die Konversation, pausiert die KI automatisch. Unabhängig davon lassen sich je Konto eine **Begrüßungsnachricht** und eine **Abwesenheitsnachricht** ganz ohne KI einrichten.
+
+**Gemeinsamer Posteingang.** Alle Chats landen im [Posteingang](/whatsapp/posteingang) unter [app.hallofelix.de/whatsapp](https://app.hallofelix.de/whatsapp). Sie filtern nach **Meine**, **KI**, **Alle**, **Nicht zugewiesen**, **Nur ungelesen** und **Archiviert**, weisen Konversationen zu, archivieren, snoozen und hinterlegen interne Notizen, die nicht an den Kunden gehen. Sprachnachrichten werden transkribiert, ein Chat lässt sich als PDF-Archiv exportieren, und Dateien aus dem Chat laden Sie direkt in Ihr angebundenes Maklerverwaltungsprogramm hoch. Über neue Nachrichten informieren wir Sie per E-Mail und Push.
+
+**Vorlagen.** [Vorlagen](/whatsapp/vorlagen) entstehen im Meta Business Manager und werden dort freigegeben. HalloFelix legt sie nicht bei Meta an, listet sie aber, sendet sie und plant sie für einen späteren Zeitpunkt ein.
+
+**Mehrere Nummern.** Sie können mehrere WhatsApp-Nummern verbinden, etwa für verschiedene Standorte. Jedes Konto bekommt eigene Assistenten und Vorlagen.
+
+**MVP und Automatisierung.** HalloFelix ist an Professional Works, AMEISE, ams5/ams6, VEMAoffice, aB-Agenta und meinMVP angebunden — Details in der [Integrationen-Übersicht](/integrationen/uebersicht). Unter **WhatsApp → Einstellungen → API-Zugang** finden Sie außerdem einen eigenen API-Zugang mit Webhooks, über den sich Werkzeuge wie Make oder Zapier anbinden lassen.
+
+---
+
+## Die Regeln der API
+
+Die Plattform ist der offizielle Weg von Meta für Software, die eigenständig sendet und empfängt. Dafür gelten feste Regeln, und HalloFelix setzt sie im Produkt durch.
+
+| Situation | Was ist möglich? |
+|---|---|
+| Kunde hat in den letzten 24 Stunden geschrieben | Freier Text, Medien, Vorlagen |
+| Letzte Kundennachricht liegt länger zurück | **Nur Vorlagen** |
+| Sie schreiben zuerst | **Nur Vorlagen** |
+
+Der KI-Assistent ist bewusst **reaktiv**: Er antwortet und beginnt von sich aus kein Gespräch. Ein Gespräch anstoßen können ein Mensch, eine geplante Nachricht oder die API — außerhalb des Fensters aber immer nur über eine Vorlage.
+
+<Warning>
+  Meta bewertet jede Rufnummer laufend mit **grün, gelb oder rot**. Eine nicht verifizierte Nummer startet bei **250 aktiven Empfängern pro Tag**. Blockierungen und Beschwerden senken die Bewertung und können die Nummer sperren — behandeln Sie sie wie ein Kundentelefon, nicht wie einen Newsletter-Verteiler.
+</Warning>
+
+---
+
+## Beide zusammen nutzen: Koexistenz
+
+Läuft Ihre Nummer bereits in der WhatsApp Business App, müssen Sie sich nicht entscheiden. Im **Koexistenz-Modus** laufen App und Cloud API parallel auf derselben Rufnummer.
+
+<Steps>
+  <Step title="Voraussetzungen prüfen">
+    Sie benötigen Zugriff auf das Meta Business-Konto der Rufnummer.
+  </Step>
+  <Step title="Verbinden">
+    Beim Verbinden werden verknüpfte Geräte getrennt. Lassen Sie die WhatsApp Business App währenddessen geöffnet.
+  </Step>
+  <Step title="Chatverlauf importieren">
+    Bis zu **6 Monate Chatverlauf** können übernommen werden. Den Import bestätigen Sie per Opt-in in der WhatsApp App.
+  </Step>
+  <Step title="Parallel arbeiten">
+    Chats werden zwischen App und Felix synchronisiert, neue API-Nachrichten erscheinen auch in der Business App, und die App auf dem Smartphone bleibt für 1:1-Chats nutzbar.
+  </Step>
+</Steps>
+
+<AccordionGroup>
+  <Accordion title="Einschränkungen im Koexistenz-Modus">
+    - **Gruppenchats** werden nicht synchronisiert und bleiben nur in der App.
+    - **Broadcast-Listen** sind nur lesbar, neue Listen sind nicht möglich.
+    - Keine **verschwindenden und einmaligen Nachrichten**.
+    - Kein **Live-Standort**.
+    - Keine **Anrufe**, kein **Katalog**, keine **Business-Tools**.
+    - **Begrüßung, Abwesenheit und Labels** der Business App werden nicht synchronisiert.
+    - **Verknüpfte Geräte** werden beim Verbinden getrennt. Windows- und WearOS-Clients werden nicht unterstützt.
+    - Maximal **20 Nachrichten pro Sekunde** über die API.
+    - Öffnen Sie die WhatsApp Business App mindestens alle **13 Tage**.
+  </Accordion>
+</AccordionGroup>
+
+Zwei Punkte werden im Alltag oft übersehen. Erstens bewertet Meta die Rufnummer **als Ganzes**: Sperren treffen immer beide Kanäle gleichzeitig. Zweitens öffnet Ihre eigene Nachricht aus der App **kein neues 24-Stunden-Fenster** für die API — erst eine Antwort des Kunden tut das.
+
+---
+
+## Unsere WhatsApp Business Erweiterung
+
+Neben HalloFelix bieten wir mit **InsurMagic** eine **WhatsApp Business Erweiterung** für den Browser an. Die Chrome-Erweiterung arbeitet direkt in `web.whatsapp.com` auf Ihrem eigenen WhatsApp-Business-App-Konto, das Sie per QR-Code vom Smartphone verbinden.
+
+Ihre größte Stärke ist die vollständige **MVP-Integration**: Sie erkennt den Kunden an der Rufnummer des geöffneten Chats und zeigt Verträge, Schäden und Vorgänge aus Ihrem angebundenen Maklerverwaltungsprogramm in einer Seitenleiste. Dokumente aus dem MVP ziehen Sie per Drag-and-drop in den Chat, empfangene Dokumente laden Sie umgekehrt ins MVP hoch — inklusive Drehen, Zuschneiden, Scan-Korrektur und Zusammenführen zu einer PDF. Dazu kommen die Beratungsdokumentation als PDF im MVP, die Transkription von Sprachnachrichten, ein KI-Schreibassistent, Vorlagen mit eigener Sie- und Du-Fassung, ein Geburtstage-Tab, Aufgaben mit Zuweisung im Team und ein Bewertungslink.
+
+Angebunden sind **AMEISE**, **Professional works**, **aB-Agenta**, **Assfinet ams.5/ams.6**, **blau direkt**, **Arisecur**, **meinMVP**, **VEMA**, **keasy**, **JDC** und **FINUM**. Voraussetzung ist ein Chrome-basierter Browser (Chrome, Edge, Brave oder Opera). Nachrichten werden in das WhatsApp-Eingabefeld eingefügt und von Ihnen manuell gesendet; einen serverseitigen Versand gibt es nicht.
+
+<Note>
+  Ob die **WhatsApp Business Erweiterung** parallel auf einer Koexistenz-Nummer betrieben werden kann, klären Sie bitte vorab mit dem Support. Beim Verbinden werden verknüpfte Geräte getrennt — und die Chrome-Erweiterung setzt genau auf einem solchen verknüpften Gerät auf, nämlich auf WhatsApp Web.
+</Note>
+
+---
+
+## Was wofür
+
+- **KI-Assistent über die API**: Serviceantworten auf eingehende Anfragen und Erreichbarkeit rund um die Uhr.
+- **App oder WhatsApp Web**: individuelle Rückfragen, persönliches Nachfassen und Antworten nach Ablauf des 24-Stunden-Fensters.
+- **E-Mail oder Brief**: alles, was gleichzeitig an viele Empfänger geht — Geburtstags- und Feiertagsgrüße, Bestandsaktionen, Werbung.
+
+---
+
+## Wichtige Regeln
+
+- Einwilligung (Opt-in) vor jeder aktiven Ansprache einholen und mit Datum dokumentieren. Keine gekauften Nummernlisten.
+- "Stop"-Wünsche sofort und dauerhaft umsetzen.
+- Neue Nummern langsam aufwärmen, statt sofort viele Empfänger anzuschreiben.
+- Keine modifizierten WhatsApp-Versionen und keine Tools für automatisierten Massenversand.
+- Keine zweite API-Anbindung derselben Rufnummer.
+- Die App ist kein Schlupfloch für Massenversand: Blockierungen zählen kanalunabhängig auf Ihre Rufnummer.
+
+<CardGroup cols={2}>
+  <Card title="WhatsApp einrichten" icon="plug" href="/whatsapp/einrichtung">
+    Konto verbinden und Koexistenz aktivieren
+  </Card>
+  <Card title="KI-Assistent" icon="robot" href="/whatsapp/assistent">
+    Automatische Antworten konfigurieren
+  </Card>
+</CardGroup>
