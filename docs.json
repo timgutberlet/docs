@@ -116,8 +116,8 @@
     }
   },
   "logo": {
-    "light": "/logo/hallofelix-logo.png",
-    "dark": "/logo/hallofelix-logo.png"
+    "light": "/logo/hallofelix-logo.svg",
+    "dark": "/logo/hallofelix-logo-white.svg"
   },
   "navbar": {
     "links": [
