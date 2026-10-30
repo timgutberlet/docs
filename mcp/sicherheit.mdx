@@ -1,0 +1,92 @@
+---
+title: "Sicherheit und Datenschutz"
+description: "Wer KI-Apps verbinden kann, was sie dürfen und wie Sie Verbindungen trennen"
+---
+
+## Wer kann KI-Apps verbinden?
+
+Nur **Administratoren** eines HalloFelix-Kontos können einer KI-App Zugriff geben. Teammitglieder ohne Administratorrechte sehen auf der Anmeldeseite einen Hinweis und können die Verbindung nicht freigeben.
+
+## Auf welche Daten hat die App Zugriff?
+
+Eine Verbindung gilt immer für **genau ein HalloFelix-Konto**: das Konto, das Sie auf der Anmeldeseite bestätigen. Haben Sie mehrere Konten, wechseln Sie dort über die Kontoauswahl zum gewünschten Konto. Andere Konten, auf die Sie Zugriff haben, bleiben unberührt.
+
+Innerhalb dieses Kontos kann die KI-App in Ihrem Namen:
+
+- Anrufe, Transkripte, E-Mails, Kunden und Kampagnen lesen
+- Kunden anlegen sowie Kampagnen erstellen und starten
+- Einstellungen der Telefon-, E-Mail- und WhatsApp-Assistenten ändern
+- WhatsApp-Chats lesen, Nachrichten senden, Notizen und Labels setzen
+- im verbundenen CRM suchen und Dokumente ablegen
+
+Welche Tools es genau gibt, steht in der [Tool-Referenz](/mcp/tools).
+
+## Die Anmeldeseite
+
+Wenn Sie eine KI-App verbinden, öffnet sich die Anmeldeseite **„KI-App mit HalloFelix von InsurMagic verbinden“**. Dort sehen Sie:
+
+- welche Anwendung Zugriff möchte
+- auf welches HalloFelix-Konto sie zugreifen möchte
+- wohin der Zugriff geht, z. B. `claude.ai`, `chatgpt.com` oder `cursor://`
+
+Prüfen Sie diese Angaben und klicken Sie dann auf **Zugriff erlauben** oder **Ablehnen**.
+
+<Warning>
+  **Schutz vor Phishing:** Verbinden Sie eine App nur, wenn Sie die Verbindung **selbst gestartet** haben. Wenn Ihnen jemand einen Link zur Anmeldeseite schickt, etwa per E-Mail oder Chat, brechen Sie ab. Der Name einer Anwendung lässt sich frei wählen, deshalb zeigt HalloFelix zusätzlich an, wohin der Zugriff tatsächlich geht.
+</Warning>
+
+Erkennt HalloFelix das Ziel nicht als eine der üblichen KI-Apps (Claude, ChatGPT, Cursor, VS Code oder ein Programm auf Ihrem eigenen Rechner), erscheint die Warnung **„Achtung: unbekannte Anwendung – möglicher Phishing-Versuch“**. Sie können dann nur zustimmen, wenn Sie ausdrücklich bestätigen, dass Sie die Anwendung selbst eingerichtet haben. Im Zweifel lehnen Sie ab und wenden sich an [support@hallofelix.de](mailto:support@hallofelix.de).
+
+## Bestätigung vor Aktionen
+
+Jedes Tool ist für Ihre KI-App als lesend oder schreibend gekennzeichnet. Tools, die Daten ändern oder löschen, tragen zusätzlich eine Warnkennzeichnung. Die gängigen KI-Apps fragen deshalb nach, bevor sie:
+
+- einen Kunden anrufen oder eine Kampagne starten
+- eine WhatsApp-Nachricht oder Vorlage senden
+- Termine buchen oder Teammitglieder einladen
+- ins CRM schreiben
+- Daten löschen oder Einstellungen aktiver Assistenten ändern
+
+<Note>
+  Ob und wie oft nachgefragt wird, legt Ihre KI-App fest. Automatisierungen wie n8n laufen ohne Rückfrage. Geben Sie dort nur die Tools frei, die der Workflow wirklich braucht.
+</Note>
+
+## Verbundene KI-Apps verwalten
+
+Alle Verbindungen Ihres Kontos sehen Sie in HalloFelix unter **Integrationen** → **KI-Assistenten (MCP)**.
+
+<Steps>
+  <Step title="Übersicht öffnen">
+    Öffnen Sie [Integrationen → KI-Assistenten (MCP)](https://app.hallofelix.de/integrations/mcp) und scrollen Sie zu **Verbundene KI-Apps**.
+  </Step>
+  <Step title="Verbindungen prüfen">
+    Zu jeder Verbindung sehen Sie den Namen der App, wer sie verbunden hat und wann sie zuletzt aktiv war. Unbekannte Ziele sind als **Unbekannte Anwendung** markiert.
+  </Step>
+  <Step title="Verbindung trennen">
+    Klicken Sie bei der Verbindung auf **Trennen** und bestätigen Sie. Die App verliert sofort den Zugriff.
+  </Step>
+</Steps>
+
+<Tip>
+  Trennen Sie jede Verbindung, die Sie nicht kennen oder nicht mehr nutzen.
+</Tip>
+
+## Wie lange bleibt eine Verbindung bestehen?
+
+Eine Verbindung bleibt aktiv, solange die KI-App sie nutzt. Wird sie **90 Tage lang nicht verwendet**, läuft sie ab, und Sie melden sich beim nächsten Mal erneut an. Sie können eine Verbindung jederzeit vorher trennen.
+
+## API-Token
+
+Der API-Token unter **Integrationen** → **API** gewährt vollen Zugriff auf Ihr Konto, auch ohne Anmeldeseite. Behandeln Sie ihn wie ein Passwort:
+
+- Geben Sie ihn nur in Tools ein, die Sie selbst verwalten.
+- Speichern Sie ihn nicht in gemeinsam genutzten Dateien oder Git-Projekten.
+- Wenn Sie den Verdacht haben, dass jemand den Token kennt, generieren Sie ihn unter **Integrationen** → **API** neu. Der alte Token ist dann sofort ungültig.
+
+## Datenschutz
+
+Daten, die Ihre KI-App über HalloFelix abruft, werden an den Anbieter dieser KI-App übermittelt, zum Beispiel an OpenAI bei ChatGPT oder an Anthropic bei Claude, und dort nach dessen Bedingungen verarbeitet. Das betrifft auch personenbezogene Daten Ihrer Kunden wie Gesprächsinhalte und Telefonnummern.
+
+<Note>
+  **Hinweis:** Dies stellt keine Rechtsberatung dar. Prüfen Sie vor dem Einsatz, ob Sie mit dem Anbieter Ihrer KI-App einen Vertrag zur Auftragsverarbeitung geschlossen haben und ob Ihre Datenschutzerklärung diese Verarbeitung abdeckt. Nutzen Sie für Kundendaten möglichst geschäftliche Tarife der KI-Anbieter. Weitere Informationen finden Sie unter [HalloFelix DSGVO-konform nutzen](/infos-hilfe/dsgvo-konform-nutzen).
+</Note>

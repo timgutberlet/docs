@@ -1,0 +1,88 @@
+---
+title: "Fehlerbehebung und FAQ"
+sidebarTitle: "Fehlerbehebung und FAQ"
+description: "Lösungen für häufige Probleme beim Verbinden von KI-Apps mit HalloFelix"
+---
+
+## Verbindung prüfen
+
+Fragen Sie Ihre KI-App nach dem Einrichten:
+
+> *„Welche Telefon-Assistenten habe ich in HalloFelix?“*
+
+Erhalten Sie eine Liste Ihrer Assistenten, funktioniert die Verbindung. Falls nicht, helfen die folgenden Punkte weiter.
+
+## Häufige Probleme
+
+<AccordionGroup>
+  <Accordion title="„Nur Administratoren dieses Kontos können KI-Apps verbinden“" icon="user-lock">
+    Sie sind im ausgewählten HalloFelix-Konto kein Administrator.
+
+    - Wechseln Sie auf der Anmeldeseite zu einem Konto, in dem Sie Administrator sind, oder
+    - bitten Sie einen Administrator Ihres Kontos, die Verbindung herzustellen oder Ihnen die Rolle zu geben.
+  </Accordion>
+  <Accordion title="Falsches HalloFelix-Konto verbunden" icon="building">
+    Eine Verbindung gilt immer für das Konto, das auf der Anmeldeseite angezeigt wurde. Um ein anderes Konto zu verbinden:
+
+    1. Trennen Sie die Verbindung unter [Integrationen → KI-Assistenten (MCP)](https://app.hallofelix.de/integrations/mcp).
+    2. Entfernen Sie HalloFelix in Ihrer KI-App und fügen Sie es erneut hinzu.
+    3. Wechseln Sie bei der Anmeldung über die Kontoauswahl zum richtigen Konto.
+  </Accordion>
+  <Accordion title="Warnung „unbekannte Anwendung“ auf der Anmeldeseite" icon="triangle-exclamation">
+    HalloFelix erkennt das Ziel der Verbindung nicht als eine der üblichen KI-Apps. Das kann bei selteneren Tools vorkommen, aber auch ein Phishing-Versuch sein.
+
+    Stimmen Sie nur zu, wenn Sie die Verbindung gerade selbst in diesem Tool gestartet haben. Andernfalls klicken Sie auf **Ablehnen**. Mehr dazu unter [Sicherheit und Datenschutz](/mcp/sicherheit#die-anmeldeseite).
+  </Accordion>
+  <Accordion title="„Unauthorized“ oder die Anmeldung schlägt fehl" icon="key">
+    - Prüfen Sie, ob Sie sich mit dem richtigen HalloFelix-Login angemeldet haben.
+    - Entfernen Sie HalloFelix in Ihrer KI-App und fügen Sie es erneut hinzu.
+    - Wurde die Verbindung 90 Tage nicht genutzt oder in HalloFelix getrennt, melden Sie sich erneut an.
+    - Nutzen Sie einen API-Token? Prüfen Sie, ob er unter **Integrationen** → **API** noch gültig ist und als `Authorization: Bearer <Token>` mitgeschickt wird.
+  </Accordion>
+  <Accordion title="Die KI-App findet keine HalloFelix-Tools" icon="magnifying-glass">
+    - Prüfen Sie, ob HalloFelix im aktuellen Chat aktiviert ist. In Claude schalten Sie Konnektoren über **+** → **Konnektoren** ein, in ChatGPT erwähnen Sie `@HalloFelix`.
+    - Prüfen Sie, ob die URL genau `https://app.hallofelix.de/api/mcp` lautet.
+    - Starten Sie die KI-App neu oder entfernen Sie den Server und fügen Sie ihn erneut hinzu, damit die Tool-Liste neu geladen wird.
+  </Accordion>
+  <Accordion title="WhatsApp-Nachricht wird nicht gesendet" icon="whatsapp">
+    WhatsApp erlaubt freie Nachrichten nur innerhalb von **24 Stunden** nach der letzten Nachricht des Kunden. Danach und für neue Chats ist eine von Meta **freigegebene Vorlage** nötig. Bitten Sie Ihre KI-App, stattdessen eine passende Vorlage zu senden. Mehr dazu unter [WhatsApp-Vorlagen](/whatsapp/vorlagen).
+  </Accordion>
+  <Accordion title="CRM-Funktionen melden „crm_not_connected“" icon="database">
+    In Ihrem HalloFelix-Konto ist kein CRM verbunden. Verbinden Sie zuerst Ihr Maklerverwaltungsprogramm unter **Integrationen**. Siehe [Integrationen Übersicht](/integrationen/uebersicht).
+  </Accordion>
+  <Accordion title="Datei-Upload schlägt fehl" icon="file-arrow-up">
+    HalloFelix lädt Dateien von einer **öffentlich erreichbaren HTTPS-Adresse** herunter. Links zu internen Netzwerken oder Dateien, die eine Anmeldung erfordern, funktionieren nicht. Beachten Sie außerdem die Größenlimits in der [Tool-Referenz](/mcp/tools).
+  </Accordion>
+  <Accordion title="Verbindung bricht ab oder läuft in einen Timeout" icon="wifi">
+    - Prüfen Sie Ihre Internetverbindung.
+    - Fragen Sie nach kleineren Datenmengen, z. B. mit einem kürzeren Zeitraum.
+    - Tritt das Problem dauerhaft auf, schreiben Sie uns an [support@hallofelix.de](mailto:support@hallofelix.de).
+  </Accordion>
+</AccordionGroup>
+
+## Häufige Fragen
+
+<AccordionGroup>
+  <Accordion title="Welche KI-Apps werden unterstützt?">
+    Alle Apps, die MCP-Server über Streamable HTTP unterstützen. Anleitungen gibt es für [ChatGPT](/mcp/chatgpt), [Claude](/mcp/claude), [Claude Code](/mcp/claude-code), [Cursor](/mcp/cursor) sowie VS Code, Windsurf, Codex und n8n unter [Weitere Tools](/mcp/weitere-tools).
+  </Accordion>
+  <Accordion title="Kann die KI ohne meine Zustimmung Kunden anschreiben oder anrufen?">
+    Die gängigen KI-Apps fragen vor solchen Aktionen nach Ihrer Bestätigung. Automatisierungen wie n8n laufen dagegen ohne Rückfrage. Geben Sie dort nur die nötigen Tools frei.
+  </Accordion>
+  <Accordion title="Können mehrere Teammitglieder HalloFelix in ihrer KI-App nutzen?">
+    Ja. Jede Person verbindet ihre eigene KI-App. Die Freigabe auf der Anmeldeseite erteilt jeweils ein Administrator des HalloFelix-Kontos. Alle Verbindungen sehen Sie unter **Integrationen** → **KI-Assistenten (MCP)**.
+  </Accordion>
+  <Accordion title="Kann ich mehrere HalloFelix-Konten verbinden?">
+    Jede Verbindung gilt für genau ein Konto. Wenn Ihre KI-App es erlaubt, legen Sie für jedes Konto eine eigene Verbindung mit eigenem Namen an, z. B. `hallofelix-standort-nord`, und wählen bei der Anmeldung jeweils das passende Konto.
+  </Accordion>
+  <Accordion title="Wo sehe ich, welche Apps verbunden sind?">
+    In HalloFelix unter [Integrationen → KI-Assistenten (MCP)](https://app.hallofelix.de/integrations/mcp) im Bereich **Verbundene KI-Apps**. Dort können Sie jede Verbindung trennen.
+  </Accordion>
+  <Accordion title="Werden meine Daten an den KI-Anbieter übertragen?">
+    Ja, die Daten, die Ihre KI-App abruft, verarbeitet der jeweilige KI-Anbieter. Mehr dazu unter [Sicherheit und Datenschutz](/mcp/sicherheit#datenschutz).
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  **Nicht gefunden, was Sie suchen?** Unser Support-Team hilft Ihnen gerne: [support@hallofelix.de](mailto:support@hallofelix.de)
+</Note>

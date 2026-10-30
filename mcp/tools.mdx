@@ -1,0 +1,367 @@
+---
+title: "Tool-Referenz"
+description: "Alle 147 Tools des HalloFelix MCP-Servers, nach Bereichen sortiert"
+---
+
+Ihr KI-Assistent wählt die passenden Tools selbst aus. Sie müssen die Namen nicht kennen. Diese Übersicht hilft Ihnen einzuschätzen, was ein verbundener KI-Assistent in Ihrem HalloFelix-Konto lesen und verändern kann.
+
+## Zugriffsarten
+
+| Zugriff | Bedeutung | Anzahl |
+| --- | --- | --- |
+| **Lesen** | Ruft nur Daten ab, verändert nichts. | 56 |
+| **Schreibt** | Legt etwas Neues an oder löst eine Aktion aus, z. B. einen Anruf oder eine WhatsApp-Nachricht. | 39 |
+| **Ändert oder löscht** | Überschreibt oder entfernt vorhandene Daten oder Einstellungen. | 52 |
+
+<Note>
+  Jedes Tool ist für Ihre KI-App als lesend oder schreibend gekennzeichnet. Die meisten KI-Apps fragen deshalb vor schreibenden Aktionen nach Ihrer Bestätigung. Mehr dazu unter [Sicherheit und Datenschutz](/mcp/sicherheit).
+</Note>
+
+## Bereiche
+
+<CardGroup cols={3}>
+  <Card title="Anrufe" href="#anrufe">
+    6 Tools
+  </Card>
+  <Card title="E-Mails" href="#e-mails">
+    3 Tools
+  </Card>
+  <Card title="Notizen" href="#notizen">
+    8 Tools
+  </Card>
+  <Card title="Kunden" href="#kunden">
+    9 Tools
+  </Card>
+  <Card title="Kundengedächtnis" href="#kundengedächtnis">
+    4 Tools
+  </Card>
+  <Card title="Kampagnen (ausgehende Anrufe)" href="#kampagnen-ausgehende-anrufe">
+    10 Tools
+  </Card>
+  <Card title="Telefon-Assistenten" href="#telefon-assistenten">
+    8 Tools
+  </Card>
+  <Card title="E-Mail-Assistenten" href="#e-mail-assistenten">
+    4 Tools
+  </Card>
+  <Card title="WhatsApp-Assistenten" href="#whatsapp-assistenten">
+    11 Tools
+  </Card>
+  <Card title="Vorgänge" href="#vorgänge">
+    6 Tools
+  </Card>
+  <Card title="Termine und Kalender" href="#termine-und-kalender">
+    10 Tools
+  </Card>
+  <Card title="Team" href="#team">
+    4 Tools
+  </Card>
+  <Card title="Unternehmen, Wissen und Statistiken" href="#unternehmen-wissen-und-statistiken">
+    8 Tools
+  </Card>
+  <Card title="WhatsApp: Nummern und Chats" href="#whatsapp-nummern-und-chats">
+    10 Tools
+  </Card>
+  <Card title="WhatsApp: Nachrichten, Dateien und Notizen" href="#whatsapp-nachrichten-dateien-und-notizen">
+    14 Tools
+  </Card>
+  <Card title="WhatsApp: Labels" href="#whatsapp-labels">
+    7 Tools
+  </Card>
+  <Card title="WhatsApp: Vorlagen" href="#whatsapp-vorlagen">
+    10 Tools
+  </Card>
+  <Card title="CRM" href="#crm">
+    11 Tools
+  </Card>
+  <Card title="Webhooks" href="#webhooks">
+    4 Tools
+  </Card>
+</CardGroup>
+
+## Anrufe
+
+Eingehende und ausgehende Telefonate Ihrer Telefon-Assistenten mit Transkript, Zusammenfassung und Aufgabe.
+
+| Tool | Beschreibung | Zugriff |
+| --- | --- | --- |
+| `list_calls` | Listet Anrufe mit Transkript, Zusammenfassung, erkannten Daten und Aufgabe (Status, Zuständig, Vorgang). Filter nach Zeitraum, Richtung, Status, Kampagne, Kunde oder Assistent. | Lesen |
+| `get_call` | Ruft einen Anruf vollständig ab: Transkript, Zusammenfassung, Kunde, Kampagne und Assistent. Aufnahme-Links sind 60 Minuten gültig. | Lesen |
+| `update_call` | Bewertet einen Anruf und setzt Status, Zuständigkeit und Vorgang der Aufgabe. | Ändert oder löscht |
+| `bulk_update_call_status` | Setzt den Aufgabenstatus von bis zu 1.000 Anrufen auf einmal, z. B. auf „Fertig“. | Ändert oder löscht |
+| `delete_call` | Löscht einen Anruf samt Aufnahme, Transkript, Aufgabe und Notizen endgültig. | Ändert oder löscht |
+| `start_outbound_call` | Startet einen echten Anruf: Der Telefon-Assistent ruft den Kunden sofort oder zum geplanten Zeitpunkt an. | Schreibt |
+
+## E-Mails
+
+E-Mails, die Ihr E-Mail-Assistent bearbeitet hat.
+
+| Tool | Beschreibung | Zugriff |
+| --- | --- | --- |
+| `list_emails` | Listet E-Mails mit Zusammenfassung, Kunde und Aufgabe, neueste zuerst. | Lesen |
+| `get_email` | Ruft eine E-Mail vollständig ab: Absender, Empfänger, Betreff, Text, Zusammenfassung und Aufgabe. | Lesen |
+| `update_email` | Bewertet eine E-Mail und setzt Status, Zuständigkeit und Vorgang der Aufgabe. | Ändert oder löscht |
+
+## Notizen
+
+Interne Notizen an Anrufen, E-Mails und Kunden. Notizen sieht nur Ihr Team.
+
+| Tool | Beschreibung | Zugriff |
+| --- | --- | --- |
+| `list_call_notes` | Listet die internen Notizen eines Anrufs. | Lesen |
+| `add_call_note` | Fügt einem Anruf eine interne Notiz hinzu. | Schreibt |
+| `list_email_notes` | Listet die internen Notizen einer E-Mail. | Lesen |
+| `add_email_note` | Fügt einer E-Mail eine interne Notiz hinzu. | Schreibt |
+| `list_customer_notes` | Listet die internen Notizen eines Kunden. | Lesen |
+| `add_customer_note` | Fügt einem Kunden eine interne Notiz hinzu. | Schreibt |
+| `update_note` | Ändert den Text einer Notiz. Nur Notizen, die über die Schnittstelle angelegt wurden, lassen sich bearbeiten. | Ändert oder löscht |
+| `delete_note` | Löscht eine Notiz an einem Anruf, einer E-Mail oder einem Kunden endgültig. | Ändert oder löscht |
+
+## Kunden
+
+Ihre Kunden mit Telefonnummern, Anrufbehandlung und Verknüpfungen.
+
+| Tool | Beschreibung | Zugriff |
+| --- | --- | --- |
+| `list_customers` | Listet Kunden mit Telefonnummern, Anrufbehandlung, Anzahl der Anrufe und letztem Anruf. Suche nach Name, E-Mail oder Telefonnummer. | Lesen |
+| `get_customer` | Ruft einen Kunden vollständig ab. | Lesen |
+| `create_customer` | Legt einen Kunden an. Gibt es die Telefonnummer schon, wird der bestehende Kunde zurückgegeben. | Schreibt |
+| `import_customers` | Legt bis zu 500 Kunden in einem Schritt an, ohne Dubletten bei bekannten Telefonnummern. | Schreibt |
+| `update_customer` | Ändert Name, E-Mail, Sprache, externe ID, Anrufbehandlung oder den WhatsApp-KI-Ausschluss eines Kunden. | Ändert oder löscht |
+| `delete_customer` | Löscht einen Kunden mit Telefonnummern, Notizen, Terminen und Gedächtnis endgültig. Anrufe und Chats bleiben erhalten. | Ändert oder löscht |
+| `add_customer_phone_number` | Fügt einem Kunden eine weitere Telefonnummer hinzu. | Schreibt |
+| `update_customer_phone_number` | Macht eine Nummer zur Hauptnummer oder ändert ihren Typ (Mobil, Festnetz, Arbeit …). | Ändert oder löscht |
+| `delete_customer_phone_number` | Entfernt eine Telefonnummer von einem Kunden (nicht die letzte). | Ändert oder löscht |
+
+## Kundengedächtnis
+
+Was sich die KI über einen Kunden merkt: Fahrzeuge, Adresse, Vorlieben, Erreichbarkeit und Notizen.
+
+| Tool | Beschreibung | Zugriff |
+| --- | --- | --- |
+| `get_customer_memory` | Zeigt alle gemerkten Fakten eines Kunden mit Herkunft und Status. | Lesen |
+| `add_customer_memory_fact` | Ergänzt einen Fakt, den sich die KI merken soll, z. B. Kennzeichen oder bevorzugte Anrede. | Schreibt |
+| `update_customer_memory_fact` | Korrigiert einen Fakt oder lehnt ihn ab, damit die KI ihn nicht mehr verwendet. | Ändert oder löscht |
+| `delete_customer_memory_fact` | Löscht einen Fakt endgültig (Fakten aus dem CRM lassen sich nur ablehnen). | Ändert oder löscht |
+
+## Kampagnen (ausgehende Anrufe)
+
+Anrufkampagnen, bei denen HalloFelix eine Liste von Kunden anruft.
+
+| Tool | Beschreibung | Zugriff |
+| --- | --- | --- |
+| `list_campaigns` | Listet Kampagnen mit Status, Erfolgs- und Erreichbarkeitsquote. | Lesen |
+| `get_campaign` | Ruft eine Kampagne mit ihren Statistiken ab. | Lesen |
+| `create_campaign` | Legt eine Kampagne als Entwurf an oder reiht die Anrufe direkt ein. | Schreibt |
+| `start_campaign` | Startet oder setzt eine Kampagne fort: Die KI beginnt, die Kunden anzurufen. | Schreibt |
+| `set_campaign_status` | Startet, pausiert oder bricht eine Kampagne ab. Ein Abbruch lässt sich nicht rückgängig machen. | Ändert oder löscht |
+| `update_campaign` | Bearbeitet einen Kampagnen-Entwurf oder archiviert eine Kampagne. | Ändert oder löscht |
+| `delete_campaign` | Löscht eine Kampagne endgültig. Die Anrufe bleiben erhalten. | Ändert oder löscht |
+| `get_campaign_voice_intro` | Zeigt, ob die Anrufe einer Kampagne mit einem aufgenommenen ersten Satz beginnen. | Lesen |
+| `upload_campaign_voice_intro` | Hinterlegt eine Aufnahme (MP3, WAV oder WebM) als ersten Satz der Kampagnen-Anrufe. | Ändert oder löscht |
+| `delete_campaign_voice_intro` | Entfernt die Aufnahme; die Anrufe nutzen wieder den geschriebenen ersten Satz. | Ändert oder löscht |
+
+## Telefon-Assistenten
+
+Ihre KI-Telefonassistenten mit Stimme, Begrüßung und Einstellungen.
+
+| Tool | Beschreibung | Zugriff |
+| --- | --- | --- |
+| `list_call_assistants` | Listet Ihre Telefon-Assistenten mit Name, Telefonnummer und Stimme. | Lesen |
+| `get_call_assistant` | Zeigt die vollständige Konfiguration eines Telefon-Assistenten (Begrüßung, Stimme, Weiterleitungen, Öffnungszeiten, Vorgänge …). | Lesen |
+| `update_call_assistant` | Ändert Einstellungen eines aktiven Telefon-Assistenten. Änderungen wirken sofort am Telefon. | Ändert oder löscht |
+| `create_call_assistant` | Legt einen neuen Telefon-Assistenten an. Dabei wird eine echte Telefonnummer gebucht (kostenpflichtig). | Schreibt |
+| `list_voices` | Listet die verfügbaren Stimmen mit Hörprobe. | Lesen |
+| `get_assistant_voice_intro` | Zeigt, ob ein Telefon-Assistent eine aufgenommene Begrüßung abspielt. | Lesen |
+| `upload_assistant_voice_intro` | Hinterlegt eine aufgenommene Begrüßung (MP3, WAV oder WebM) für einen Telefon-Assistenten. | Ändert oder löscht |
+| `delete_assistant_voice_intro` | Entfernt die aufgenommene Begrüßung; der Assistent spricht wieder seinen ersten Satz. | Ändert oder löscht |
+
+## E-Mail-Assistenten
+
+Ihre KI-Assistenten für eingehende E-Mails.
+
+| Tool | Beschreibung | Zugriff |
+| --- | --- | --- |
+| `list_email_assistants` | Listet Ihre E-Mail-Assistenten. | Lesen |
+| `get_email_assistant` | Zeigt Name, Anweisungen und Vorgänge eines E-Mail-Assistenten. | Lesen |
+| `create_email_assistant` | Legt einen E-Mail-Assistenten mit den Standard-Vorgängen an. | Schreibt |
+| `update_email_assistant` | Ändert Name, Anweisungen oder Vorgänge eines E-Mail-Assistenten. | Ändert oder löscht |
+
+## WhatsApp-Assistenten
+
+Ihre KI-Assistenten für WhatsApp, inklusive Makros und PDF-Vorlagen.
+
+| Tool | Beschreibung | Zugriff |
+| --- | --- | --- |
+| `list_whatsapp_assistants` | Listet Ihre WhatsApp-Assistenten. | Lesen |
+| `get_whatsapp_assistant` | Zeigt die vollständige Konfiguration eines WhatsApp-Assistenten. | Lesen |
+| `update_whatsapp_assistant` | Ändert Einstellungen eines aktiven WhatsApp-Assistenten. Änderungen wirken sofort. | Ändert oder löscht |
+| `create_whatsapp_assistant` | Legt einen WhatsApp-Assistenten an. Er antwortet erst, wenn eine WhatsApp-Nummer ihn nutzt. | Schreibt |
+| `delete_whatsapp_assistant` | Löscht einen WhatsApp-Assistenten mit Makros, Dokumenten und Regeln endgültig. | Ändert oder löscht |
+| `test_whatsapp_assistant` | Testet einen WhatsApp-Assistenten mit einer Probenachricht. Es wird nichts über WhatsApp verschickt. | Schreibt |
+| `list_whatsapp_macro_runs` | Listet Makro-Ausführungen, die hängen geblieben sind und Ihre Aufmerksamkeit brauchen. | Lesen |
+| `resolve_whatsapp_macro_run` | Schließt eine Makro-Ausführung manuell ab, ohne etwas zu senden. | Schreibt |
+| `retry_whatsapp_macro_run` | Sendet das Dokument einer Makro-Ausführung erneut an den Kunden. | Schreibt |
+| `add_whatsapp_pdf_template` | Fügt einem WhatsApp-Assistenten ein PDF hinzu, das er im Chat verschicken kann. | Schreibt |
+| `delete_whatsapp_pdf_template` | Entfernt ein PDF von einem WhatsApp-Assistenten. | Ändert oder löscht |
+
+## Vorgänge
+
+Die Vorgänge (Aufgabentypen), die Ihre Assistenten erkennen und zuordnen.
+
+| Tool | Beschreibung | Zugriff |
+| --- | --- | --- |
+| `list_task_types` | Listet eigene Vorgänge und HalloFelix-Vorlagen mit Beschreibung, Anweisung und Status. | Lesen |
+| `get_task_type` | Zeigt einen Vorgang mit seiner Anweisung. | Lesen |
+| `create_task_type` | Legt einen eigenen Vorgang an und fügt ihn standardmäßig allen Assistenten hinzu. | Schreibt |
+| `update_task_type` | Ändert Name, Beschreibung, Anweisung oder Aktiv-Status eines Vorgangs. Änderungen wirken sofort. | Ändert oder löscht |
+| `detach_task_type` | Macht aus einer HalloFelix-Vorlage eine eigene, bearbeitbare Kopie. | Schreibt |
+| `delete_task_type` | Löscht einen eigenen Vorgang und entfernt ihn von allen Assistenten. | Ändert oder löscht |
+
+## Termine und Kalender
+
+Terminarten, verbundene Kalender und Terminbuchung.
+
+| Tool | Beschreibung | Zugriff |
+| --- | --- | --- |
+| `list_appointment_types` | Listet die Terminarten, die Ihre Assistenten buchen können, mit Dauer und Puffer. | Lesen |
+| `create_appointment_type` | Fügt einem Telefon- oder WhatsApp-Assistenten eine Terminart hinzu. | Schreibt |
+| `update_appointment_type` | Ändert eine Terminart. | Ändert oder löscht |
+| `delete_appointment_type` | Löscht eine Terminart; der Assistent bucht sie nicht mehr. | Ändert oder löscht |
+| `list_calendars` | Listet die verbundenen Kalender (Google, Microsoft, iCloud …). | Lesen |
+| `get_calendar` | Zeigt einen Kalender mit den Terminen, die HalloFelix dort gebucht hat. | Lesen |
+| `update_calendar` | Benennt einen Kalender in HalloFelix um. | Ändert oder löscht |
+| `delete_calendar` | Trennt einen Kalender; die Assistenten prüfen und buchen ihn nicht mehr. | Ändert oder löscht |
+| `list_calendar_events` | Zeigt belegte Zeiten eines Kalenders (bis zu 92 Tage). Freie Zeiten sind die Lücken dazwischen. | Lesen |
+| `book_calendar_appointment` | Bucht einen Termin direkt in Ihren verbundenen Kalender. | Schreibt |
+
+## Team
+
+Die Mitglieder Ihres HalloFelix-Kontos.
+
+| Tool | Beschreibung | Zugriff |
+| --- | --- | --- |
+| `list_users` | Listet die Teammitglieder mit Name und E-Mail. | Lesen |
+| `get_member_limit` | Zeigt, wie viele Mitglieder Ihr Tarif erlaubt und ob Sie noch jemanden einladen können. | Lesen |
+| `invite_team_member` | Lädt eine Person per E-Mail in Ihr Konto ein. Jede Person belegt einen kostenpflichtigen Platz. | Schreibt |
+| `remove_team_member` | Entfernt ein Mitglied aus dem Konto. Zugewiesene WhatsApp-Chats werden freigegeben. | Ändert oder löscht |
+
+## Unternehmen, Wissen und Statistiken
+
+Unternehmensdaten, Wissensdokumente, Datenschutz-Einstellungen und Kennzahlen.
+
+| Tool | Beschreibung | Zugriff |
+| --- | --- | --- |
+| `get_account` | Zeigt Unternehmensprofil, Standorte, Aufnahme-Einstellungen und ob das Kundengedächtnis aktiv ist. | Lesen |
+| `update_account` | Ändert Unternehmenseinstellungen. Profiländerungen wirken sofort an den Telefon-Assistenten. | Ändert oder löscht |
+| `get_insights` | Liefert die Kennzahlen aus dem Dashboard für einen Zeitraum im Vergleich zum Vorzeitraum. | Lesen |
+| `list_documents` | Listet die Wissensdokumente (PDF/DOCX), aus denen Ihre Assistenten antworten. | Lesen |
+| `upload_document` | Fügt ein Wissensdokument hinzu (PDF oder DOCX, max. 1 MB, höchstens 5 Dokumente). | Schreibt |
+| `delete_document` | Löscht ein Wissensdokument; die Assistenten antworten nicht mehr daraus. | Ändert oder löscht |
+| `get_crm_ai_access` | Zeigt, ob und auf welche CRM-Daten die WhatsApp-KI zugreifen darf. | Lesen |
+| `update_crm_ai_access` | Ändert den CRM-Datenzugriff der KI. Das erste Einschalten erfordert eine ausdrückliche Zustimmung. | Ändert oder löscht |
+
+## WhatsApp: Nummern und Chats
+
+Ihre WhatsApp-Nummern und die Chats im Posteingang.
+
+| Tool | Beschreibung | Zugriff |
+| --- | --- | --- |
+| `list_whatsapp_accounts` | Listet Ihre verbundenen WhatsApp-Nummern mit ihren Posteingangs-Einstellungen. | Lesen |
+| `get_whatsapp_account` | Zeigt eine WhatsApp-Nummer mit KI-, Öffnungszeiten- und Lesebestätigungs-Einstellungen. | Lesen |
+| `update_whatsapp_account` | Ändert die Einstellungen einer WhatsApp-Nummer, z. B. ob die KI automatisch antwortet. | Ändert oder löscht |
+| `list_whatsapp_conversations` | Listet Chats mit Labels, Kunde, Zuständigkeit, Status und letzter Nachricht. | Lesen |
+| `get_whatsapp_conversation` | Ruft einen Chat mit Labels, Kunde, Zuständigkeit und Status ab. | Lesen |
+| `update_whatsapp_conversation` | Schließt, öffnet, schlummert oder weist einen Chat zu, pausiert die KI oder markiert ihn als gelesen. | Ändert oder löscht |
+| `open_whatsapp_conversation` | Findet oder erstellt den Chat mit einer Telefonnummer, ohne etwas zu senden. | Schreibt |
+| `delete_whatsapp_conversation` | Löscht einen Chat mit allen Nachrichten, Notizen und Dateien endgültig für das ganze Team. | Ändert oder löscht |
+| `list_whatsapp_ai_exclusions` | Listet Kunden, denen die WhatsApp-KI nie antwortet. | Lesen |
+| `set_whatsapp_ai_exclusion` | Schließt einen Kunden von der WhatsApp-KI aus oder nimmt den Ausschluss zurück. | Ändert oder löscht |
+
+## WhatsApp: Nachrichten, Dateien und Notizen
+
+Nachrichten lesen und senden, Dateien und interne Notizen im Chat.
+
+| Tool | Beschreibung | Zugriff |
+| --- | --- | --- |
+| `list_whatsapp_messages` | Listet die Nachrichten eines Chats, inklusive Transkripten von Sprachnachrichten. | Lesen |
+| `search_whatsapp_messages` | Durchsucht die Nachrichten aller Chats nach Text, Bildunterschriften und Sprachnachrichten. | Lesen |
+| `send_whatsapp_message` | Sendet eine Nachricht in einen Chat: Text, Buttons, Liste oder Vorlage. Freitext nur innerhalb von 24 Stunden. | Schreibt |
+| `start_whatsapp_conversation` | Startet einen neuen Chat mit einer freigegebenen Vorlage. Der Kunde erhält eine echte Nachricht. | Schreibt |
+| `send_whatsapp_media` | Sendet ein Bild, Video, Dokument oder eine Audiodatei in einen Chat (innerhalb von 24 Stunden). | Schreibt |
+| `list_whatsapp_media` | Listet die Dateien eines Chats, neueste zuerst. | Lesen |
+| `react_to_whatsapp_message` | Reagiert mit einem Emoji auf eine Kundennachricht (innerhalb von 24 Stunden). | Schreibt |
+| `retry_whatsapp_message` | Sendet eine fehlgeschlagene Nachricht erneut. | Schreibt |
+| `schedule_whatsapp_template` | Plant den Versand einer freigegebenen Vorlage zu einem späteren Zeitpunkt. | Schreibt |
+| `list_scheduled_whatsapp_messages` | Listet geplante Vorlagen, die noch nicht versendet wurden. | Lesen |
+| `cancel_scheduled_whatsapp_message` | Bricht eine geplante Vorlage vor dem Versand ab. | Ändert oder löscht |
+| `list_whatsapp_notes` | Listet die internen Notizen eines Chats, inklusive Sprachnotizen. | Lesen |
+| `add_whatsapp_note` | Fügt einem Chat eine interne Notiz hinzu. Der Kunde sieht sie nicht. | Schreibt |
+| `add_whatsapp_voice_note` | Fügt eine interne Sprachnotiz hinzu; HalloFelix erstellt automatisch ein Transkript. | Schreibt |
+
+## WhatsApp: Labels
+
+Labels zum Sortieren Ihrer Chats.
+
+| Tool | Beschreibung | Zugriff |
+| --- | --- | --- |
+| `list_whatsapp_labels` | Listet alle Labels Ihres Kontos. | Lesen |
+| `create_whatsapp_label` | Legt ein neues Label an (höchstens 20). | Schreibt |
+| `update_whatsapp_label` | Benennt ein Label um oder ändert seine Farbe. | Ändert oder löscht |
+| `delete_whatsapp_label` | Löscht ein Label aus allen Chats. | Ändert oder löscht |
+| `add_whatsapp_conversation_labels` | Fügt einem Chat Labels hinzu und behält die vorhandenen. | Schreibt |
+| `set_whatsapp_conversation_labels` | Ersetzt alle Labels eines Chats. | Ändert oder löscht |
+| `remove_whatsapp_conversation_label` | Entfernt ein einzelnes Label von einem Chat. | Ändert oder löscht |
+
+## WhatsApp: Vorlagen
+
+Von Meta freigegebene Nachrichtenvorlagen und ihre Ordner.
+
+| Tool | Beschreibung | Zugriff |
+| --- | --- | --- |
+| `list_whatsapp_templates` | Listet die Vorlagen einer WhatsApp-Nummer mit aktuellem Prüfstatus bei Meta. | Lesen |
+| `get_whatsapp_template` | Zeigt eine Vorlage mit ihrem Prüfstatus. | Lesen |
+| `create_whatsapp_template` | Erstellt eine Vorlage und reicht sie bei Meta zur Prüfung ein. | Schreibt |
+| `set_whatsapp_template_header_media` | Hinterlegt ein Standard-Bild, -Video oder -Dokument für den Kopfbereich einer Vorlage. | Ändert oder löscht |
+| `delete_whatsapp_template_header_media` | Entfernt die Standard-Datei aus dem Kopfbereich einer Vorlage. | Ändert oder löscht |
+| `list_whatsapp_template_folders` | Listet die Vorlagen-Ordner mit ihren Vorlagen. | Lesen |
+| `create_whatsapp_template_folder` | Legt einen Vorlagen-Ordner an. | Schreibt |
+| `rename_whatsapp_template_folder` | Benennt einen Vorlagen-Ordner um. | Ändert oder löscht |
+| `delete_whatsapp_template_folder` | Löscht einen Ordner; die Vorlagen bleiben erhalten. | Ändert oder löscht |
+| `move_whatsapp_template_to_folder` | Verschiebt eine Vorlage in einen Ordner. | Ändert oder löscht |
+
+## CRM
+
+Ihr verbundenes Maklerverwaltungsprogramm (z. B. Professional Works, blau direkt, VEMA, JDC / iCRM).
+
+| Tool | Beschreibung | Zugriff |
+| --- | --- | --- |
+| `get_crm_connection` | Zeigt, ob ein CRM verbunden ist und wann die Kontakte zuletzt synchronisiert wurden. | Lesen |
+| `search_crm_contacts` | Sucht Kontakte aus dem CRM nach Name, E-Mail oder Telefonnummer. | Lesen |
+| `get_crm_contact` | Liest einen CRM-Kontakt live aus dem CRM: Anrede, Adresse, Geburtstag, Telefon, E-Mail. | Lesen |
+| `list_crm_archive_destinations` | Listet Verträge, Schäden und Vorgänge eines Kontakts im CRM. | Lesen |
+| `list_crm_contact_files` | Listet die Dokumente in der Kundenakte eines Kontakts. | Lesen |
+| `list_customer_crm_contact_matches` | Zeigt CRM-Kontakte, die zu einem HalloFelix-Kunden passen. | Lesen |
+| `link_customer_crm_contact` | Verknüpft einen Kunden mit einem CRM-Kontakt und übernimmt dessen Stammdaten. | Ändert oder löscht |
+| `archive_call_in_crm` | Archiviert das Transkript eines Anrufs als PDF im CRM, in der Kundenakte oder an Verträgen, Schäden oder Vorgängen. | Ändert oder löscht |
+| `archive_whatsapp_chat_in_crm` | Archiviert ausgewählte Nachrichten eines WhatsApp-Chats als PDF im CRM. | Schreibt |
+| `upload_whatsapp_files_to_crm` | Lädt Dateien aus einem WhatsApp-Chat (Fotos, PDFs …) ins CRM hoch. | Schreibt |
+| `upload_crm_document` | Lädt eine Datei (max. 10 MB) in die Kundenakte oder an Verträge, Schäden oder Vorgänge im CRM. | Schreibt |
+
+## Webhooks
+
+Technische Anbindungen an Ihre eigenen Systeme.
+
+| Tool | Beschreibung | Zugriff |
+| --- | --- | --- |
+| `get_webhook` | Zeigt, ob eine Webhook-Adresse hinterlegt ist. | Lesen |
+| `set_webhook` | Hinterlegt oder ersetzt die Webhook-Adresse für Ereignisse aus HalloFelix. | Ändert oder löscht |
+| `get_call_enrichment` | Zeigt, ob eine Adresse für die Anreicherung vor ausgehenden Anrufen hinterlegt ist. | Lesen |
+| `set_call_enrichment` | Hinterlegt oder entfernt die Adresse, die vor jedem ausgehenden Anruf Zusatzinfos liefert. | Ändert oder löscht |
+
+## Hinweise
+
+- **Namen statt IDs:** Status, Teammitglieder, Vorgänge und Labels können Sie so nennen, wie sie im Dashboard heißen, z. B. „Status auf Fertig setzen“ oder „Max zuweisen“.
+- **Dateien:** Tools, die Dateien hochladen, erwarten eine öffentlich erreichbare HTTPS-Adresse, von der HalloFelix die Datei lädt.
+- **WhatsApp-24-Stunden-Fenster:** Freie Nachrichten, Dateien und Reaktionen funktionieren nur innerhalb von 24 Stunden nach der letzten Nachricht des Kunden. Danach ist eine freigegebene Vorlage nötig.
+- **Aufnahmen und Download-Links** sind aus Sicherheitsgründen nur 60 Minuten gültig.
