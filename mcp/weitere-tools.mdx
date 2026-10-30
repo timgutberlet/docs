@@ -1,0 +1,162 @@
+---
+title: "Weitere KI-Tools verbinden"
+sidebarTitle: "Weitere Tools"
+description: "HalloFelix in VS Code, Windsurf, Codex, n8n und anderen MCP-fähigen Tools einrichten"
+---
+
+HalloFelix funktioniert mit jeder Anwendung, die MCP-Server über Streamable HTTP unterstützt. Alle Tools nutzen dieselbe Server-URL:
+
+```text Server-URL
+https://app.hallofelix.de/api/mcp
+```
+
+## VS Code (GitHub Copilot)
+
+<Steps>
+  <Step title="Server hinzufügen">
+    Am schnellsten geht es mit dem Installationslink:
+
+    <Card title="HalloFelix in VS Code installieren" icon="/images/mcp/vscode.svg" href="https://insiders.vscode.dev/redirect/mcp/install?name=hallofelix&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fapp.hallofelix.de%2Fapi%2Fmcp%22%7D">
+      Öffnet VS Code mit der fertigen Konfiguration
+    </Card>
+
+    Alternativ öffnen Sie in VS Code die Befehlspalette, wählen **MCP: Add Server**, dann **HTTP** und geben die Server-URL sowie den Namen `hallofelix` ein.
+  </Step>
+  <Step title="Anmelden">
+    Beim ersten Start fragt VS Code, ob sich HalloFelix anmelden darf. Bestätigen Sie, melden Sie sich im Browser bei HalloFelix an und klicken Sie auf **Zugriff erlauben**.
+  </Step>
+  <Step title="Im Chat verwenden">
+    Öffnen Sie den Copilot-Chat im Agent-Modus und fragen Sie zum Beispiel: *„Welche Telefon-Assistenten habe ich in HalloFelix?“*
+  </Step>
+</Steps>
+
+<Accordion title="Konfiguration als Datei (.vscode/mcp.json)" icon="file-code">
+  Wenn Sie lieber mit einer Datei arbeiten, legen Sie in Ihrem Projekt `.vscode/mcp.json` an:
+
+  ```json .vscode/mcp.json
+  {
+    "servers": {
+      "hallofelix": {
+        "type": "http",
+        "url": "https://app.hallofelix.de/api/mcp"
+      }
+    }
+  }
+  ```
+</Accordion>
+
+## Windsurf
+
+Tragen Sie HalloFelix in die Datei `~/.codeium/windsurf/mcp_config.json` ein oder fügen Sie den Server in den Windsurf-Einstellungen unter **MCP** hinzu:
+
+```json mcp_config.json
+{
+  "mcpServers": {
+    "hallofelix": {
+      "serverUrl": "https://app.hallofelix.de/api/mcp"
+    }
+  }
+}
+```
+
+Beim ersten Aufruf werden Sie zur Anmeldung bei HalloFelix weitergeleitet.
+
+## Codex (OpenAI)
+
+```bash
+codex mcp add hallofelix --url https://app.hallofelix.de/api/mcp
+codex mcp login hallofelix
+```
+
+Der zweite Befehl öffnet die Anmeldeseite von HalloFelix im Browser. In der Codex-Oberfläche prüfen Sie die Verbindung mit `/mcp`.
+
+## n8n
+
+Mit dem Knoten **MCP Client Tool** nutzen Ihre KI-Agenten in n8n die Tools von HalloFelix in Automatisierungen.
+
+<Steps>
+  <Step title="Knoten hinzufügen">
+    Fügen Sie Ihrem **AI Agent** den Knoten **MCP Client Tool** hinzu.
+  </Step>
+  <Step title="Verbindung eintragen">
+    - **Endpoint:** `https://app.hallofelix.de/api/mcp`
+    - **Server Transport:** HTTP Streamable
+    - **Authentication:** Bearer Auth, mit Ihrem API-Token aus HalloFelix als Token
+  </Step>
+  <Step title="Tools auswählen">
+    Wählen Sie unter **Tools to Include** nur die Tools aus, die Ihr Workflow wirklich braucht, zum Beispiel nur lesende Tools.
+  </Step>
+</Steps>
+
+<Warning>
+  Automatisierungen laufen ohne Rückfrage. Geben Sie einem Workflow nur die Tools frei, die er braucht, besonders bei Tools, die Kunden anrufen oder WhatsApp-Nachrichten senden.
+</Warning>
+
+## Andere Tools
+
+Für jedes andere MCP-fähige Tool gilt:
+
+| Einstellung | Wert |
+| --- | --- |
+| **URL** | `https://app.hallofelix.de/api/mcp` |
+| **Transport** | Streamable HTTP (manchmal „HTTP“ oder „Remote“) |
+| **Anmeldung** | OAuth, oder Header `Authorization: Bearer <API-Token>` |
+
+Viele Tools nutzen dieses Format:
+
+```json
+{
+  "mcpServers": {
+    "hallofelix": {
+      "url": "https://app.hallofelix.de/api/mcp"
+    }
+  }
+}
+```
+
+Unterstützt Ihr Tool nur lokale MCP-Server (stdio), binden Sie HalloFelix über `mcp-remote` ein. Dafür muss Node.js installiert sein:
+
+```json
+{
+  "mcpServers": {
+    "hallofelix": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://app.hallofelix.de/api/mcp"]
+    }
+  }
+}
+```
+
+## Mit API-Token verbinden
+
+Tools ohne OAuth-Unterstützung verbinden Sie mit einem API-Token:
+
+<Steps>
+  <Step title="Token abrufen">
+    Öffnen Sie in HalloFelix [Integrationen → API](https://app.hallofelix.de/integrations/api). Erstellen Sie dort einen API-Token, falls noch keiner existiert, und kopieren Sie ihn.
+  </Step>
+  <Step title="Als Header eintragen">
+    Tragen Sie den Token in Ihrem Tool als HTTP-Header ein:
+
+    ```text
+    Authorization: Bearer IHR_API_TOKEN
+    ```
+  </Step>
+</Steps>
+
+<Warning>
+  Der API-Token gewährt vollen Zugriff auf Ihr HalloFelix-Konto, wie ein Passwort. Wenn Sie den Token unter **Integrationen** → **API** neu generieren, verlieren alle Tools mit dem alten Token sofort den Zugriff.
+</Warning>
+
+## Einrichtung per Prompt
+
+Viele KI-Agenten können sich selbst mit HalloFelix verbinden. Unter [Integrationen → KI-Assistenten (MCP)](https://app.hallofelix.de/integrations/mcp) finden Sie den Abschnitt **Prompt für Ihren KI-Agenten**. Kopieren Sie den Prompt und fügen Sie ihn in Ihren KI-Agenten ein. Er erkennt seine Umgebung, richtet den Server ein und sagt Ihnen Bescheid, wenn Sie sich anmelden müssen.
+
+<CardGroup cols={2}>
+  <Card title="Sicherheit und Datenschutz" icon="shield-halved" href="/mcp/sicherheit">
+    Was eine verbundene App darf
+  </Card>
+  <Card title="Fehlerbehebung" icon="circle-question" href="/mcp/fehlerbehebung">
+    Wenn etwas nicht klappt
+  </Card>
+</CardGroup>

@@ -1,0 +1,126 @@
+---
+title: "KI-Assistenten verbinden (MCP)"
+sidebarTitle: "Einführung"
+description: "Nutzen Sie HalloFelix direkt in ChatGPT, Claude, Cursor und anderen KI-Apps"
+---
+
+Mit dem HalloFelix MCP-Server greift Ihr KI-Assistent direkt auf Ihr HalloFelix-Konto zu. Statt sich durch das Dashboard zu klicken, fragen Sie einfach in ChatGPT, Claude oder Cursor nach: „Welche Rückrufe sind heute noch offen?“ Die Antwort kommt aus denselben Daten, die Sie auch in der App sehen.
+
+<Info>
+  **MCP** (Model Context Protocol) ist ein offener Standard, über den KI-Apps sicher auf externe Systeme zugreifen. Sie müssen dafür nichts programmieren.
+</Info>
+
+## Was Sie damit tun können
+
+- **Anrufe und Aufgaben auswerten:** Transkripte und Zusammenfassungen lesen, Aufgaben zuweisen, Status setzen und Vorgänge zuordnen
+- **Kunden pflegen:** Kunden suchen und anlegen, Telefonnummern und Notizen ergänzen, das Kundengedächtnis der KI korrigieren
+- **WhatsApp bearbeiten:** Chats lesen und zusammenfassen, Antworten senden, Vorlagen planen, Labels und interne Notizen setzen
+- **Ausgehende Anrufe steuern:** einzelne Kunden anrufen lassen oder Anrufkampagnen anlegen und starten
+- **Termine buchen:** freie Zeiten in Ihren verbundenen Kalendern finden und Termine eintragen
+- **Mit dem CRM arbeiten:** Kontakte suchen, Anrufe und Chats als PDF in der Kundenakte archivieren, Dokumente hochladen
+- **Assistenten einstellen:** Begrüßung, Stimme, Vorgänge und Terminarten Ihrer Telefon-, E-Mail- und WhatsApp-Assistenten anpassen
+- **Kennzahlen abrufen:** Anrufe, Gesprächsminuten, WhatsApp-Nachrichten und offene Aufgaben im Zeitvergleich
+
+Eine vollständige Liste finden Sie in der [Tool-Referenz](/mcp/tools).
+
+## So funktioniert es
+
+<Steps>
+  <Step title="KI-App verbinden">
+    Fügen Sie HalloFelix in Ihrer KI-App hinzu. In ChatGPT geht das über das offizielle Plugin, in den meisten anderen Apps mit der Server-URL. Die Anleitungen finden Sie unten.
+  </Step>
+  <Step title="Anmelden und Konto auswählen">
+    Ihre KI-App öffnet die Anmeldeseite von HalloFelix. Melden Sie sich mit Ihrem gewohnten HalloFelix-Login an, prüfen Sie das angezeigte Konto und klicken Sie auf **Zugriff erlauben**. Haben Sie mehrere HalloFelix-Konten, wechseln Sie vorher über die Kontoauswahl zum gewünschten Konto. Das ist nur einmal nötig.
+  </Step>
+  <Step title="Fragen stellen">
+    Schreiben Sie Ihrer KI-App ganz normal, zum Beispiel:
+
+    - *„Fasse die Anrufe von heute zusammen und sag mir, welche Rückrufe offen sind.“*
+    - *„Welche WhatsApp-Chats warten seit mehr als einem Tag auf eine Antwort?“*
+    - *„Weise alle offenen Schadenmeldungen von dieser Woche Max zu.“*
+
+    Mehr Ideen finden Sie in den [Anwendungsbeispielen](/mcp/anwendungsbeispiele).
+  </Step>
+</Steps>
+
+## KI-App auswählen
+
+<CardGroup cols={3}>
+  <Card title="ChatGPT" icon="/images/mcp/chatgpt.svg" href="/mcp/chatgpt">
+    Offizielles Plugin, mit wenigen Klicks installiert
+  </Card>
+  <Card title="Claude" icon="/images/mcp/claude.svg" href="/mcp/claude">
+    claude.ai, Desktop- und Mobil-App
+  </Card>
+  <Card title="Claude Code" icon="/images/mcp/claude.svg" href="/mcp/claude-code">
+    Ein Befehl im Terminal
+  </Card>
+  <Card title="Cursor" icon="/images/mcp/cursor.svg" href="/mcp/cursor">
+    Installation mit einem Klick
+  </Card>
+  <Card title="VS Code" icon="/images/mcp/vscode.svg" href="/mcp/weitere-tools#vs-code-github-copilot">
+    GitHub Copilot im Agent-Modus
+  </Card>
+  <Card title="Weitere Tools" icon="plug" href="/mcp/weitere-tools">
+    Windsurf, Codex, n8n und alle anderen MCP-fähigen Apps
+  </Card>
+</CardGroup>
+
+## Verbindungsdaten
+
+Diese Angaben benötigen Sie, wenn Ihre KI-App danach fragt:
+
+| Eigenschaft | Wert |
+| --- | --- |
+| **Server-URL** | `https://app.hallofelix.de/api/mcp` |
+| **Transport** | Streamable HTTP |
+| **Anmeldung** | OAuth 2.1 (empfohlen) oder API-Token |
+
+```text Server-URL
+https://app.hallofelix.de/api/mcp
+```
+
+## Anmeldung
+
+Es gibt zwei Wege, die Verbindung freizugeben:
+
+- **Anmeldung mit Ihrem HalloFelix-Login (OAuth):** Ihre KI-App leitet Sie zur Anmeldeseite von HalloFelix weiter. Dort sehen Sie, welche App auf welches Konto zugreifen möchte, und bestätigen mit **Zugriff erlauben**. Diesen Weg empfehlen wir für alle Apps, die ihn unterstützen.
+- **API-Token:** Für Tools ohne OAuth-Unterstützung, z. B. Automatisierungen in n8n. Den Token finden Sie in der App unter **Integrationen** → **API**. Er wird als Header `Authorization: Bearer <Token>` mitgeschickt. Mehr dazu unter [Weitere Tools](/mcp/weitere-tools#mit-api-token-verbinden).
+
+<Warning>
+  Nur **Administratoren** eines HalloFelix-Kontos können KI-Apps verbinden. Verbinden Sie eine App nur, wenn Sie die Verbindung selbst gestartet haben. Mehr dazu unter [Sicherheit und Datenschutz](/mcp/sicherheit).
+</Warning>
+
+## Lesen und Schreiben
+
+Die meisten Tools lesen nur Daten. Einige Tools handeln jedoch mit echten Daten und echten Kunden: Sie rufen Kunden an, senden WhatsApp-Nachrichten, starten Kampagnen, schreiben ins CRM oder löschen Daten. Diese Tools sind für Ihre KI-App entsprechend gekennzeichnet, sodass sie vor der Ausführung in der Regel um Ihre Bestätigung bittet.
+
+<Tip>
+  Prüfen Sie bei Bestätigungsabfragen kurz, was Ihre KI-App vorhat, besonders bei Nachrichten an Kunden und beim Löschen.
+</Tip>
+
+## Voraussetzungen
+
+- Ein HalloFelix-Konto, in dem Sie **Administrator** sind
+- Eine KI-App, die MCP-Server unterstützt (z. B. ChatGPT, Claude, Cursor oder VS Code). Je nach App ist dafür ein bestimmter Tarif nötig.
+
+## Weiterführende Seiten
+
+<CardGroup cols={2}>
+  <Card title="Anwendungsbeispiele" icon="lightbulb" href="/mcp/anwendungsbeispiele">
+    Fertige Fragen und Aufträge für den Alltag im Maklerbüro
+  </Card>
+  <Card title="Tool-Referenz" icon="list" href="/mcp/tools">
+    Alle Tools mit Beschreibung und Zugriffsart
+  </Card>
+  <Card title="Sicherheit und Datenschutz" icon="shield-halved" href="/mcp/sicherheit">
+    Berechtigungen, Phishing-Schutz und Verbindungen trennen
+  </Card>
+  <Card title="Fehlerbehebung und FAQ" icon="circle-question" href="/mcp/fehlerbehebung">
+    Lösungen für häufige Probleme
+  </Card>
+</CardGroup>
+
+<Note>
+  **Benötigen Sie Hilfe?** Unser Support-Team unterstützt Sie gerne: [support@hallofelix.de](mailto:support@hallofelix.de)
+</Note>

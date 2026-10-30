@@ -1,0 +1,90 @@
+---
+title: "HalloFelix in Claude"
+sidebarTitle: "Claude"
+description: "HalloFelix als Konnektor in claude.ai, der Claude Desktop-App und der Mobil-App verbinden"
+---
+
+In Claude fügen Sie HalloFelix als **benutzerdefinierten Konnektor** hinzu. Ein Konnektor, den Sie einmal eingerichtet haben, steht Ihnen auf claude.ai, in der Desktop-App und in der Mobil-App zur Verfügung.
+
+Sie benötigen dafür nur die Server-URL:
+
+```text Server-URL
+https://app.hallofelix.de/api/mcp
+```
+
+## Konnektor hinzufügen
+
+<Tabs>
+  <Tab title="Free, Pro und Max">
+    <Steps>
+      <Step title="Konnektoren öffnen">
+        Öffnen Sie in Claude **Anpassen** → **Konnektoren**. Schneller geht es mit diesem Link: [Konnektor in Claude hinzufügen](https://claude.ai/new?modal=add-custom-connector#customize/connectors)
+      </Step>
+      <Step title="Benutzerdefinierten Konnektor hinzufügen">
+        Klicken Sie auf **+ Hinzufügen** und wählen Sie **Benutzerdefinierten Konnektor hinzufügen**.
+      </Step>
+      <Step title="Name und URL eintragen">
+        Geben Sie als Namen `HalloFelix` ein und als URL `https://app.hallofelix.de/api/mcp`. Klicken Sie auf **Weiter**.
+      </Step>
+      <Step title="Anmeldung festlegen">
+        Claude erkennt die Anmeldung per OAuth automatisch. Übernehmen Sie die vorgeschlagenen Einstellungen und klicken Sie auf **Hinzufügen**. Request-Header müssen Sie nicht eintragen.
+      </Step>
+      <Step title="Verbinden">
+        Klicken Sie beim neuen Konnektor auf **Verbinden**. Claude öffnet die Anmeldeseite von HalloFelix. Melden Sie sich an, prüfen Sie das angezeigte Konto und klicken Sie auf **Zugriff erlauben**.
+      </Step>
+    </Steps>
+
+    <Note>
+      Im kostenlosen Claude-Tarif können Sie einen benutzerdefinierten Konnektor einrichten.
+    </Note>
+  </Tab>
+  <Tab title="Team und Enterprise">
+    In Team- und Enterprise-Organisationen richtet ein Inhaber oder berechtigter Administrator den Konnektor einmal für alle ein.
+
+    <Steps>
+      <Step title="Konnektor für die Organisation anlegen (Administrator)">
+        Öffnen Sie **Organisationseinstellungen** → **Konnektoren**. Klicken Sie auf **Hinzufügen**, zeigen Sie auf **Benutzerdefiniert** und wählen Sie **Web**.
+      </Step>
+      <Step title="Name und URL eintragen">
+        Name: `HalloFelix`, URL: `https://app.hallofelix.de/api/mcp`. Übernehmen Sie die erkannte OAuth-Anmeldung und klicken Sie auf **Hinzufügen**.
+      </Step>
+      <Step title="Verbinden (jedes Teammitglied)">
+        Jedes Teammitglied öffnet **Anpassen** → **Konnektoren**, wählt den Konnektor HalloFelix aus und klickt auf **Verbinden**. Anschließend melden Sie sich bei HalloFelix an und klicken auf **Zugriff erlauben**.
+      </Step>
+    </Steps>
+
+    <Note>
+      Die Freigabe auf der HalloFelix-Seite kann nur ein Administrator des HalloFelix-Kontos erteilen.
+    </Note>
+  </Tab>
+</Tabs>
+
+<Info>
+  Die Bezeichnungen in Claude können sich mit Updates leicht ändern. In der englischen Oberfläche heißen die Menüpunkte **Customize** → **Connectors** → **Add custom connector**.
+</Info>
+
+## Im Chat verwenden
+
+Klicken Sie unten links im Eingabefeld auf **+** und dann auf **Konnektoren**. Dort schalten Sie HalloFelix für den aktuellen Chat ein oder aus. Fragen Sie dann zum Beispiel:
+
+> *„Welche Telefon-Assistenten habe ich in HalloFelix?“*
+
+Wenn Claude Ihre Assistenten auflistet, ist alles eingerichtet. Mehr Ideen finden Sie in den [Anwendungsbeispielen](/mcp/anwendungsbeispiele).
+
+<Tip>
+  Claude fragt vor Aktionen, die etwas verändern, um Erlaubnis. Prüfen Sie dabei kurz, was Claude vorhat, besonders bei Nachrichten an Kunden und beim Löschen.
+</Tip>
+
+## Verbindung trennen
+
+- **In HalloFelix:** Unter [Integrationen → KI-Assistenten (MCP)](https://app.hallofelix.de/integrations/mcp) trennen Sie die Verbindung. Claude verliert sofort den Zugriff.
+- **In Claude:** Unter **Anpassen** → **Konnektoren** entfernen Sie den Konnektor über das Drei-Punkte-Menü.
+
+<CardGroup cols={2}>
+  <Card title="Claude Code" icon="/images/mcp/claude.svg" href="/mcp/claude-code">
+    HalloFelix im Terminal nutzen
+  </Card>
+  <Card title="Fehlerbehebung" icon="circle-question" href="/mcp/fehlerbehebung">
+    Wenn etwas nicht klappt
+  </Card>
+</CardGroup>

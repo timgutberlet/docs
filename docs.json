@@ -81,6 +81,26 @@
             ]
           },
           {
+            "group": "KI-Assistenten (MCP)",
+            "pages": [
+              "mcp/einfuehrung",
+              {
+                "group": "Einrichtung",
+                "pages": [
+                  "mcp/chatgpt",
+                  "mcp/claude",
+                  "mcp/claude-code",
+                  "mcp/cursor",
+                  "mcp/weitere-tools"
+                ]
+              },
+              "mcp/anwendungsbeispiele",
+              "mcp/tools",
+              "mcp/sicherheit",
+              "mcp/fehlerbehebung"
+            ]
+          },
+          {
             "group": "Infos & Hilfe",
             "pages": [
               "infos-hilfe/rechnungen-einsehen",

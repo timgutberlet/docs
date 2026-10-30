@@ -1,0 +1,79 @@
+---
+title: "HalloFelix in ChatGPT"
+sidebarTitle: "ChatGPT"
+description: "HalloFelix über das offizielle ChatGPT-Plugin verbinden"
+---
+
+HalloFelix ist als offizielles Plugin im ChatGPT-Plugin-Verzeichnis verfügbar. Sie müssen keine Server-URL eingeben und keinen Entwicklermodus aktivieren.
+
+<Card title="HalloFelix-Plugin in ChatGPT öffnen" icon="arrow-up-right-from-square" href="https://chatgpt.com/plugins/plugin_asdk_app_6ae20e0f9bc88191b43d08d5d0e7e200">
+  Direkt zur Plugin-Seite von HalloFelix von InsurMagic
+</Card>
+
+## Plugin installieren
+
+<Steps>
+  <Step title="Plugin-Seite öffnen">
+    Öffnen Sie den Link oben. Alternativ klicken Sie in ChatGPT in der Seitenleiste auf **Plugins** und suchen nach **HalloFelix**.
+  </Step>
+  <Step title="Installieren">
+    Klicken Sie auf **Installieren**.
+  </Step>
+  <Step title="Verbinden und anmelden">
+    Klicken Sie auf **Verbinden**. ChatGPT öffnet die Anmeldeseite von HalloFelix. Melden Sie sich mit Ihrem HalloFelix-Login an.
+  </Step>
+  <Step title="Zugriff erlauben">
+    Prüfen Sie, ob das richtige HalloFelix-Konto angezeigt wird, und klicken Sie auf **Zugriff erlauben**. Anschließend kehren Sie automatisch zu ChatGPT zurück.
+  </Step>
+</Steps>
+
+<Note>
+  Nur Administratoren eines HalloFelix-Kontos können den Zugriff erlauben. Wenn Sie kein Administrator sind, bitten Sie den Inhaber Ihres Kontos, die Verbindung herzustellen oder Ihnen die Rolle zu geben.
+</Note>
+
+## Im Chat verwenden
+
+Starten Sie einen neuen Chat und erwähnen Sie das Plugin mit `@HalloFelix`, oder wählen Sie es über **+** bzw. **Plugins** im Eingabefeld aus. ChatGPT nutzt installierte Plugins außerdem automatisch, wenn sie zur Frage passen.
+
+Probieren Sie zum Beispiel:
+
+> *„@HalloFelix Welche Telefon-Assistenten habe ich?“*
+
+Wenn ChatGPT Ihre Assistenten auflistet, ist die Verbindung eingerichtet. Weitere Ideen finden Sie in den [Anwendungsbeispielen](/mcp/anwendungsbeispiele).
+
+## Bestätigungen
+
+Bevor ChatGPT etwas in HalloFelix verändert, zum Beispiel eine WhatsApp-Nachricht sendet oder einen Kunden anruft, fragt es Sie um Erlaubnis. Lesen Sie die Zusammenfassung der geplanten Aktion und bestätigen Sie nur, wenn alles stimmt.
+
+## Für Unternehmen und Teams
+
+<AccordionGroup>
+  <Accordion title="Das Plugin wird in ChatGPT nicht angezeigt" icon="eye-slash">
+    In ChatGPT Business, Enterprise und Edu legen Administratoren fest, welche Plugins genutzt werden dürfen. Bitten Sie den Administrator Ihres ChatGPT-Arbeitsbereichs, HalloFelix in den Arbeitsbereichseinstellungen unter **Plugins** freizugeben.
+  </Accordion>
+  <Accordion title="Mehrere Personen im Team nutzen ChatGPT" icon="users">
+    Jede Person verbindet das Plugin mit ihrem eigenen ChatGPT-Konto. Die Freigabe erteilt jeweils ein Administrator des HalloFelix-Kontos. Alle Verbindungen sehen Sie in HalloFelix unter **Integrationen** → **KI-Assistenten (MCP)**.
+  </Accordion>
+  <Accordion title="Alternativ: als eigenen MCP-Server hinzufügen" icon="plug">
+    Falls Ihr Arbeitsbereich keine Plugins aus dem Verzeichnis erlaubt, eigene MCP-Server aber zulässt, können Sie HalloFelix auch manuell hinzufügen. Wählen Sie unter **Plugins** → **Hinzufügen** einen benutzerdefinierten MCP-Server und tragen Sie ein:
+
+    - **Name:** HalloFelix
+    - **URL:** `https://app.hallofelix.de/api/mcp`
+    - **Authentifizierung:** OAuth
+
+    Speichern Sie, klicken Sie auf **Verbinden** und melden Sie sich wie oben beschrieben an. Je nach Tarif muss dafür der Entwicklermodus aktiviert sein.
+  </Accordion>
+</AccordionGroup>
+
+## Verbindung trennen
+
+Sie können die Verbindung jederzeit in HalloFelix unter [Integrationen → KI-Assistenten (MCP)](https://app.hallofelix.de/integrations/mcp) trennen. ChatGPT hat dann sofort keinen Zugriff mehr. Das Plugin selbst entfernen Sie in ChatGPT unter **Plugins**.
+
+<CardGroup cols={2}>
+  <Card title="Anwendungsbeispiele" icon="lightbulb" href="/mcp/anwendungsbeispiele">
+    Fertige Fragen für den Alltag
+  </Card>
+  <Card title="Fehlerbehebung" icon="circle-question" href="/mcp/fehlerbehebung">
+    Wenn etwas nicht klappt
+  </Card>
+</CardGroup>

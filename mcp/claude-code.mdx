@@ -1,0 +1,80 @@
+---
+title: "HalloFelix in Claude Code"
+sidebarTitle: "Claude Code"
+description: "HalloFelix mit einem Befehl in Claude Code einrichten"
+---
+
+In Claude Code richten Sie HalloFelix mit einem einzigen Befehl im Terminal ein.
+
+## Einrichten
+
+<Steps>
+  <Step title="Server hinzufügen">
+    Führen Sie im Terminal aus:
+
+    ```bash
+    claude mcp add --transport http hallofelix https://app.hallofelix.de/api/mcp
+    ```
+
+    Damit steht HalloFelix im aktuellen Projekt zur Verfügung. Soll es in allen Projekten verfügbar sein, ergänzen Sie `--scope user`:
+
+    ```bash
+    claude mcp add --transport http --scope user hallofelix https://app.hallofelix.de/api/mcp
+    ```
+  </Step>
+  <Step title="Anmelden">
+    Starten Sie Claude Code und geben Sie ein:
+
+    ```text
+    /mcp
+    ```
+
+    Wählen Sie **hallofelix** aus und starten Sie die Anmeldung. Ihr Browser öffnet die Anmeldeseite von HalloFelix. Melden Sie sich an, prüfen Sie das Konto und klicken Sie auf **Zugriff erlauben**.
+  </Step>
+  <Step title="Verbindung testen">
+    Fragen Sie Claude Code zum Beispiel:
+
+    > *„Welche Telefon-Assistenten habe ich in HalloFelix?“*
+  </Step>
+</Steps>
+
+<Note>
+  Bei Claude Code erscheint auf der Anmeldeseite eine Adresse auf Ihrem eigenen Rechner (z. B. `localhost`). Das ist normal, denn Claude Code läuft lokal bei Ihnen.
+</Note>
+
+## Mit API-Token statt Anmeldung
+
+Für Umgebungen ohne Browser, z. B. auf einem Server, können Sie statt der Anmeldung einen API-Token verwenden. Den Token finden Sie in HalloFelix unter **Integrationen** → **API**.
+
+```bash
+claude mcp add --transport http hallofelix https://app.hallofelix.de/api/mcp \
+  --header "Authorization: Bearer IHR_API_TOKEN"
+```
+
+<Warning>
+  Der API-Token gewährt vollen Zugriff auf Ihr HalloFelix-Konto. Geben Sie ihn nicht weiter und speichern Sie ihn nicht in einem gemeinsam genutzten Projekt.
+</Warning>
+
+## Verwalten und entfernen
+
+```bash
+# Alle eingerichteten Server anzeigen
+claude mcp list
+
+# Abmelden (gespeicherte Anmeldung löschen)
+claude mcp logout hallofelix
+
+# Server entfernen
+claude mcp remove hallofelix
+```
+
+Um den Zugriff auch auf HalloFelix-Seite zu beenden, trennen Sie die Verbindung zusätzlich unter [Integrationen → KI-Assistenten (MCP)](https://app.hallofelix.de/integrations/mcp).
+
+<CardGroup cols={2}>
+  <Card title="Tool-Referenz" icon="list" href="/mcp/tools">
+    Alle verfügbaren Tools
+  </Card>
+  <Card title="Fehlerbehebung" icon="circle-question" href="/mcp/fehlerbehebung">
+    Wenn etwas nicht klappt
+  </Card>
+</CardGroup>

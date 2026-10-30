@@ -1,0 +1,95 @@
+---
+title: "HalloFelix in Cursor"
+sidebarTitle: "Cursor"
+description: "HalloFelix mit einem Klick in Cursor installieren"
+---
+
+In Cursor installieren Sie HalloFelix mit einem Klick oder tragen den Server selbst in die Datei `mcp.json` ein.
+
+## Installieren
+
+<Tabs>
+  <Tab title="Mit einem Klick">
+    <Steps>
+      <Step title="Installationslink öffnen">
+        Klicken Sie auf den folgenden Link. Cursor öffnet sich und zeigt den Installationsdialog.
+
+        <Card title="HalloFelix in Cursor installieren" icon="/images/mcp/cursor.svg" href="https://cursor.com/en/install-mcp?name=hallofelix&config=eyJ1cmwiOiJodHRwczovL2FwcC5oYWxsb2ZlbGl4LmRlL2FwaS9tY3AifQ==">
+          Öffnet Cursor mit der fertigen Konfiguration
+        </Card>
+      </Step>
+      <Step title="Installation bestätigen">
+        Bestätigen Sie die Installation in Cursor.
+      </Step>
+      <Step title="Anmelden">
+        Klicken Sie in der MCP-Übersicht von Cursor bei **hallofelix** auf die Anmeldung. Ihr Browser öffnet die Anmeldeseite von HalloFelix. Melden Sie sich an, prüfen Sie das Konto und klicken Sie auf **Zugriff erlauben**.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Über cursor.directory">
+    HalloFelix ist im Plugin-Verzeichnis von Cursor gelistet:
+
+    <Card title="HalloFelix auf cursor.directory" icon="/images/mcp/cursor.svg" href="https://cursor.directory/plugins/hallofelix-von-insurmagic">
+      Eintrag „HalloFelix von InsurMagic“
+    </Card>
+
+    Öffnen Sie den Eintrag, installieren Sie das Plugin und melden Sie sich anschließend wie beschrieben bei HalloFelix an.
+  </Tab>
+  <Tab title="Manuell (mcp.json)">
+    Tragen Sie HalloFelix in die Datei `~/.cursor/mcp.json` ein (für alle Projekte) oder in `.cursor/mcp.json` in Ihrem Projektordner (nur für dieses Projekt):
+
+    ```json mcp.json
+    {
+      "mcpServers": {
+        "hallofelix": {
+          "url": "https://app.hallofelix.de/api/mcp"
+        }
+      }
+    }
+    ```
+
+    Speichern Sie die Datei. Cursor erkennt den Server automatisch. Melden Sie sich anschließend in der MCP-Übersicht bei **hallofelix** an.
+  </Tab>
+</Tabs>
+
+## Verbindung testen
+
+Öffnen Sie den Chat in Cursor und fragen Sie:
+
+> *„Welche Telefon-Assistenten habe ich in HalloFelix?“*
+
+Cursor zeigt den Tool-Aufruf an und fragt je nach Einstellung vorher um Erlaubnis.
+
+## Mit API-Token statt Anmeldung
+
+Wenn Sie keine Browser-Anmeldung nutzen möchten, tragen Sie Ihren API-Token aus **Integrationen** → **API** als Header ein:
+
+```json mcp.json
+{
+  "mcpServers": {
+    "hallofelix": {
+      "url": "https://app.hallofelix.de/api/mcp",
+      "headers": {
+        "Authorization": "Bearer IHR_API_TOKEN"
+      }
+    }
+  }
+}
+```
+
+<Warning>
+  Legen Sie eine `mcp.json` mit Token nie in einem Projekt ab, das Sie mit anderen teilen oder in Git einchecken.
+</Warning>
+
+## Ein- und ausschalten
+
+Unter **Customize** in der Seitenleiste von Cursor sehen Sie alle MCP-Server. Mit dem Schalter neben **hallofelix** aktivieren oder deaktivieren Sie den Server. Den Zugriff beenden Sie vollständig, indem Sie die Verbindung in HalloFelix unter [Integrationen → KI-Assistenten (MCP)](https://app.hallofelix.de/integrations/mcp) trennen.
+
+<CardGroup cols={2}>
+  <Card title="Anwendungsbeispiele" icon="lightbulb" href="/mcp/anwendungsbeispiele">
+    Fertige Fragen für den Alltag
+  </Card>
+  <Card title="Fehlerbehebung" icon="circle-question" href="/mcp/fehlerbehebung">
+    Wenn etwas nicht klappt
+  </Card>
+</CardGroup>
